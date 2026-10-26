@@ -153,14 +153,14 @@
           <span>Official Digital Campus</span>
         </span>
         <span class="font-medium text-emerald-100">
-          Tailored exclusively for <strong class="text-white">The Olive Branches Schools, Osogbo</strong>. Architected by Software Engineer <strong class="text-white">Olumide Adeyemi-Nana</strong>.
+          Tailored exclusively for <strong class="text-white">The Olive Branches Schools, Osogbo</strong>. Engineered by <strong class="text-white">Amazoe Solutions</strong> (Software Engineer Olumide Adeyemi-Nana).
         </span>
       </div>
       <div class="flex items-center space-x-3 text-xs">
-        <a href="#audit-breakdown" class="text-brand-gold hover:text-white font-bold flex items-center space-x-1">
-          <span>Why Upgrade From Legacy WordPress</span>
-          <i data-lucide="arrow-right" class="w-3 h-3"></i>
-        </a>
+        <button onclick="openExecutiveAuditModal()" class="text-brand-gold hover:text-white font-bold flex items-center space-x-1.5 bg-brand-deepNavy/80 px-3 py-1 rounded-full border border-amber-400/40 shadow-sm transition-all text-xs">
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-brand-gold"></i>
+          <span>Board Tech Briefing (Why Upgrade WordPress)</span>
+        </button>
       </div>
     </div>
   </aside>
@@ -1281,80 +1281,7 @@
     </div>
   </section>
 
-  <!-- ==========================================
-       TECHNICAL AUDIT: WHY THIS REPLACES WORDPRESS
-       ========================================== -->
-  <section id="audit-breakdown" class="py-14 bg-white border-y border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="font-eyebrow text-2xl text-red-600 tracking-wider uppercase">Executive Comparison</span>
-        <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy">
-          Their Current Site vs. Our Modern Architecture
-        </h2>
-        <p class="font-body text-gray-600 text-sm mt-2">
-          A direct comparison showing school owners why upgrading eliminates plugin crashes, saves server costs, and delivers a 10x better parent experience.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Current WordPress Site Flaws -->
-        <div class="bg-red-50/60 p-6 rounded-3xl border-2 border-red-200 space-y-4">
-          <div class="flex items-center space-x-3 text-red-800">
-            <i data-lucide="alert-triangle" class="w-6 h-6"></i>
-            <h3 class="font-headline font-black text-xl">Current WordPress Site (live audit)</h3>
-          </div>
-          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-700">
-            <li class="flex items-start space-x-2">
-              <span class="text-red-600 font-bold">❌</span>
-              <span><strong>253KB bloated HTML + 31 external scripts:</strong> Loads 5 duplicate animation libraries (GSAP, ScrollTrigger, WOW, Slick, and 2 versions of Swiper), slowing mobile connections.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-red-600 font-bold">❌</span>
-              <span><strong>Disconnected E-Portal:</strong> Links to <code>obs.softedu.info</code>, a dated third-party PHP script with zero unified school branding.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-red-600 font-bold">❌</span>
-              <span><strong>No Online Tuition Clearance:</strong> Parents must manually queue up or bring paper tellers to the bursary.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-red-600 font-bold">❌</span>
-              <span><strong>No AI Assistance:</strong> Parents must wait days for manual replies to basic admission or fee inquiries.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Our Modern Platform Advantages -->
-        <div class="bg-green-50/80 p-6 rounded-3xl border-2 border-brand-leaf space-y-4 shadow-pdf-green">
-          <div class="flex items-center space-x-3 text-brand-forest">
-            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-leaf"></i>
-            <h3 class="font-headline font-black text-xl">Our Next-Gen AI Platform</h3>
-          </div>
-          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-800">
-            <li class="flex items-start space-x-2">
-              <span class="text-green-600 font-bold">✅</span>
-              <span><strong>Sub-second Speed & Clean Code:</strong> Zero bloated WordPress plugins. Powered by modern CDN edge delivery.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-green-600 font-bold">✅</span>
-              <span><strong>Integrated E-Portal & Paystack:</strong> Continuous Assessment, GPA tracking, and 1-tap fee clearance directly in one place.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-green-600 font-bold">✅</span>
-              <span><strong>Smart "Olive AI" Assistant:</strong> 24/7 multilingual parent support answering fees, curriculum, and bus questions instantly.</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-green-600 font-bold">✅</span>
-              <span><strong>Printable A4 QR Report Cards:</strong> Embassies, WAEC, and parents can verify terminal results in 1 scan.</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+  
 
   <!-- ==========================================
        STUDENT / PARENT UNIFIED E-PORTAL (The Core Pitch Showcase)
@@ -1362,42 +1289,135 @@
   <section id="portal" class="py-16 bg-brand-softGreen relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="text-center max-w-2xl mx-auto mb-8">
         <div class="inline-flex items-center space-x-1.5 bg-green-100 text-brand-forest px-3 py-1 rounded-full text-xs font-bold mb-2">
-          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
-          <span>Official Digital Transformation Prototype</span>
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          <span>Confidential Student Records & Bursary Clearance</span>
         </div>
         <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy">
           Unified Student & Parent E-Portal
         </h2>
         <p class="font-body text-gray-600 text-sm mt-2">
-          Say goodbye to outdated 3rd-party logins. Continuous Assessment, QR Report Cards, and Paystack Tuition Clearance are built right in.
+          Continuous Assessment (CA), Terminal Report Sheets, and Paystack Tuition Clearance are protected and confidential.
         </p>
       </div>
 
-      <!-- Quick Switcher Bar for Demo -->
-      <div class="max-w-2xl mx-auto bg-white p-3 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 mb-8 shadow-sm">
-        <span class="text-xs font-bold text-brand-forest flex items-center space-x-1">
-          <i data-lucide="users" class="w-4 h-4"></i>
-          <span>Interactive Demo Switcher:</span>
-        </span>
-        <div class="flex items-center space-x-2">
-          <button onclick="switchStudent('farouq')" id="btn-demo-farouq" class="bg-brand-forest text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-sm">
-            Farouq Adeyemi (SS2)
-          </button>
-          <button onclick="switchStudent('tiwalola')" id="btn-demo-tiwalola" class="bg-white text-gray-700 text-xs px-3 py-1.5 rounded-full font-bold hover:bg-gray-100">
-            Tiwalola (SS3)
-          </button>
-          <button onclick="switchStudent('chidubem')" id="btn-demo-chidubem" class="bg-white text-gray-700 text-xs px-3 py-1.5 rounded-full font-bold hover:bg-gray-100">
-            Chidubem (JSS1)
-          </button>
+      <!-- ==========================================
+           1. SECURE PORTAL ACCESS GATE (LOCKED BY DEFAULT)
+           ========================================== -->
+      <div id="portal-login-gate" class="max-w-lg mx-auto bg-white rounded-3xl border-2 border-brand-forest shadow-2xl p-6 sm:p-8 space-y-6">
+        
+        <div class="text-center space-y-2">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-brand-softGreen border-2 border-brand-leaf flex items-center justify-center text-brand-forest">
+            <i data-lucide="shield-check" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-headline font-black text-xl text-brand-deepNavy">
+            Student & Parent Security Gate
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">
+            Terminal results, cumulative GPAs, and fee records are protected under educational privacy guidelines.
+          </p>
         </div>
+
+        <form id="portal-login-form" onsubmit="handlePortalGateSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-brand-forest uppercase tracking-wider mb-1">
+              Student Registration ID
+            </label>
+            <div class="relative">
+              <i data-lucide="user-check" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="gate-student-reg" value="OBS/2022/0481" placeholder="e.g. OBS/2022/0481" class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-leaf focus:bg-white outline-none font-bold text-gray-800">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brand-forest uppercase tracking-wider mb-1">
+              Confidential PIN / Scratch Token
+            </label>
+            <div class="relative">
+              <i data-lucide="key-round" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
+              <input type="password" id="gate-student-pin" value="123456" placeholder="••••••••" class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-leaf focus:bg-white outline-none font-bold text-gray-800">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brand-forest uppercase tracking-wider mb-1">
+              Academic Term & Session
+            </label>
+            <div class="relative">
+              <i data-lucide="calendar" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
+              <select class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-leaf focus:bg-white outline-none font-medium text-gray-700">
+                <option>2025/2026 Academic Session — Second Term</option>
+                <option>2025/2026 Academic Session — First Term</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-gate-submit" class="w-full bg-brand-forest hover:bg-green-800 text-white font-headline font-bold text-sm py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2">
+            <i data-lucide="unlock" class="w-4 h-4 text-brand-gold"></i>
+            <span>Unlock Confidential Academic Records</span>
+          </button>
+        </form>
+
+        <!-- Management & Board Reviewer Demo Quick-Pass -->
+        <div class="pt-4 border-t border-gray-100">
+          <p class="text-[11px] font-bold text-gray-500 uppercase tracking-wider text-center mb-2.5 flex items-center justify-center space-x-1">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-gold"></i>
+            <span>Board Demo 1-Click Access (Preloaded Profiles):</span>
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <button type="button" onclick="quickPassLogin('farouq')" class="bg-brand-softGreen hover:bg-green-100 text-brand-forest text-[11px] font-bold py-2 px-2.5 rounded-xl border border-green-200 text-center transition-all">
+              Farouq (SS2)
+            </button>
+            <button type="button" onclick="quickPassLogin('tiwalola')" class="bg-brand-softGreen hover:bg-green-100 text-brand-forest text-[11px] font-bold py-2 px-2.5 rounded-xl border border-green-200 text-center transition-all">
+              Tiwalola (SS3)
+            </button>
+            <button type="button" onclick="quickPassLogin('chidubem')" class="bg-brand-softGreen hover:bg-green-100 text-brand-forest text-[11px] font-bold py-2 px-2.5 rounded-xl border border-green-200 text-center transition-all">
+              Chidubem (JSS1)
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Portal Main Terminal Card -->
-      <div class="bg-white rounded-3xl border-2 border-brand-forest shadow-2xl p-6 sm:p-8 max-w-5xl mx-auto">
+      <!-- ==========================================
+           2. AUTHENTICATED PORTAL VIEW (HIDDEN UNTIL LOGIN)
+           ========================================== -->
+      <div id="portal-authenticated-view" class="hidden space-y-6">
         
-        <!-- Student Header Profile -->
+        <!-- Authenticated Session Ribbon & Student Switcher -->
+        <div class="max-w-5xl mx-auto bg-white p-3 sm:p-4 rounded-2xl border-2 border-brand-leaf flex flex-wrap items-center justify-between gap-3 shadow-md">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-brand-forest">
+              Authenticated Session: <span id="session-active-name" class="text-brand-deepNavy">Farouq Adeyemi</span>
+            </span>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <!-- Switch Student for Demo -->
+            <button onclick="switchStudent('farouq')" id="btn-demo-farouq" class="bg-brand-forest text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-sm">
+              Farouq (SS2)
+            </button>
+            <button onclick="switchStudent('tiwalola')" id="btn-demo-tiwalola" class="bg-white text-gray-700 text-xs px-3 py-1.5 rounded-full font-bold hover:bg-gray-100 border border-gray-200">
+              Tiwalola (SS3)
+            </button>
+            <button onclick="switchStudent('chidubem')" id="btn-demo-chidubem" class="bg-white text-gray-700 text-xs px-3 py-1.5 rounded-full font-bold hover:bg-gray-100 border border-gray-200">
+              Chidubem (JSS1)
+            </button>
+
+            <!-- Lock / Logout Button -->
+            <button onclick="lockPortal()" class="ml-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs px-3 py-1.5 rounded-full font-bold flex items-center space-x-1 transition-colors">
+              <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              <span>Lock Records</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Portal Main Terminal Card -->
+        <div class="bg-white rounded-3xl border-2 border-brand-forest shadow-2xl p-6 sm:p-8 max-w-5xl mx-auto">
+          
+          <!-- Student Header Profile -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-gray-100 gap-4">
           <div class="flex items-center space-x-4">
             <div class="w-16 h-16 rounded-2xl bg-brand-softGreen border-2 border-brand-leaf flex items-center justify-center font-headline font-black text-2xl text-brand-forest">
@@ -1544,6 +1564,8 @@
           </button>
         </div>
 
+      </div>
+      <!-- End of Authenticated View -->
       </div>
 
     </div>
@@ -2073,7 +2095,7 @@
 
       <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 font-body gap-2">
         <p>&copy; 2026 The Olive Branches Schools, Osogbo. All Rights Reserved.</p>
-        <p>Architected & Powered by <span class="text-white font-bold">Olumide Adeyemi-Nana</span></p>
+        <p>Architected & Powered by <span class="text-white font-bold">Amazoe Solutions</span> • Olumide Adeyemi-Nana (Software Engineer)</p>
       </div>
     </div>
   </footer>
@@ -2270,9 +2292,74 @@
       }
     }
 
+    
+    // ==========================================
+    // PORTAL SECURITY GATE CONTROLS
+    // ==========================================
+    function handlePortalGateSubmit(e) {
+      if (e) e.preventDefault();
+      const reg = document.getElementById('gate-student-reg').value.trim();
+      let targetStudent = 'farouq';
+      if (reg.includes('0192') || reg.toLowerCase().includes('tiwalola')) targetStudent = 'tiwalola';
+      if (reg.includes('0512') || reg.toLowerCase().includes('chidubem')) targetStudent = 'chidubem';
+      
+      const btn = document.getElementById('btn-gate-submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="inline-block animate-spin mr-2">⏳</span> Authenticating with Olive Branches Cloud...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        unlockPortal(targetStudent);
+      }, 600);
+    }
+
+    function quickPassLogin(studentKey) {
+      const regMap = {
+        'farouq': 'OBS/2022/0481',
+        'tiwalola': 'OBS/2021/0192',
+        'chidubem': 'OBS/2024/0512'
+      };
+      document.getElementById('gate-student-reg').value = regMap[studentKey] || 'OBS/2022/0481';
+      document.getElementById('gate-student-pin').value = '987654';
+      unlockPortal(studentKey);
+    }
+
+    function unlockPortal(studentKey) {
+      switchStudent(studentKey);
+      document.getElementById('session-active-name').innerText = students[studentKey].name;
+      document.getElementById('portal-login-gate').classList.add('hidden');
+      document.getElementById('portal-authenticated-view').classList.remove('hidden');
+      
+      // Smoothly scroll down to authenticated dashboard
+      document.getElementById('portal-authenticated-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function lockPortal() {
+      document.getElementById('portal-authenticated-view').classList.add('hidden');
+      document.getElementById('portal-login-gate').classList.remove('hidden');
+      document.getElementById('portal-login-gate').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ==========================================
+    // EXECUTIVE AUDIT MODAL CONTROLS
+    // ==========================================
+    function openExecutiveAuditModal() {
+      const modal = document.getElementById('executive-audit-modal');
+      if (modal) { modal.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeExecutiveAuditModal() {
+      const modal = document.getElementById('executive-audit-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function switchStudent(key) {
       activeStudentKey = key;
       const data = students[key];
+      const sessName = document.getElementById('session-active-name');
+      if (sessName) sessName.innerText = data.name;
 
       ['farouq', 'tiwalola', 'chidubem'].forEach(k => {
         const btn = document.getElementById(`btn-demo-${k}`);
@@ -2692,5 +2779,101 @@
       window.open("https://www.youtube.com/@OliveBranchesSchoolsOsogbo", "_blank");
     }
   </script>
+
+  <!-- ==========================================
+       EXECUTIVE AUDIT MODAL: FOR BOARD & MANAGEMENT (Amazoe Solutions)
+       ========================================== -->
+  <div id="executive-audit-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <div class="inline-flex items-center space-x-1.5 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>Amazoe Solutions • Confidential Board Briefing</span>
+          </div>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            The Olive Branches Schools: Cloud Modernization vs Legacy WordPress
+          </h3>
+          <p class="text-xs text-gray-500 font-medium mt-1">
+            Prepared by Software Engineer Olumide Adeyemi-Nana for the Proprietress & Board of Trustees
+          </p>
+        </div>
+        <button onclick="closeExecutiveAuditModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Current WordPress Site Flaws -->
+        <div class="bg-red-50/70 p-6 rounded-2xl border-2 border-red-200 space-y-4">
+          <div class="flex items-center space-x-3 text-red-800">
+            <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+            <h4 class="font-headline font-black text-lg">Current School Site (Live Audit)</h4>
+          </div>
+          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-700">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Bloated Code & Plugin Overhead:</strong> 253KB unoptimized HTML + 31 external script tags running duplicate slider/animation libraries that drag down mobile speeds.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Fragmented 3rd-Party Portal:</strong> Relies on an external script (<code>obs.softedu.info</code>) lacking unified school aesthetics and mobile responsiveness.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Manual Bursary Friction:</strong> Zero direct payment integration; parents must queue up physically or submit paper bank deposit slips.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">✕</span>
+              <span><strong>Security & Maintenance Vulnerabilities:</strong> WordPress plugins require perpetual updates, leaving institutions open to brute-force attacks and sudden database outages.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Amazoe Solutions Modern Platform -->
+        <div class="bg-green-50/80 p-6 rounded-2xl border-2 border-brand-leaf space-y-4 shadow-pdf-green">
+          <div class="flex items-center space-x-3 text-brand-forest">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-leaf"></i>
+            <h4 class="font-headline font-black text-lg">Amazoe Solutions Cloud Platform</h4>
+          </div>
+          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-800">
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>Sub-Second Edge Delivery:</strong> Ultra-fast global CDN hosting with zero plugin baggage, ensuring parents on 3G/4G load pages instantly.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>Unified E-Portal & Fee Gateway:</strong> Complete Continuous Assessment, printable QR transcripts, and automated Paystack bursary reconciliation in one dashboard.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>24/7 AI Virtual Assistant ("Olive AI"):</strong> Instant guidance for admissions, curriculum, and bus transport questions around the clock.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✓</span>
+              <span><strong>Zero Server Downtime:</strong> Enterprise cloud hosting that handles high-traffic result-checking days without crashing.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Call to Action -->
+      <div class="bg-brand-softGreen p-4 rounded-2xl border border-green-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-brand-forest">
+          <p class="font-bold text-sm text-brand-deepNavy">Proposed Migration Timeline: 48 Hours</p>
+          <p class="text-gray-600">Full DNS switchover, student data import, and staff training handled seamlessly by Amazoe Solutions.</p>
+        </div>
+        <button onclick="closeExecutiveAuditModal(); openWhatsAppModal('Proposal Consultation with Amazoe Solutions regarding School Modernization');" class="bg-green-600 hover:bg-green-700 text-white font-bold text-xs px-6 py-3 rounded-full flex items-center space-x-2 shadow-md transition-all shrink-0">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Schedule Board Demo via WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>
