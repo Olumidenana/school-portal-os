@@ -2224,17 +2224,30 @@
 
   <!-- ==========================================
        OFFICIAL DIGITAL BURSARY CLEARANCE RECEIPT MODAL
+       (With Dual View: Official Certificate & Email Dispatch Preview)
        ========================================== -->
   <div id="bursary-receipt-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden my-auto border-4 border-brand-forest relative animate-in fade-in zoom-in-95 duration-200">
       
       <!-- Close Button -->
-      <button onclick="closeReceiptModal(); unlockPortal(activeStudentKey); switchPortalTab('grades');" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center">
+      <button onclick="proceedToClearedPortal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <!-- Receipt Inner Container (Printable) -->
-      <div id="printable-receipt-content" class="p-6 sm:p-8 space-y-6 bg-white text-gray-900 font-body">
+      <!-- View Switcher Tabs (Certificate vs Dispatched Email) -->
+      <div class="bg-gray-100 p-2 border-b border-gray-200 flex items-center justify-center space-x-2 font-headline font-bold text-xs">
+        <button onclick="switchReceiptView('certificate')" id="tab-rcpt-cert" class="bg-white text-brand-forest px-4 py-2 rounded-xl shadow-sm flex items-center space-x-1.5 transition-all">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-brand-leaf"></i>
+          <span>Official Clearance Certificate</span>
+        </button>
+        <button onclick="switchReceiptView('email')" id="tab-rcpt-email" class="bg-transparent text-gray-600 hover:text-gray-900 px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-all">
+          <i data-lucide="mail-check" class="w-3.5 h-3.5 text-blue-600"></i>
+          <span>Dispatched Email Receipt Copy</span>
+        </button>
+      </div>
+
+      <!-- VIEW 1: OFFICIAL PRINTABLE CLEARANCE CERTIFICATE -->
+      <div id="view-rcpt-cert" class="p-6 sm:p-8 space-y-5 bg-white text-gray-900 font-body">
         
         <!-- Receipt Top Header -->
         <div class="flex items-center justify-between border-b-2 border-brand-forest pb-4">
@@ -2253,7 +2266,7 @@
             </div>
           </div>
           <!-- Digital Stamp -->
-          <div class="w-20 h-20 rounded-full border-4 border-green-600 border-dashed p-1 flex flex-col items-center justify-center text-center transform rotate-6 select-none bg-green-50/50">
+          <div class="w-20 h-20 rounded-full border-4 border-green-600 border-dashed p-1 flex flex-col items-center justify-center text-center transform rotate-6 select-none bg-green-50/50 shrink-0">
             <span class="text-[9px] font-black text-green-700 uppercase leading-tight">PAID IN FULL</span>
             <span class="text-[8px] font-bold text-green-800">CLEARED</span>
             <span class="text-[7px] text-gray-600">BURSARY</span>
@@ -2261,10 +2274,10 @@
         </div>
 
         <!-- Receipt Reference & Success Badge -->
-        <div class="bg-green-50 p-4 rounded-2xl border border-green-200 flex justify-between items-center text-xs">
+        <div class="bg-green-50 p-3.5 rounded-2xl border border-green-200 flex justify-between items-center text-xs">
           <div>
             <span class="text-gray-500 font-medium">Payment Reference:</span>
-            <div id="receipt-ref-code" class="font-headline font-black text-sm sm:text-base text-brand-forest">
+            <div id="receipt-ref-code" class="font-headline font-black text-sm sm:text-base text-brand-forest font-mono">
               OBS-REC-2026-948102
             </div>
           </div>
@@ -2277,7 +2290,7 @@
         </div>
 
         <!-- Student & Term Information -->
-        <div class="grid grid-cols-2 gap-4 text-xs bg-gray-50 p-4 rounded-2xl border border-gray-100">
+        <div class="grid grid-cols-2 gap-3 text-xs bg-gray-50 p-3.5 rounded-2xl border border-gray-100">
           <div>
             <span class="text-gray-500 font-medium">Student Name:</span>
             <div id="receipt-student-name" class="font-bold text-gray-900 text-sm mt-0.5">Farouq Adeyemi</div>
@@ -2297,7 +2310,7 @@
         </div>
 
         <!-- Financial Summary -->
-        <div class="border-t border-b border-gray-200 py-3 space-y-1.5 text-xs">
+        <div class="border-t border-b border-gray-200 py-2.5 space-y-1.5 text-xs">
           <div class="flex justify-between">
             <span class="text-gray-600">Tuition & Term Assessment Levy:</span>
             <span class="font-bold text-gray-900" id="receipt-amount-sub">₦185,000.00</span>
@@ -2306,46 +2319,119 @@
             <span class="text-gray-600">Gateway Processing (Paystack):</span>
             <span class="font-bold text-green-700">₦0.00 (School Absorbed)</span>
           </div>
-          <div class="flex justify-between text-base font-headline font-black text-brand-forest pt-2 border-t border-gray-200">
+          <div class="flex justify-between text-base font-headline font-black text-brand-forest pt-1.5 border-t border-gray-200">
             <span>Total Amount Cleared:</span>
             <span id="receipt-amount-total">₦185,000.00</span>
           </div>
-          <div class="flex justify-between text-xs font-bold text-emerald-700 pt-1">
+          <div class="flex justify-between text-xs font-bold text-emerald-700 pt-0.5">
             <span>Outstanding Balance:</span>
-            <span>₦0.00 (Zero Balance)</span>
+            <span>₦0.00 (Zero Balance • Full Clearance)</span>
           </div>
         </div>
 
         <!-- Dual Delivery Notice (Email + Physical Bursary Fallback) -->
-        <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-200 space-y-2 text-xs text-amber-950">
+        <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 space-y-1.5 text-xs text-amber-950">
           <div class="flex items-start space-x-2">
             <i data-lucide="mail-check" class="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5"></i>
-            <span><strong>Electronic Copy:</strong> A verified PDF receipt has been dispatched to <strong id="receipt-parent-email">parent@example.com</strong>.</span>
+            <span><strong>Electronic Copy:</strong> Dispatched to <strong id="receipt-parent-email" class="underline">parent@example.com</strong>.</span>
           </div>
           <div class="flex items-start space-x-2">
             <i data-lucide="building" class="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5"></i>
-            <span><strong>Physical Collection Fallback:</strong> For parents who prefer an embossed hardcopy, present this digital clearance slip at the <strong>Bursary Office, Oroki Estate Campus, Osogbo</strong> for an immediate stamped physical receipt.</span>
+            <span><strong>Physical Collection Fallback:</strong> For parents who prefer an embossed hardcopy, present Reference <strong id="receipt-fallback-ref" class="font-mono text-brand-forest">OBS-REC-2026-XXXX</strong> at the Bursary Counter for an embossed duplicate.</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Modal Bottom Actions -->
-      <div class="p-4 sm:p-6 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <button onclick="window.print()" class="w-full sm:w-auto bg-brand-softGreen hover:bg-green-100 text-brand-forest border border-green-300 font-headline font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-colors">
-          <i data-lucide="printer" class="w-4 h-4"></i>
-          <span>Print Official Receipt</span>
-        </button>
+      <!-- VIEW 2: CUSTOMIZED EMAIL DISPATCH PREVIEW -->
+      <div id="view-rcpt-email" class="hidden p-5 sm:p-6 space-y-4 bg-slate-50 text-gray-800 font-body">
+        
+        <!-- Email Metadata Bar -->
+        <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm text-xs space-y-1">
+          <div class="flex items-center space-x-2 text-gray-500">
+            <span class="font-bold w-14">From:</span>
+            <span class="text-brand-forest font-bold">The Olive Branches Schools Bursary &lt;bursary@olivebranchesschoolsosogbo.com&gt;</span>
+          </div>
+          <div class="flex items-center space-x-2 text-gray-500">
+            <span class="font-bold w-14">To:</span>
+            <span id="email-preview-to" class="font-bold text-gray-900">parent@example.com</span>
+          </div>
+          <div class="flex items-center space-x-2 text-gray-500">
+            <span class="font-bold w-14">Subject:</span>
+            <span class="font-bold text-brand-deepNavy">Official Tuition Clearance Receipt: <span id="email-preview-subject-name">Farouq Adeyemi</span> (Ref: <span id="email-preview-subject-ref" class="font-mono">OBS-REC-2026</span>)</span>
+          </div>
+        </div>
 
+        <!-- Email Body Canvas -->
+        <div class="bg-white p-5 rounded-2xl border-2 border-green-200 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <img src="images/crops/school_circular_crest.png" alt="Crest" class="w-10 h-10 object-contain">
+              <div>
+                <h4 class="font-headline font-black text-sm text-brand-forest uppercase">The Olive Branches Schools</h4>
+                <p class="text-[10px] text-brand-gold font-bold">Per Angusta Ad Augusta • Isaiah 8:18</p>
+              </div>
+            </div>
+            <span class="bg-green-100 text-green-800 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+              Automated Clearance
+            </span>
+          </div>
+
+          <div class="text-xs space-y-2 text-gray-700 leading-relaxed">
+            <p>Dear Esteemed Parent / Guardian,</p>
+            <p>
+              We gratefully acknowledge the receipt of your payment for <strong>Second Term 2025/2026 Academic Session</strong> via Paystack. Your transaction has been reconciled directly into The Olive Branches Schools bursary ledger.
+            </p>
+            
+            <div class="bg-green-50 p-3 rounded-xl border border-green-100 space-y-1 my-2">
+              <div class="flex justify-between"><strong>Student Name:</strong> <span id="email-student-name">Farouq Adeyemi</span></div>
+              <div class="flex justify-between"><strong>Admission Number:</strong> <span id="email-student-reg" class="font-mono">OBS/2022/0481</span></div>
+              <div class="flex justify-between"><strong>Class:</strong> <span id="email-student-class">SSS 2 Science</span></div>
+              <div class="flex justify-between border-t border-green-200 pt-1 font-bold text-brand-forest text-sm">
+                <span>Amount Paid:</span>
+                <span id="email-amount-paid">₦185,000.00</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-gray-600">
+              Your ward's <strong>Continuous Assessment (CA) scores, cumulative GPA, and terminal examination access</strong> have been 100% unlocked on the student portal.
+            </p>
+          </div>
+
+          <!-- Attachment Box -->
+          <div class="bg-gray-50 p-3 rounded-xl border border-gray-200 flex items-center justify-between text-xs">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="paperclip" class="w-4 h-4 text-brand-forest"></i>
+              <div>
+                <span class="font-bold text-gray-800">OBS_Bursary_Clearance_Slip.pdf</span>
+                <span class="text-[10px] text-gray-400 block">Digitally Signed & QR Encrypted • 182 KB</span>
+              </div>
+            </div>
+            <button onclick="window.print()" class="text-brand-forest hover:text-green-800 font-bold underline text-[11px]">
+              Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bottom Actions (With Primary "Proceed to Cleared Dashboard" CTA) -->
+      <div class="p-4 sm:p-5 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3">
         <div class="flex items-center space-x-2 w-full sm:w-auto">
-          <button onclick="shareReceiptWhatsApp()" class="flex-1 sm:flex-initial bg-green-600 hover:bg-green-700 text-white font-headline font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 shadow-sm transition-colors">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>Send to WhatsApp</span>
+          <button onclick="window.print()" class="bg-white hover:bg-gray-100 text-gray-700 border border-gray-300 font-headline font-bold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-colors">
+            <i data-lucide="printer" class="w-4 h-4 text-brand-forest"></i>
+            <span>Print / PDF</span>
           </button>
-          <button onclick="closeReceiptModal(); unlockPortal(activeStudentKey); switchPortalTab('grades');" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-headline font-bold text-xs px-4 py-2.5 rounded-xl transition-colors">
-            Done
+          <button onclick="shareReceiptWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-headline font-bold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 shadow-sm transition-colors">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>WhatsApp Copy</span>
           </button>
         </div>
+
+        <!-- The Big Proceed Button -->
+        <button onclick="proceedToClearedPortal()" class="w-full sm:w-auto bg-brand-forest hover:bg-green-900 text-white font-headline font-bold text-xs px-6 py-3 rounded-xl flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all">
+          <span>Proceed to Cleared Student Dashboard</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-brand-gold"></i>
+        </button>
       </div>
 
     </div>
@@ -3201,6 +3287,16 @@
     }
 
     function openBursaryReceiptModal(data) {
+      // Sync Email Dispatch Preview
+      if (document.getElementById('email-preview-to')) document.getElementById('email-preview-to').innerText = data.email;
+      if (document.getElementById('email-preview-subject-name')) document.getElementById('email-preview-subject-name').innerText = data.studentName;
+      if (document.getElementById('email-preview-subject-ref')) document.getElementById('email-preview-subject-ref').innerText = data.ref;
+      if (document.getElementById('email-student-name')) document.getElementById('email-student-name').innerText = data.studentName;
+      if (document.getElementById('email-student-reg')) document.getElementById('email-student-reg').innerText = data.reg;
+      if (document.getElementById('email-student-class')) document.getElementById('email-student-class').innerText = data.studentClass;
+      if (document.getElementById('email-amount-paid')) document.getElementById('email-amount-paid').innerText = '₦' + data.amount.toLocaleString() + '.00';
+      if (document.getElementById('receipt-fallback-ref')) document.getElementById('receipt-fallback-ref').innerText = data.ref;
+
       document.getElementById('receipt-ref-code').innerText = data.ref;
       document.getElementById('receipt-timestamp').innerText = data.timestamp;
       document.getElementById('receipt-student-name').innerText = data.studentName;
@@ -3213,6 +3309,40 @@
       const modal = document.getElementById('bursary-receipt-modal');
       modal.classList.remove('hidden');
       if (window.lucide) lucide.createIcons();
+    }
+
+    
+    // ==========================================
+    // RECEIPT MODAL DUAL VIEW & PROCEED CONTROLS
+    // ==========================================
+    function switchReceiptView(view) {
+      const tabCert = document.getElementById('tab-rcpt-cert');
+      const tabEmail = document.getElementById('tab-rcpt-email');
+      const viewCert = document.getElementById('view-rcpt-cert');
+      const viewEmail = document.getElementById('view-rcpt-email');
+
+      if (view === 'certificate') {
+        tabCert.className = "bg-white text-brand-forest px-4 py-2 rounded-xl shadow-sm flex items-center space-x-1.5 transition-all";
+        tabEmail.className = "bg-transparent text-gray-600 hover:text-gray-900 px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-all";
+        viewCert.classList.remove('hidden');
+        viewEmail.classList.add('hidden');
+      } else {
+        tabEmail.className = "bg-white text-brand-forest px-4 py-2 rounded-xl shadow-sm flex items-center space-x-1.5 transition-all";
+        tabCert.className = "bg-transparent text-gray-600 hover:text-gray-900 px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-all";
+        viewEmail.classList.remove('hidden');
+        viewCert.classList.add('hidden');
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function proceedToClearedPortal() {
+      closeReceiptModal();
+      unlockPortal(activeStudentKey);
+      switchPortalTab('grades');
+
+      // Show celebratory clearance banner
+      const student = students[activeStudentKey];
+      alert(`🎉 BURSARY CLEARANCE VERIFIED!\n\nTuition for ${student.name} is 100% Cleared.\n\nAll Continuous Assessment (CA) scores, cumulative GPA (3.86/4.00), and terminal examination records are now UNLOCKED on your dashboard.`);
     }
 
     function closeReceiptModal() {
