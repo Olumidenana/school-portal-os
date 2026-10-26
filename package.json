@@ -1,0 +1,12 @@
+{
+  "name": "school-portal-os",
+  "version": "1.0.0",
+  "description": "Apex Academy OS — Unified School & Parent Intelligence Portal + Junior AI Lab",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
