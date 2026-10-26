@@ -1,12 +1,12 @@
 {
   "name": "school-portal-os",
   "version": "1.0.0",
-  "description": "Apex Academy OS — Unified School & Parent Intelligence Portal + Junior AI Lab",
-  "main": "server.js",
+  "description": "EduCore OS — Premier School, Parent & AI Academy Platform",
+  "main": "index.html",
   "scripts": {
-    "start": "node server.js"
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 ."
   },
-  "dependencies": {
-    "express": "^4.19.2"
-  }
+  "author": "Olumide Adeyemi-Nana",
+  "license": "MIT"
 }
