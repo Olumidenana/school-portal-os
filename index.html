@@ -183,9 +183,9 @@
       <div class="flex items-center space-x-4">
         <span class="text-green-300 font-medium">Follow Us:</span>
         <div class="flex items-center space-x-3 text-white">
-          <a href="#" class="hover:text-brand-gold transition-colors" title="Facebook"><i data-lucide="facebook" class="w-3.5 h-3.5"></i></a>
-          <a href="#" class="hover:text-brand-gold transition-colors" title="Instagram"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
-          <a href="#" class="hover:text-brand-gold transition-colors" title="YouTube"><i data-lucide="youtube" class="w-3.5 h-3.5"></i></a>
+          <a href="https://www.facebook.com/olivebrancheschools" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors" title="Facebook (@olivebrancheschools)"><i data-lucide="facebook" class="w-3.5 h-3.5"></i></a>
+          <a href="https://www.instagram.com/olive_branches_schools" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors" title="Instagram (@olive_branches_schools)"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
+          <a href="https://www.youtube.com/@OliveBranchesSchoolsOsogbo" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors" title="YouTube (@OliveBranchesSchoolsOsogbo)"><i data-lucide="youtube" class="w-3.5 h-3.5"></i></a>
           <!-- Direct WhatsApp Button (No copying numbers!) -->
           <button onclick="openWhatsAppModal()" class="flex items-center space-x-1 bg-green-600 hover:bg-green-500 text-white px-2.5 py-0.5 rounded-full font-bold text-[11px] shadow-sm transition-all">
             <i data-lucide="message-circle" class="w-3 h-3"></i>
@@ -220,9 +220,9 @@
         <a href="#about" class="hover:text-brand-forest transition-colors">About Us</a>
         <a href="#admissions" class="hover:text-brand-forest transition-colors">Admissions</a>
         <a href="#facilities" class="hover:text-brand-forest transition-colors">Facilities</a>
-        <a href="#grades-carousel" class="hover:text-brand-forest transition-colors">Grade Spectrum</a>
-        <a href="#heritage" class="hover:text-brand-forest transition-colors">Our Anthem</a>
-        <a href="#gallery" class="hover:text-brand-forest transition-colors">Media</a>
+        <a href="#grades-carousel" class="hover:text-brand-forest transition-colors">Grades</a>
+        <a href="#news-blog" class="hover:text-brand-forest transition-colors">Blog</a>
+        <a href="#gallery" class="hover:text-brand-forest transition-colors">YouTube Media</a>
         <a href="#portal" class="bg-green-50 text-brand-forest px-3 py-1.5 rounded-lg border border-green-200 hover:bg-brand-forest hover:text-white transition-all flex items-center space-x-1.5">
           <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold"></i>
           <span>E-Portal</span>
@@ -921,16 +921,25 @@
   </section>
 
   <!-- ==========================================
-       NEWS & ARTICLES (From PDF Page 4)
+       OFFICIAL SCHOOL BLOG & ARTICLES ARCHIVE
        ========================================== -->
-  <section class="py-16 bg-brand-softGreen relative">
+  <section id="news-blog" class="py-16 bg-brand-softGreen relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="font-eyebrow text-2xl text-brand-leaf tracking-wider uppercase">Our News</span>
-        <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy mt-1">
-          News & Articles
-        </h2>
+      <div class="flex flex-col sm:flex-row justify-between items-end mb-12 gap-4">
+        <div>
+          <span class="font-eyebrow text-2xl text-brand-leaf tracking-wider uppercase">The Olive Journal & Blog</span>
+          <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy mt-1">
+            School News & Educational Insights
+          </h2>
+          <p class="font-body text-gray-600 text-sm mt-1">
+            Stay updated with academic milestones, excursions, student achievements, and notices.
+          </p>
+        </div>
+        <a href="https://www.olivebranchesschoolsosogbo.com/blog/" target="_blank" rel="noopener noreferrer" class="btn-dashed-gold text-xs px-5 py-2.5 rounded-full uppercase tracking-wider flex items-center space-x-1.5 flex-shrink-0">
+          <span>Visit Official Blog Archive</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1176,19 +1185,30 @@
         </h2>
       </div>
 
-      <!-- Featured Video Container -->
-      <div class="bg-white p-4 rounded-3xl border-2 border-brand-forest shadow-xl max-w-4xl mx-auto">
-        <div class="relative h-72 sm:h-96 rounded-2xl overflow-hidden group cursor-pointer" onclick="openVideoPlayer()">
-          <img src="images/crops/video_reading_circle.jpg" alt="Children Outdoor Reading Circle Video" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-            <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white shadow-2xl transform group-hover:scale-110 transition-transform">
-              <i data-lucide="play" class="w-8 h-8 fill-current translate-x-0.5"></i>
-            </div>
+      <!-- Official YouTube Channel Embed & Video Player -->
+      <div class="bg-white p-4 sm:p-6 rounded-3xl border-2 border-brand-forest shadow-xl max-w-4xl mx-auto space-y-4">
+        <!-- Live YouTube Responsive Frame -->
+        <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner border border-gray-200">
+          <iframe id="main-yt-player" class="w-full h-full" src="https://www.youtube.com/embed/qzjHBykNyIw?rel=0&modestbranding=1" title="The Olive Branches Schools Official Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Video Selection Strip & YouTube Subscribe CTA -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-2">
+          <div class="flex items-center space-x-2">
+            <button onclick="switchYouTubeVideo('qzjHBykNyIw', 'School Session & Academic Tour Reel')" class="bg-red-50 hover:bg-red-100 text-red-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-red-200 flex items-center space-x-1.5 transition-colors">
+              <i data-lucide="play-circle" class="w-4 h-4 text-red-600"></i>
+              <span>Session Tour Reel</span>
+            </button>
+            <button onclick="switchYouTubeVideo('lh0rI6F0oGs', 'Student Cultural Showcase & Excursion Highlights')" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition-colors">
+              <i data-lucide="video" class="w-4 h-4 text-gray-600"></i>
+              <span>Cultural & Stage Gala</span>
+            </button>
           </div>
-          <div class="absolute bottom-4 left-4 right-4 bg-brand-deepNavy/80 backdrop-blur-md p-3 rounded-xl text-white flex items-center justify-between">
-            <span class="text-xs sm:text-sm font-bold">Outdoor Early Childhood Reading & Phonics Circle</span>
-            <span class="text-xs bg-red-600 px-2.5 py-0.5 rounded-full font-bold">Watch on YouTube</span>
-          </div>
+
+          <a href="https://www.youtube.com/@OliveBranchesSchoolsOsogbo?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-xs font-headline font-black flex items-center space-x-2 shadow-md transition-all hover:scale-105">
+            <i data-lucide="youtube" class="w-4 h-4 fill-current"></i>
+            <span>Subscribe on YouTube (@OliveBranchesSchoolsOsogbo)</span>
+          </a>
         </div>
       </div>
 
@@ -1736,6 +1756,17 @@
           <p class="font-body text-xs text-gray-400 leading-relaxed">
             Quality Education Rooted In Excellence, Discipline, And Values. Per Angusta Ad Augusta.
           </p>
+          <div class="flex items-center space-x-3 pt-2">
+            <a href="https://www.facebook.com/olivebrancheschools" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-forest flex items-center justify-center text-white transition-all" title="Facebook">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.instagram.com/olive_branches_schools" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-forest flex items-center justify-center text-white transition-all" title="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.youtube.com/@OliveBranchesSchoolsOsogbo" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-forest flex items-center justify-center text-white transition-all" title="YouTube">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
 
         <div>
@@ -2214,9 +2245,15 @@
       switchPortalTab('fees');
     }
 
+    function switchYouTubeVideo(videoId, title) {
+      const player = document.getElementById('main-yt-player');
+      if (player) {
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+      }
+    }
+
     function openVideoPlayer() {
-      alert("Opening Olive Branches Schools Official YouTube Channel & Excursion Archive...");
-      window.open("https://www.youtube.com", "_blank");
+      window.open("https://www.youtube.com/@OliveBranchesSchoolsOsogbo", "_blank");
     }
   </script>
 </body>
