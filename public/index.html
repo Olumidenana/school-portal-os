@@ -2025,6 +2025,17 @@
         </div>
       </div>
 
+      <!-- Eliminating Bank Teller Queues Notice -->
+      <div class="bg-amber-50/90 border border-amber-300 rounded-2xl p-3 mb-4 space-y-1">
+        <div class="flex items-center space-x-1.5 font-bold text-amber-900 text-xs">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+          <span>Zero Bank Queues & No Paper Tellers Needed</span>
+        </div>
+        <p class="text-[11px] text-amber-950/80 leading-relaxed">
+          Parents pay in 30 seconds via Card, Bank Transfer, or USSD from their phone. School bursary records reconcile automatically in real-time—eliminating bank queues for parents and manual spreadsheet reconciliation for teachers and bursars.
+        </p>
+      </div>
+
       <form onsubmit="handlePaystackPayment(event)" class="space-y-4 font-body">
         <div>
           <label class="block text-xs font-bold text-gray-700 mb-1">Parent's Email for Receipt *</label>
@@ -3323,10 +3334,16 @@
           <p class="font-bold text-sm text-brand-deepNavy">Proposed Migration Timeline: 48 Hours</p>
           <p class="text-gray-600">Full DNS switchover, student data import, and staff training handled seamlessly by Amazoe Solutions.</p>
         </div>
-        <button onclick="closeExecutiveAuditModal(); openWhatsAppModal('Proposal Consultation with Amazoe Solutions regarding School Modernization');" class="bg-green-600 hover:bg-green-700 text-white font-bold text-xs px-6 py-3 rounded-full flex items-center space-x-2 shadow-md transition-all shrink-0">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Schedule Board Demo via WhatsApp</span>
-        </button>
+        <div class="flex flex-wrap items-center gap-2">
+          <a href="Amazoe_Solutions_Proposal_The_Olive_Branches_Schools.pdf" download class="bg-brand-forest hover:bg-green-900 text-white font-bold text-xs px-4 py-3 rounded-full flex items-center space-x-2 shadow-sm transition-all shrink-0 border border-green-700">
+            <i data-lucide="download" class="w-4 h-4 text-brand-gold"></i>
+            <span>Download Board Proposal (PDF)</span>
+          </a>
+          <button onclick="closeExecutiveAuditModal(); openWhatsAppModal('Proposal Consultation with Amazoe Solutions regarding School Modernization');" class="bg-green-600 hover:bg-green-700 text-white font-bold text-xs px-5 py-3 rounded-full flex items-center space-x-2 shadow-md transition-all shrink-0">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Schedule Demo on WhatsApp</span>
+          </button>
+        </div>
       </div>
 
     </div>
