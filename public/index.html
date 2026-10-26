@@ -10,7 +10,7 @@
   <!-- Prestigious Academic Typography: Plus Jakarta Sans (Modern Clean UI) + Playfair Display (Executive Editorial Headers) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -23,9 +23,9 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Merriweather', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
           },
           colors: {
             brand: {
@@ -88,7 +88,7 @@
 <body class="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-800 antialiased">
 
   <!-- TOP INSTITUTIONAL BAR -->
-  <div class="bg-brand-900 text-white text-xs font-mono py-2 px-4 border-b border-brand-800 no-print">
+  <div class="bg-brand-900 text-white text-xs font-sans py-2 px-4 border-b border-brand-800 no-print">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-4 text-slate-300">
         <span class="flex items-center gap-1.5">
@@ -104,7 +104,7 @@
       <!-- Quick School Switcher (For Multi-School Demonstration) -->
       <div class="flex items-center gap-2">
         <span class="text-slate-400 text-[11px] hidden sm:inline">Preview Institution:</span>
-        <select onchange="changeInstitution(this.value)" id="institutionSelect" class="bg-brand-950 text-white text-[11px] font-mono px-2.5 py-1 rounded border border-brand-700 focus:outline-none focus:border-blue-400 cursor-pointer">
+        <select onchange="changeInstitution(this.value)" id="institutionSelect" class="bg-brand-950 text-white text-[11px] font-sans px-2.5 py-1 rounded border border-brand-700 focus:outline-none focus:border-blue-400 cursor-pointer">
           <option value="olive">The Olive Branches Schools (Osogbo)</option>
           <option value="roseful">Roseful International High School</option>
           <option value="gof">GOF International School (Ogo-Oluwa)</option>
@@ -155,7 +155,7 @@
 
       <!-- Action Buttons: Parent Login & Admissions -->
       <div class="flex items-center gap-2.5">
-        <button onclick="openLoginModal()" id="btnLoginTop" class="px-3.5 py-2 rounded-lg border border-slate-300 hover:border-brand-600 text-slate-700 hover:text-brand-700 text-xs font-semibold font-mono transition-all flex items-center gap-1.5">
+        <button onclick="openLoginModal()" id="btnLoginTop" class="px-3.5 py-2 rounded-lg border border-slate-300 hover:border-brand-600 text-slate-700 hover:text-brand-700 text-xs font-semibold font-sans transition-all flex items-center gap-1.5">
           <i class="fa-solid fa-lock text-[10px]"></i>
           <span>Parent Login</span>
         </button>
@@ -196,7 +196,7 @@
   <!-- LIVE TICKER & CAMPUS ANNOUNCEMENT STRIP -->
   <div class="bg-amber-50 border-b border-amber-200 py-2 px-4 no-print">
     <div class="max-w-7xl mx-auto flex items-center gap-3 text-xs text-amber-900 font-sans">
-      <span class="px-2 py-0.5 rounded bg-amber-200/70 font-mono text-[10px] font-bold tracking-wide uppercase shrink-0">
+      <span class="px-2 py-0.5 rounded bg-amber-200/70 font-sans text-[10px] font-bold tracking-wide uppercase shrink-0">
         NOTICE BOARD
       </span>
       <div class="overflow-hidden whitespace-nowrap text-ellipsis flex-1">
@@ -257,7 +257,7 @@
           <!-- Academic Quick Glance Card -->
           <div class="lg:col-span-5 bg-gradient-to-br from-brand-900 to-brand-800 rounded-2xl p-6 sm:p-8 text-white shadow-xl space-y-6">
             <div class="border-b border-white/10 pb-4">
-              <span class="text-xs font-mono text-academic-gold-light uppercase tracking-wider block mb-1">
+              <span class="text-xs font-sans text-academic-gold-light uppercase tracking-wider block mb-1">
                 EXECUTIVE DIRECTOR'S STATEMENT
               </span>
               <h3 class="font-serif text-xl font-bold text-white">
@@ -269,7 +269,7 @@
               "We believe that education must go beyond rote textbook memorization. Every student who passes through our gates is equipped with ethical character, scientific clarity, and practical technology mastery."
             </p>
 
-            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs font-mono text-slate-300">
+            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs font-sans text-slate-300">
               <div>
                 <span id="directorName" class="text-white font-bold block">Dr. (Mrs.) F. A. Omigbodun</span>
                 <span class="text-slate-400">Proprietor / Executive Director</span>
@@ -280,7 +280,7 @@
             </div>
 
             <!-- Key Metric Counters -->
-            <div class="grid grid-cols-3 gap-2 pt-2 text-center font-mono">
+            <div class="grid grid-cols-3 gap-2 pt-2 text-center font-sans">
               <div class="p-2.5 rounded-lg bg-white/5">
                 <span class="text-xl font-bold text-academic-gold-light block">100%</span>
                 <span class="text-[10px] text-slate-400 uppercase">WAEC Pass</span>
@@ -310,7 +310,7 @@
           <p class="text-sm text-slate-600 leading-relaxed">
             Fully equipped Physics, Chemistry, and Biology laboratories enabling students to conduct individual experimental research required for Cambridge IGCSE and WAEC Distinction.
           </p>
-          <div class="pt-2 text-xs font-mono font-semibold text-brand-700 flex items-center gap-1">
+          <div class="pt-2 text-xs font-sans font-semibold text-brand-700 flex items-center gap-1">
             <span>Explore Science Curriculum</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
@@ -324,7 +324,7 @@
           <p class="text-sm text-slate-600 leading-relaxed">
             Directed by software systems engineer <strong>Olumide Adeyemi-Nana</strong>. Students transition from consumers to creators—building real Python applications, prompt models, and computer vision tools.
           </p>
-          <div class="pt-2 text-xs font-mono font-semibold text-indigo-700 flex items-center gap-1 cursor-pointer" onclick="navigateTo('ailab')">
+          <div class="pt-2 text-xs font-sans font-semibold text-indigo-700 flex items-center gap-1 cursor-pointer" onclick="navigateTo('ailab')">
             <span>Discover The AI Club</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
@@ -338,7 +338,7 @@
           <p class="text-sm text-slate-600 leading-relaxed">
             Fostering confident public speakers, literary critics, musicians, and collegiate debaters. Grounded in moral discipline and preparation for international university scholarships.
           </p>
-          <div class="pt-2 text-xs font-mono font-semibold text-academic-gold flex items-center gap-1">
+          <div class="pt-2 text-xs font-sans font-semibold text-academic-gold flex items-center gap-1">
             <span>Student Societies & Clubs</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </div>
@@ -357,7 +357,7 @@
       <!-- News Hub Header -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <span class="text-xs font-mono text-brand-700 uppercase font-bold tracking-wider">
+          <span class="text-xs font-sans text-brand-700 uppercase font-bold tracking-wider">
             CAMPUS DISPATCH & EVENTS
           </span>
           <h2 class="font-serif text-3xl font-bold text-brand-900 mt-1">
@@ -368,7 +368,7 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-2 font-mono text-xs">
+        <div class="flex items-center gap-2 font-sans text-xs">
           <button onclick="filterNews('all')" id="filter-all" class="px-3 py-1.5 rounded-lg bg-brand-700 text-white font-semibold">All Updates</button>
           <button onclick="filterNews('academic')" id="filter-academic" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50">Academic</button>
           <button onclick="filterNews('activities')" id="filter-activities" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50">Activities & Sports</button>
@@ -379,13 +379,13 @@
       <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div class="md:col-span-5 rounded-2xl overflow-hidden bg-slate-100 aspect-video md:aspect-auto h-full min-h-[220px] relative flex items-center justify-center text-slate-400">
           <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="Science Laboratory" class="w-full h-full object-cover">
-          <div class="absolute top-3 left-3 bg-brand-900 text-white font-mono text-[10px] font-bold px-2.5 py-1 rounded">
+          <div class="absolute top-3 left-3 bg-brand-900 text-white font-sans text-[10px] font-bold px-2.5 py-1 rounded">
             FEATURED DISPATCH
           </div>
         </div>
 
         <div class="md:col-span-7 space-y-3">
-          <div class="flex items-center gap-2 text-xs font-mono text-slate-500">
+          <div class="flex items-center gap-2 text-xs font-sans text-slate-500">
             <span>22 OCTOBER 2026</span>
             <span>•</span>
             <span class="text-brand-700 font-bold">SCIENCE & TECHNOLOGY</span>
@@ -396,7 +396,7 @@
           <p class="text-sm text-slate-600 leading-relaxed">
             Our Senior Secondary candidates Farouq Adeyemi and Tiwalola Ogunleye have emerged 1st and 2nd overall in the state level qualifiers. Both students represent the school at the national finals in Abuja this December.
           </p>
-          <div class="pt-2 flex items-center gap-4 text-xs font-mono">
+          <div class="pt-2 flex items-center gap-4 text-xs font-sans">
             <span class="text-emerald-700 font-semibold"><i class="fa-solid fa-trophy mr-1"></i> First Position Award</span>
             <span class="text-slate-400">Read by 420 Parents</span>
           </div>
@@ -411,7 +411,7 @@
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
             <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="Students in Classroom" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
             <span class="text-brand-700 font-bold">EXAMINATIONS</span>
             <span>15 NOV 2026</span>
           </div>
@@ -421,7 +421,7 @@
           <p class="text-xs text-slate-600 leading-relaxed">
             Parents can now inspect and download verified digital result sheets with GPA calculations directly on the student terminal without paper slips.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
             <button onclick="navigateTo('portal')" class="text-brand-700 font-bold hover:underline">
               Check Result Slip →
             </button>
@@ -433,7 +433,7 @@
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
             <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" alt="Robotics & Coding" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
             <span class="text-indigo-700 font-bold">TECH & AI LAB</span>
             <span>28 NOV 2026</span>
           </div>
@@ -443,7 +443,7 @@
           <p class="text-xs text-slate-600 leading-relaxed">
             Secondary students will showcase their custom Python chatbots, computer vision detectors, and 2D games created in the weekly AI Innovation Lab to visiting parents.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
             <button onclick="navigateTo('ailab')" class="text-indigo-700 font-bold hover:underline">
               View AI Projects →
             </button>
@@ -455,7 +455,7 @@
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
             <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" alt="Sports Field" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
             <span class="text-academic-gold font-bold">INTER-HOUSE SPORTS</span>
             <span>05 DEC 2026</span>
           </div>
@@ -465,7 +465,7 @@
           <p class="text-xs text-slate-600 leading-relaxed">
             Blue House (Integrity) defends their relay title against Red, Green, and Gold houses at the main sports complex. Parents and alumni cordially invited.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
             <span class="text-slate-500">Sports Ground · 9:00 AM</span>
           </div>
         </div>
@@ -483,7 +483,7 @@
       <!-- Student Terminal Top Card -->
       <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span class="text-xs font-mono text-brand-700 font-bold uppercase tracking-wider block">
+          <span class="text-xs font-sans text-brand-700 font-bold uppercase tracking-wider block">
             OFFICIAL ACADEMIC TERMINAL
           </span>
           <h2 class="font-serif text-2xl font-bold text-brand-900">
@@ -495,9 +495,9 @@
         </div>
 
         <!-- Quick Switcher for Demo / Multiple Children -->
-        <div class="flex items-center gap-2 font-mono text-xs">
+        <div class="flex items-center gap-2 font-sans text-xs">
           <span class="text-slate-500">Active Student:</span>
-          <select id="activeStudentSelector" onchange="switchStudent(this.value)" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 font-mono text-slate-800 font-medium focus:outline-none focus:border-brand-600">
+          <select id="activeStudentSelector" onchange="switchStudent(this.value)" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 font-sans text-slate-800 font-medium focus:outline-none focus:border-brand-600">
             <option value="farouq">Farouq Adeyemi (SS3 Science)</option>
             <option value="tiwa">Tiwalola Ogunleye (SS2 Tech)</option>
             <option value="chidubem">Chidubem Balogun (JSS3 Gold)</option>
@@ -524,17 +524,17 @@
                 <h3 id="reportSchoolName" class="font-serif text-xl sm:text-2xl font-bold text-brand-900 uppercase tracking-tight">
                   The Olive Branches Schools
                 </h3>
-                <p id="reportSchoolAddress" class="text-xs text-slate-600 font-mono mt-0.5">
+                <p id="reportSchoolAddress" class="text-xs text-slate-600 font-sans mt-0.5">
                   Oroki Estate Commercial Layout, Osogbo, Osun State, Nigeria
                 </p>
-                <p class="text-[11px] text-brand-700 font-mono font-semibold">
+                <p class="text-[11px] text-brand-700 font-sans font-semibold">
                   Accredited by Osun State Ministry of Education & Cambridge International
                 </p>
               </div>
             </div>
 
             <!-- Report Status & Academic Term -->
-            <div class="text-center sm:text-right font-mono text-xs">
+            <div class="text-center sm:text-right font-sans text-xs">
               <span class="inline-block px-3 py-1 rounded bg-brand-50 text-brand-800 border border-brand-200 font-bold mb-1">
                 FIRST TERM 2025/2026 RESULT SLIP
               </span>
@@ -546,7 +546,7 @@
         </div>
 
         <!-- Student Biodata Bar -->
-        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 font-mono text-xs">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 font-sans text-xs">
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
               <span class="text-slate-400 text-[10px] uppercase block">STUDENT NAME</span>
@@ -568,7 +568,7 @@
         </div>
 
         <!-- Metric KPI Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 font-mono text-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 font-sans text-xs">
           <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
             <span class="text-slate-500 text-[10px] block">TOTAL WEIGHTED GPA</span>
             <span id="cardStudentGpa" class="text-2xl font-bold text-brand-900 block mt-0.5">92.4%</span>
@@ -593,7 +593,7 @@
 
         <!-- Subject Scores Table -->
         <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
-          <table class="w-full text-left font-mono text-xs">
+          <table class="w-full text-left font-sans text-xs tracking-normal">
             <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
               <tr>
                 <th class="py-3 px-4">SUBJECT</th>
@@ -613,7 +613,7 @@
         </div>
 
         <!-- Remarks & Official Seals -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200 font-mono text-xs">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200 font-sans text-xs">
           
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
             <span class="text-slate-400 text-[10px] uppercase font-bold block">CLASS TEACHER'S REMARK:</span>
@@ -650,7 +650,7 @@
 
         </div>
 
-        <div class="mt-6 pt-3 border-t border-slate-200 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-500">
+        <div class="mt-6 pt-3 border-t border-slate-200 flex flex-wrap items-center justify-between text-[11px] font-sans text-slate-500">
           <span>Resumption Date: Monday, 12th January 2026</span>
           <span>EduCore School Operating System · Official Document</span>
         </div>
@@ -667,7 +667,7 @@
       
       <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span class="text-xs font-mono text-brand-700 font-bold uppercase tracking-wider block">
+          <span class="text-xs font-sans text-brand-700 font-bold uppercase tracking-wider block">
             BURSARY & ACCOUNTING CLEARANCE
           </span>
           <h2 class="font-serif text-2xl font-bold text-brand-900">
@@ -678,7 +678,7 @@
           </p>
         </div>
 
-        <div class="font-mono text-xs flex items-center gap-4">
+        <div class="font-sans text-xs flex items-center gap-4">
           <div class="text-right">
             <span class="text-slate-400 text-[10px] block">TOTAL TERM BILL</span>
             <span class="text-slate-900 font-bold text-sm">₦185,000.00</span>
@@ -695,14 +695,14 @@
       <!-- Itemized Schedule & Payment Card -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card space-y-6">
         
-        <div class="flex items-center justify-between border-b border-slate-200 pb-4 font-mono text-xs">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4 font-sans text-xs">
           <span class="font-bold text-slate-800">1st Term 2025/2026 Itemized Breakdown</span>
           <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-800 font-bold border border-emerald-200">
             OFFICIAL RECEIPT #PSTK-2026-8941
           </span>
         </div>
 
-        <div class="space-y-3 font-mono text-xs">
+        <div class="space-y-3 font-sans text-xs">
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
             <div>
               <strong class="text-slate-900 block">Senior Secondary Academic Tuition</strong>
@@ -737,7 +737,7 @@
         </div>
 
         <!-- Clearance Footer & Actions -->
-        <div class="p-5 rounded-2xl bg-brand-50 border border-brand-200 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+        <div class="p-5 rounded-2xl bg-brand-50 border border-brand-200 flex flex-wrap items-center justify-between gap-4 font-sans text-xs">
           <div>
             <div class="text-brand-900 font-bold flex items-center gap-1.5">
               <i class="fa-solid fa-shield-halved text-emerald-600"></i>
@@ -773,7 +773,7 @@
       <!-- AI Foundry Header (Clean Editorial Style) -->
       <div class="bg-gradient-to-r from-brand-900 via-indigo-950 to-brand-900 text-white rounded-3xl p-6 sm:p-10 shadow-card">
         <div class="max-w-3xl space-y-3">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-academic-gold-light text-xs font-mono font-bold">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-academic-gold-light text-xs font-sans font-bold">
             <i class="fa-solid fa-microchip"></i>
             Co-Curricular Technology Excellence Track
           </div>
@@ -783,7 +783,7 @@
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
             Designed and instructed by systems engineer <strong>Olumide Adeyemi-Nana</strong>. Rather than passive computer training, students learn how algorithms, large language models, and cloud applications actually work from first principles.
           </p>
-          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-200">
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-sans text-slate-200">
             <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Weekly Hands-On Coding Lab</span>
             <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Real Python & Model Deployment</span>
             <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> International University Portfolio</span>
@@ -794,7 +794,7 @@
       <!-- Live Student Projects Showcase -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card space-y-6">
         <div>
-          <span class="text-xs font-mono text-indigo-700 font-bold uppercase tracking-wider block">
+          <span class="text-xs font-sans text-indigo-700 font-bold uppercase tracking-wider block">
             STUDENT ENGINEERING GALLERY
           </span>
           <h3 class="font-serif text-2xl font-bold text-brand-900">
@@ -805,7 +805,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans text-xs">
           
           <!-- Project 1: AI Biology Tutor -->
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 flex flex-col justify-between">
@@ -859,7 +859,7 @@
           <h4 class="font-serif text-lg font-bold text-brand-900">
             Termly 12-Week Engineering Syllabus
           </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans text-xs">
             <div class="p-3 bg-white rounded-xl border border-slate-200">
               <strong class="text-brand-700 block mb-1">Weeks 1 – 4: Foundations</strong>
               <span class="text-slate-600 text-[11px] block">Prompt engineering, system personas, boolean decision trees.</span>
@@ -901,7 +901,7 @@
         Enter the student's registered name or identification number and secret access PIN to access the academic terminal.
       </p>
 
-      <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-mono text-xs">
+      <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-sans text-xs">
         <div>
           <label class="block text-slate-600 text-[11px] font-bold mb-1">STUDENT ID OR NAME:</label>
           <input id="loginInputId" required type="text" value="Farouq Adeyemi" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 font-bold focus:outline-none focus:border-brand-600">
@@ -930,7 +930,7 @@
   <!-- ========================================================================= -->
   <!-- PAYSTACK CHECKOUT SIMULATOR MODAL                                         -->
   <!-- ========================================================================= -->
-  <div id="paystackModal" class="fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 font-mono">
+  <div id="paystackModal" class="fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 font-sans">
     <div id="paystackCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-5 scale-95 transition-all duration-300">
       
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
@@ -979,12 +979,12 @@
         <p class="text-slate-400 text-xs leading-relaxed max-w-md">
           Providing British-Nigerian academic excellence and forward-looking technology education for future leaders across Africa and the world.
         </p>
-        <p class="text-[11px] text-slate-500 font-mono">
+        <p class="text-[11px] text-slate-500 font-sans">
           System Architecture by <strong>Olumide Adeyemi-Nana</strong> (Lead Systems Engineer).
         </p>
       </div>
 
-      <div class="space-y-2 font-mono">
+      <div class="space-y-2 font-sans">
         <strong class="text-white block mb-2 font-serif text-sm">Campus Links</strong>
         <a href="javascript:navigateTo('home')" class="text-slate-400 hover:text-white block">Campus Overview</a>
         <a href="javascript:navigateTo('news')" class="text-slate-400 hover:text-white block">News & Activities</a>
@@ -992,7 +992,7 @@
         <a href="javascript:navigateTo('tuition')" class="text-slate-400 hover:text-white block">Online Bursary</a>
       </div>
 
-      <div class="space-y-2 font-mono">
+      <div class="space-y-2 font-sans">
         <strong class="text-white block mb-2 font-serif text-sm">Technology Platforms</strong>
         <a href="https://olumide-portfolio-ten.vercel.app" target="_blank" class="text-academic-gold-light hover:underline block">Lead Engineer Portfolio ↗</a>
         <a href="https://video-assembler-saas.vercel.app" target="_blank" class="text-indigo-400 hover:underline block">AuraCut Media Studio ↗</a>
@@ -1001,7 +1001,7 @@
 
     </div>
 
-    <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-brand-800 text-[11px] text-slate-500 font-mono flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-brand-800 text-[11px] text-slate-500 font-sans flex flex-col sm:flex-row items-center justify-between gap-2">
       <div>© 2026 The Olive Branches Schools. All rights reserved.</div>
       <div>Accredited by Osun State Ministry of Education</div>
     </div>
