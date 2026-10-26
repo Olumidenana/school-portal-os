@@ -2025,7 +2025,7 @@
         </div>
       </div>
 
-      <!-- Eliminating Bank Teller Queues Notice -->
+            <!-- Eliminating Bank Teller Queues Notice -->
       <div class="bg-amber-50/90 border border-amber-300 rounded-2xl p-3 mb-4 space-y-1">
         <div class="flex items-center space-x-1.5 font-bold text-amber-900 text-xs">
           <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
@@ -2034,6 +2034,32 @@
         <p class="text-[11px] text-amber-950/80 leading-relaxed">
           Parents pay in 30 seconds via Card, Bank Transfer, or USSD from their phone. School bursary records reconcile automatically in real-time—eliminating bank queues for parents and manual spreadsheet reconciliation for teachers and bursars.
         </p>
+      </div>
+
+      <!-- Paystack Test Key Indicator / Configurator -->
+      <div class="bg-gray-50 border border-gray-200 rounded-2xl p-3 mb-4 text-xs font-body space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-brand-deepNavy flex items-center space-x-1">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span>Paystack Gateway Mode:</span>
+          </span>
+          <button type="button" onclick="togglePaystackKeyInput()" class="text-blue-700 font-bold hover:underline text-[11px]">
+            Configure Test Key
+          </button>
+        </div>
+        <div id="paystack-key-input-container" class="hidden space-y-1.5 pt-1 border-t border-gray-200">
+          <label class="block text-[11px] text-gray-500 font-bold">Paste your Paystack Public Test Key (pk_test_...):</label>
+          <div class="flex space-x-2">
+            <input type="text" id="paystack-custom-key" placeholder="pk_test_xxxxxxxxxxxxxxxxxxxxxxxx" class="w-full p-2 bg-white border border-gray-300 rounded-xl text-xs font-mono">
+            <button type="button" onclick="saveCustomPaystackKey()" class="bg-brand-forest text-white font-bold px-3 py-1.5 rounded-xl text-xs">
+              Save
+            </button>
+          </div>
+          <p class="text-[10px] text-gray-400">Key is saved securely in your browser's local storage for real popup test checkout.</p>
+        </div>
+        <div id="paystack-key-status" class="text-[11px] text-gray-600 font-medium">
+          Status: <strong class="text-blue-700">Official Paystack Inline SDK Loaded (Test Mode Ready)</strong>
+        </div>
       </div>
 
       <form onsubmit="handlePaystackPayment(event)" class="space-y-4 font-body">
@@ -3104,7 +3130,7 @@
         student.receiptNo = genRef;
 
         // Re-render student dashboard
-        switchStudent(activeStudentKey);
+        switchStudent(activeStudentKey); updatePaystackStatus();
         switchPortalTab('fees');
 
         // Store receipt metadata
@@ -3171,7 +3197,7 @@
       alert(`🎉 TUITION CLEARANCE SUCCESSFUL!\n\nTransaction Reference: ${ref}\nStudent: ${studentName}\nAmount Settled: ₦${amount.toLocaleString()}.00\nStatus: 100% Cleared (Paystack Verified)\n\nA digital receipt has been dispatched to your email and synced to The Olive Branches Bursary records.`);
       
       // Re-render student dashboard to show live CLEARED badge and 0 balance!
-      switchStudent(activeStudentKey);
+      switchStudent(activeStudentKey); updatePaystackStatus();
       switchPortalTab('fees');
     }
 
