@@ -1,9 +1,8 @@
 {
   "name": "school-portal-os",
   "version": "1.0.0",
-  "description": "EduCore OS — Premier School, Parent & AI Academy Platform",
+  "description": "The Olive Branches Schools Portal & Web Platform",
   "scripts": {
-    "build": "echo 'Static build complete'",
     "start": "npx serve ."
   },
   "author": "Olumide Adeyemi-Nana",
