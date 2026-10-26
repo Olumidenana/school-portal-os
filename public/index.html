@@ -3,46 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Olive Branches Schools, Osogbo — Official Portal & Learning Management System</title>
-  <meta name="description" content="Official website and unified parent portal for The Olive Branches Schools, Osogbo. Real-time result checking, digital tuition payment, campus news, and Junior AI Academy.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  <title>The Olive Branches Schools, Osogbo — Excellence, Discipline & Values</title>
+  <meta name="description" content="Official website and unified E-Portal for The Olive Branches Schools, Osogbo. Pre-School, Junior School, Middle School, High School, online result checking, and digital fee payment.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
   
-  <!-- Prestigious Academic Typography: Plus Jakarta Sans (Modern Clean UI) + Playfair Display (Executive Editorial Headers) + JetBrains Mono -->
+  <!-- Prestigious Human Typography: Plus Jakarta Sans (Modern Executive Sans) + Playfair Display (Collegiate Editorial Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS CDN with The Olive Branches Official Color Palette -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
-            serif: ['Merriweather', 'Georgia', 'serif'],
-            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
           },
           colors: {
-            brand: {
-              50: '#F0F5FA',
-              100: '#E2ECF5',
-              200: '#C5D8EA',
-              600: '#1D4ED8', // Royal Blue
-              700: '#1E40AF',
-              800: '#172554',
-              900: '#0A192F', // Deep Oxford Navy
-              950: '#060E1A',
+            olive: {
+              50: '#F4F9F5',
+              100: '#E4F2E7',
+              200: '#CBE5D2',
+              600: '#2A7A4C',
+              700: '#1F613B',
+              800: '#16502F',
+              900: '#0E3B21', // Authentic Olive Branches Deep Green
+              950: '#072413',
             },
-            academic: {
-              gold: '#B45309',
-              'gold-light': '#F59E0B',
-              green: '#047857',
-              'green-light': '#10B981',
+            gold: {
+              DEFAULT: '#EAB308',
+              50: '#FEFCE8',
+              100: '#FEF9C3',
+              400: '#FACC15',
+              500: '#EAB308', // Authentic Olive Branches Gold
+              600: '#CA8A04',
+              700: '#A16207',
+            },
+            royal: {
+              900: '#0B2240',
+              950: '#061324',
             }
           }
         }
@@ -52,65 +57,56 @@
 
   <style>
     body {
-      background-color: #F8FAFC;
+      background-color: #FAFCF9;
       color: #1E293B;
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
     }
     .shadow-soft {
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 20px -2px rgba(14, 59, 33, 0.05), 0 2px 6px -1px rgba(14, 59, 33, 0.03);
     }
     .shadow-card {
-      box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+      box-shadow: 0 12px 32px -4px rgba(14, 59, 33, 0.08), 0 4px 12px -2px rgba(14, 59, 33, 0.03);
     }
-    .academic-crest {
-      background: linear-gradient(135deg, #0A192F 0%, #1E40AF 100%);
+    .olive-badge {
+      background: linear-gradient(135deg, #16502F 0%, #0E3B21 100%);
     }
 
-    /* Print Slip Styles */
     @media print {
-      body {
-        background: #FFFFFF !important;
-        color: #000000 !important;
-      }
-      .no-print {
-        display: none !important;
-      }
-      #printableSlip {
-        display: block !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
+      body { background: #FFFFFF !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      #printableSlip { display: block !important; width: 100% !important; margin: 0 !important; }
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-800 antialiased">
+<body class="min-h-screen flex flex-col font-sans antialiased text-slate-800">
 
-  <!-- TOP INSTITUTIONAL BAR -->
-  <div class="bg-brand-900 text-white text-xs font-sans py-2 px-4 border-b border-brand-800 no-print">
+  <!-- TOP BRAND CONTACT & DIRECT MESSAGING STRIP -->
+  <div class="bg-olive-900 text-white text-xs py-2 px-4 border-b border-olive-800 no-print">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-4 text-slate-300">
+      
+      <div class="flex items-center gap-5 text-slate-200">
         <span class="flex items-center gap-1.5">
-          <i class="fa-solid fa-location-dot text-academic-gold-light"></i>
-          Oroki Estate Commercial Layout, Osogbo, Osun State
+          <i class="fa-solid fa-location-dot text-gold-400"></i>
+          <span>Oroki Estate Commercial Layout, Osogbo, Osun State</span>
         </span>
         <span class="hidden md:inline-flex items-center gap-1.5">
-          <i class="fa-solid fa-phone text-academic-gold-light"></i>
-          +234 803 377 7549 · +234 706 256 8340
+          <i class="fa-solid fa-phone text-gold-400"></i>
+          <span>+234 803 377 7549 · +234 706 256 8340</span>
         </span>
       </div>
 
-      <!-- Quick School Switcher (For Multi-School Demonstration) -->
-      <div class="flex items-center gap-2">
-        <span class="text-slate-400 text-[11px] hidden sm:inline">Preview Institution:</span>
-        <select onchange="changeInstitution(this.value)" id="institutionSelect" class="bg-brand-950 text-white text-[11px] font-sans px-2.5 py-1 rounded border border-brand-700 focus:outline-none focus:border-blue-400 cursor-pointer">
-          <option value="olive">The Olive Branches Schools (Osogbo)</option>
-          <option value="roseful">Roseful International High School</option>
-          <option value="gof">GOF International School (Ogo-Oluwa)</option>
-          <option value="grange">Grange School (Benchmark Model)</option>
-        </select>
+      <!-- Instant Direct Messaging (No need to copy/paste phone numbers!) -->
+      <div class="flex items-center gap-3">
+        <button onclick="openDirectMessageModal('Inquiry regarding Admissions & E-Portal')" class="text-gold-300 hover:text-white font-semibold flex items-center gap-1.5 transition-colors">
+          <i class="fa-brands fa-whatsapp text-sm text-emerald-400"></i>
+          <span>Message School Directly</span>
+        </button>
+        <span class="text-olive-700 hidden sm:inline">|</span>
+        <button onclick="navigateTo('anthem')" class="text-slate-300 hover:text-white hidden sm:inline transition-colors">
+          <i class="fa-solid fa-music text-gold-400 text-[10px] mr-1"></i>School Anthem
+        </button>
       </div>
+
     </div>
   </div>
 
@@ -118,66 +114,72 @@
   <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
       
-      <!-- School Identity & Crest -->
+      <!-- Authentic School Crest & Brand -->
       <div class="flex items-center gap-3.5 cursor-pointer" onclick="navigateTo('home')">
-        <div id="schoolCrest" class="w-12 h-12 rounded-xl academic-crest flex items-center justify-center text-white text-2xl shadow-md border-2 border-white/20">
-          <i class="fa-solid fa-seedling"></i>
+        <div class="w-12 h-12 rounded-full olive-badge flex items-center justify-center text-white text-2xl shadow-md border-2 border-gold-400 shrink-0">
+          <i class="fa-solid fa-seedling text-gold-300"></i>
         </div>
         <div>
-          <h1 id="headerSchoolName" class="font-serif font-bold text-lg sm:text-xl text-brand-900 tracking-tight leading-snug">
-            The Olive Branches Schools
-          </h1>
-          <p id="headerSchoolMotto" class="text-xs text-slate-500 font-sans italic">
-            "Excellence, Integrity & Service" · Founded 2004
+          <div class="flex items-center gap-2">
+            <h1 class="font-serif font-bold text-lg sm:text-xl text-olive-900 tracking-tight leading-tight">
+              The Olive Branches Schools
+            </h1>
+            <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-olive-100 text-olive-800 border border-olive-200">
+              OSOGBO
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 italic">
+            "Quality Education Rooted In Excellence, Discipline, And Values"
           </p>
         </div>
       </div>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 text-sm font-semibold text-slate-600">
-        <button onclick="navigateTo('home')" id="nav-home" class="nav-link px-3.5 py-2 rounded-lg text-brand-700 bg-brand-50 hover:bg-brand-50 transition-colors">
-          Campus Home
+      <!-- Navigation Tabs (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-600">
+        <button onclick="navigateTo('home')" id="nav-home" class="nav-item px-3.5 py-2 rounded-xl text-olive-800 bg-olive-50 hover:bg-olive-50 transition-colors">
+          Home
         </button>
-        <button onclick="navigateTo('news')" id="nav-news" class="nav-link px-3.5 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition-colors">
+        <button onclick="navigateTo('news')" id="nav-news" class="nav-item px-3.5 py-2 rounded-xl hover:text-olive-800 hover:bg-slate-50 transition-colors">
           News & Activities
         </button>
-        <button onclick="navigateTo('portal')" id="nav-portal" class="nav-link px-3.5 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition-colors">
-          Student Portal
+        <button onclick="navigateTo('media')" id="nav-media" class="nav-item px-3.5 py-2 rounded-xl hover:text-olive-800 hover:bg-slate-50 transition-colors">
+          Photo & Video Gallery
         </button>
-        <button onclick="navigateTo('tuition')" id="nav-tuition" class="nav-link px-3.5 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition-colors">
-          Pay School Fees
+        <button onclick="navigateTo('portal')" id="nav-portal" class="nav-item px-3.5 py-2 rounded-xl hover:text-olive-800 hover:bg-slate-50 transition-colors">
+          E-Portal / Results
         </button>
-        <button onclick="navigateTo('ailab')" id="nav-ailab" class="nav-link px-3.5 py-2 rounded-lg text-indigo-700 bg-indigo-50/60 hover:bg-indigo-50 transition-colors flex items-center gap-1.5">
-          <i class="fa-solid fa-microchip text-xs"></i>
-          Junior AI Lab
+        <button onclick="navigateTo('tuition')" id="nav-tuition" class="nav-item px-3.5 py-2 rounded-xl hover:text-olive-800 hover:bg-slate-50 transition-colors">
+          Pay Fees
+        </button>
+        <button onclick="navigateTo('anthem')" id="nav-anthem" class="nav-item px-3.5 py-2 rounded-xl hover:text-olive-800 hover:bg-slate-50 transition-colors">
+          Anthem & Creed
         </button>
       </nav>
 
-      <!-- Action Buttons: Parent Login & Admissions -->
+      <!-- Action Buttons -->
       <div class="flex items-center gap-2.5">
-        <button onclick="openLoginModal()" id="btnLoginTop" class="px-3.5 py-2 rounded-lg border border-slate-300 hover:border-brand-600 text-slate-700 hover:text-brand-700 text-xs font-semibold font-sans transition-all flex items-center gap-1.5">
-          <i class="fa-solid fa-lock text-[10px]"></i>
+        <button onclick="openPortalLoginModal()" class="px-3.5 py-2 rounded-xl border border-olive-700/30 hover:border-olive-800 text-olive-800 text-xs font-semibold transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-lock text-xs text-gold-600"></i>
           <span>Parent Login</span>
         </button>
-        <button onclick="openAdmissionsModal()" class="px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5">
-          <i class="fa-solid fa-user-graduate"></i>
-          <span class="hidden sm:inline">Admissions 2025/2026</span>
-          <span class="sm:hidden">Admissions</span>
+        <button onclick="navigateTo('admission')" class="px-4 py-2 rounded-xl bg-gold-500 hover:bg-gold-600 active:scale-95 text-olive-950 font-bold text-xs shadow-sm transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Begin Admission</span>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION BAR (Sticky Bottom for Ease of Access) -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-3 py-2 flex items-center justify-around text-[10px] font-semibold text-slate-500 shadow-lg no-print">
-    <button onclick="navigateTo('home')" id="mob-home" class="flex flex-col items-center gap-1 text-brand-700">
+  <!-- MOBILE BOTTOM BAR -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-3 py-2 flex items-center justify-around text-[10px] font-semibold text-slate-500 shadow-lg no-print">
+    <button onclick="navigateTo('home')" id="mob-home" class="flex flex-col items-center gap-1 text-olive-800 font-bold">
       <i class="fa-solid fa-landmark text-base"></i>
-      <span>Campus</span>
+      <span>Home</span>
     </button>
     <button onclick="navigateTo('news')" id="mob-news" class="flex flex-col items-center gap-1">
       <i class="fa-solid fa-newspaper text-base"></i>
-      <span>Activities</span>
+      <span>News</span>
     </button>
     <button onclick="navigateTo('portal')" id="mob-portal" class="flex flex-col items-center gap-1">
       <i class="fa-solid fa-file-invoice text-base"></i>
@@ -185,289 +187,302 @@
     </button>
     <button onclick="navigateTo('tuition')" id="mob-tuition" class="flex flex-col items-center gap-1">
       <i class="fa-solid fa-credit-card text-base"></i>
-      <span>Fees</span>
+      <span>Pay Fees</span>
     </button>
-    <button onclick="navigateTo('ailab')" id="mob-ailab" class="flex flex-col items-center gap-1 text-indigo-700">
-      <i class="fa-solid fa-robot text-base"></i>
-      <span>AI Lab</span>
+    <button onclick="openDirectMessageModal('Quick message from website parent')" class="flex flex-col items-center gap-1 text-emerald-600 font-bold">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span>Chat School</span>
     </button>
   </div>
 
-  <!-- LIVE TICKER & CAMPUS ANNOUNCEMENT STRIP -->
-  <div class="bg-amber-50 border-b border-amber-200 py-2 px-4 no-print">
-    <div class="max-w-7xl mx-auto flex items-center gap-3 text-xs text-amber-900 font-sans">
-      <span class="px-2 py-0.5 rounded bg-amber-200/70 font-sans text-[10px] font-bold tracking-wide uppercase shrink-0">
-        NOTICE BOARD
-      </span>
-      <div class="overflow-hidden whitespace-nowrap text-ellipsis flex-1">
-        <span class="font-medium">1st Term Examination Results are now live on the parent terminal.</span>
-        <span class="text-slate-400 mx-2">|</span>
-        <span>Mid-Term Resumption: Monday, 12th January 2026.</span>
-        <span class="text-slate-400 mx-2">|</span>
-        <span>Junior AI & Robotics Club registration is open for Senior & Junior classes.</span>
+  <!-- NOTICE BOARD BANNER -->
+  <div class="bg-amber-50 border-b border-amber-200/80 py-2 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs text-amber-950">
+      <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+        <span class="px-2 py-0.5 rounded bg-amber-200/80 font-bold text-[10px] uppercase tracking-wider text-amber-900 shrink-0">
+          CAMPUS DISPATCH
+        </span>
+        <span class="text-ellipsis overflow-hidden font-medium">
+          First Term Examination Results are live on E-Portal · Mid-Term Resumption: Monday, 12th January 2026 · Admission in progress for 2025/2026.
+        </span>
       </div>
-      <button onclick="navigateTo('portal')" class="text-amber-900 font-bold hover:underline shrink-0 hidden sm:inline">
-        Check Report →
+      <button onclick="navigateTo('portal')" class="text-olive-900 font-bold hover:underline shrink-0 hidden sm:inline">
+        Check Result Slip →
       </button>
     </div>
   </div>
 
-  <!-- MAIN BODY CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20 md:pb-12">
+  <!-- MAIN BODY CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 lg:pb-12 space-y-12">
 
     <!-- ========================================================================= -->
-    <!-- SECTION 1: CAMPUS HOME & OVERVIEW                                         -->
+    <!-- VIEW 1: CAMPUS HOME PAGE                                                 -->
     <!-- ========================================================================= -->
-    <div id="section-home" class="space-y-10 animate-fade">
+    <div id="view-home" class="space-y-12">
       
-      <!-- Prestige Hero Banner (White Background, Clean Editorial Grid) -->
+      <!-- HERO BANNER (Authentic Olive Branches Visual Identity) -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-12 shadow-card relative overflow-hidden">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
           <div class="lg:col-span-7 space-y-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-semibold">
-              <span class="w-2 h-2 rounded-full bg-brand-600"></span>
-              2025/2026 Academic Session · Full Government & Cambridge Accreditation
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-olive-50 border border-olive-200 text-olive-800 text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+              Guided by Faith, Grounded in Excellence, Focused on the Future
             </div>
 
-            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-900 tracking-tight leading-[1.15]">
-              Inspiring Academic Rigour, Christian Values & 21st-Century Innovation.
+            <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-olive-900 tracking-tight leading-[1.15]">
+              The Olive Branches <span class="text-gold-600">Schools, Osogbo.</span>
             </h2>
 
             <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
-              At <strong id="heroSchoolText" class="text-slate-900">The Olive Branches Schools</strong>, we provide secondary education that combines traditional discipline and British-Nigerian academic excellence with cutting-edge software engineering and artificial intelligence literacy.
+              Quality Education Rooted In Excellence, Discipline, And Values. Providing world-class British and Nigerian curricula across Pre-School, Junior School, Middle School, and High School with moral uprightness and future-ready technology literacy.
             </p>
 
             <div class="flex flex-wrap items-center gap-3 pt-2">
-              <button onclick="navigateTo('portal')" class="px-6 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-semibold text-sm shadow-md transition-all flex items-center gap-2">
-                <i class="fa-solid fa-id-card"></i>
+              <button onclick="navigateTo('admission')" class="px-6 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-600 text-olive-950 font-bold text-sm shadow-md transition-all flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Begin Admission Online</span>
+              </button>
+              <button onclick="navigateTo('portal')" class="px-5 py-3.5 rounded-xl bg-olive-900 hover:bg-olive-800 text-white font-semibold text-sm shadow-md transition-all flex items-center gap-2">
+                <i class="fa-solid fa-file-invoice"></i>
                 <span>Check Student Results</span>
               </button>
-              <button onclick="navigateTo('tuition')" class="px-5 py-3 rounded-xl bg-white border border-slate-300 hover:border-brand-600 text-slate-700 hover:text-brand-700 font-semibold text-sm transition-all flex items-center gap-2">
-                <i class="fa-solid fa-receipt text-slate-500"></i>
-                <span>Pay School Fees Online</span>
+              <button onclick="openDirectMessageModal('Parent Inquiry')" class="px-5 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-emerald-600 text-slate-700 hover:text-emerald-700 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i>
+                <span>Direct Message to School</span>
               </button>
-              <button onclick="navigateTo('news')" class="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
-                <i class="fa-solid fa-calendar-days text-slate-500"></i>
-                <span>School Activities</span>
-              </button>
+            </div>
+
+            <!-- Parent Rating & Accreditation -->
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-4 text-xs text-slate-500">
+              <div class="flex items-center text-gold-500 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span>Rated #1 Private School in Osogbo by Parents & WAEC Distinction</span>
             </div>
           </div>
 
-          <!-- Academic Quick Glance Card -->
-          <div class="lg:col-span-5 bg-gradient-to-br from-brand-900 to-brand-800 rounded-2xl p-6 sm:p-8 text-white shadow-xl space-y-6">
-            <div class="border-b border-white/10 pb-4">
-              <span class="text-xs font-sans text-academic-gold-light uppercase tracking-wider block mb-1">
-                EXECUTIVE DIRECTOR'S STATEMENT
-              </span>
-              <h3 class="font-serif text-xl font-bold text-white">
-                "Raising Thought Leaders for a Global Century."
-              </h3>
+          <!-- Academic Wings Summary (4 Cards like the real site, but elevated!) -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-3.5">
+            
+            <div class="p-4 rounded-2xl bg-olive-50 border border-olive-200/80 space-y-1.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-olive-700 text-white flex items-center justify-center font-bold text-xs">
+                A B C
+              </div>
+              <h4 class="font-serif font-bold text-olive-900 text-sm">The Pre-School</h4>
+              <p class="text-[11px] text-slate-600 leading-snug">
+                A warm, safe, and stimulating environment for young learners.
+              </p>
             </div>
 
-            <p class="text-sm text-slate-300 leading-relaxed font-normal italic">
-              "We believe that education must go beyond rote textbook memorization. Every student who passes through our gates is equipped with ethical character, scientific clarity, and practical technology mastery."
+            <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 space-y-1.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center font-bold text-xs">
+                A B C
+              </div>
+              <h4 class="font-serif font-bold text-amber-950 text-sm">The Junior School</h4>
+              <p class="text-[11px] text-slate-600 leading-snug">
+                Developing core academic & numeracy skills via balanced curriculum.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200/80 space-y-1.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-purple-700 text-white flex items-center justify-center font-bold text-xs">
+                A B C
+              </div>
+              <h4 class="font-serif font-bold text-purple-950 text-sm">The Middle School</h4>
+              <p class="text-[11px] text-slate-600 leading-snug">
+                Bridges primary and secondary education with foundational science.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 space-y-1.5 shadow-sm">
+              <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-xs">
+                A B C
+              </div>
+              <h4 class="font-serif font-bold text-emerald-950 text-sm">The High School</h4>
+              <p class="text-[11px] text-slate-600 leading-snug">
+                Prepares students for Cambridge, WAEC, NECO, and international university pathways.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- WELCOME MESSAGE FROM THE TRUSTEES (Real Authentic Content from their site!) -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-soft">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 shadow-md border border-slate-200">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="The Olive Branches Students" class="w-full h-full object-cover">
+          </div>
+
+          <div class="lg:col-span-7 space-y-4">
+            <span class="text-xs font-bold text-gold-600 tracking-wider uppercase block">
+              MESSAGE FROM THE TRUSTEES
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-olive-900 leading-snug">
+              "Per Angusta Ad Augusta — Through Difficulty to Greatness."
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed font-normal">
+              We, the Trustees of The Olive Branches Schools, are daily grateful to be a part of the lives of the staff and children who walk through the school gates. Our children and staff are the heritage of The Lord, and we daily confess that they will be signs and wonders according to Isaiah 8:18 of the Holy Bible.
+            </p>
+            <p class="text-sm text-slate-600 leading-relaxed font-normal">
+              Over the years, we have stood for the values of transparency and an aversion to false facades in academic evaluation. Our Latin creed represents the resilient heritage we hand over to our learners.
             </p>
 
-            <div class="pt-2 flex items-center justify-between border-t border-white/10 text-xs font-sans text-slate-300">
+            <div class="pt-2 flex items-center justify-between text-xs font-serif text-olive-900 border-t border-slate-100">
               <div>
-                <span id="directorName" class="text-white font-bold block">Dr. (Mrs.) F. A. Omigbodun</span>
-                <span class="text-slate-400">Proprietor / Executive Director</span>
+                <span class="font-bold text-sm block">Dr. (Mrs.) F. A. Omigbodun</span>
+                <span class="text-slate-500 font-sans">Executive Director & Proprietor</span>
               </div>
-              <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg text-academic-gold-light">
-                <i class="fa-solid fa-stamp"></i>
-              </div>
-            </div>
-
-            <!-- Key Metric Counters -->
-            <div class="grid grid-cols-3 gap-2 pt-2 text-center font-sans">
-              <div class="p-2.5 rounded-lg bg-white/5">
-                <span class="text-xl font-bold text-academic-gold-light block">100%</span>
-                <span class="text-[10px] text-slate-400 uppercase">WAEC Pass</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-white/5">
-                <span class="text-xl font-bold text-white block">1:12</span>
-                <span class="text-[10px] text-slate-400 uppercase">Class Ratio</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-white/5">
-                <span class="text-xl font-bold text-emerald-400 block">24/7</span>
-                <span class="text-[10px] text-slate-400 uppercase">Fiber & Solar</span>
-              </div>
+              <button onclick="navigateTo('anthem')" class="text-gold-700 font-sans font-bold hover:underline">
+                Read School Song & Creed →
+              </button>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
-      <!-- Institutional Pillars (Three Clear Panels) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-700 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-microscope"></i>
-          </div>
-          <h3 class="font-serif text-lg font-bold text-slate-900">Advanced STEM Laboratories</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Fully equipped Physics, Chemistry, and Biology laboratories enabling students to conduct individual experimental research required for Cambridge IGCSE and WAEC Distinction.
-          </p>
-          <div class="pt-2 text-xs font-sans font-semibold text-brand-700 flex items-center gap-1">
-            <span>Explore Science Curriculum</span>
-            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </div>
+      <!-- SCHOOL FACILITIES: WHAT YOU ENJOY HERE (Real facilities from site) -->
+      <div class="space-y-6">
+        <div class="text-center max-w-2xl mx-auto space-y-1">
+          <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">CAMPUS FACILITIES</span>
+          <h3 class="font-serif text-3xl font-bold text-olive-900">What You Enjoy at The Olive Branches</h3>
+          <p class="text-xs text-slate-500">World-class infrastructure designed to make every child safe, happy, and academically fulfilled.</p>
         </div>
 
-        <div class="bg-white rounded-2xl border border-indigo-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-brain"></i>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-olive-50 text-olive-800 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <h4 class="font-serif font-bold text-slate-900 text-base">Guidance Counselling</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Professional support to help students with academic, personal, and career choices development.
+            </p>
           </div>
-          <h3 class="font-serif text-lg font-bold text-slate-900">The Junior AI Innovation Lab</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Directed by software systems engineer <strong>Olumide Adeyemi-Nana</strong>. Students transition from consumers to creators—building real Python applications, prompt models, and computer vision tools.
-          </p>
-          <div class="pt-2 text-xs font-sans font-semibold text-indigo-700 flex items-center gap-1 cursor-pointer" onclick="navigateTo('ailab')">
-            <span>Discover The AI Club</span>
-            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </div>
-        </div>
 
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-amber-50 text-academic-gold flex items-center justify-center text-xl">
-            <i class="fa-solid fa-chess-knight"></i>
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-800 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <h4 class="font-serif font-bold text-slate-900 text-base">Modern Classrooms</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Well-equipped, child-friendly classrooms designed to support effective teaching and learning at every stage.
+            </p>
           </div>
-          <h3 class="font-serif text-lg font-bold text-slate-900">Leadership, Arts & Civic Ethics</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Fostering confident public speakers, literary critics, musicians, and collegiate debaters. Grounded in moral discipline and preparation for international university scholarships.
-          </p>
-          <div class="pt-2 text-xs font-sans font-semibold text-academic-gold flex items-center gap-1">
-            <span>Student Societies & Clubs</span>
-            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </div>
-        </div>
 
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-van-shuttle"></i>
+            </div>
+            <h4 class="font-serif font-bold text-slate-900 text-base">Bus / Car Service</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Safe and reliable school transportation ensuring convenient pick-up and drop-off for students across Osogbo.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft hover:shadow-card transition-shadow space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-800 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <h4 class="font-serif font-bold text-slate-900 text-base">Science & Tech Labs</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Fully functional laboratories where students safely explore, experiment, and develop strong scientific and AI skills.
+            </p>
+          </div>
+
+        </div>
       </div>
 
     </div>
 
 
     <!-- ========================================================================= -->
-    <!-- SECTION 2: NEWS, UPCOMING ACTIVITIES & CAMPUS LIFE (Parent Follow-Up Hub) -->
+    <!-- VIEW 2: NEWS, CAMPUS ACTIVITIES & EVENTS                                  -->
     <!-- ========================================================================= -->
-    <div id="section-news" class="hidden space-y-8 animate-fade">
+    <div id="view-news" class="hidden space-y-8">
       
-      <!-- News Hub Header -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <span class="text-xs font-sans text-brand-700 uppercase font-bold tracking-wider">
-            CAMPUS DISPATCH & EVENTS
-          </span>
-          <h2 class="font-serif text-3xl font-bold text-brand-900 mt-1">
-            School Activities, News & Term Updates
-          </h2>
-          <p class="text-sm text-slate-600 mt-1">
-            Stay connected with student achievements, sports fixtures, and important academic announcements.
-          </p>
+          <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">CAMPUS DISPATCH & EVENTS</span>
+          <h2 class="font-serif text-3xl font-bold text-olive-900 mt-1">School Activities, News & Articles</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Parents can check all ongoing academic events, sports championships, and exam schedules.</p>
         </div>
 
-        <div class="flex items-center gap-2 font-sans text-xs">
-          <button onclick="filterNews('all')" id="filter-all" class="px-3 py-1.5 rounded-lg bg-brand-700 text-white font-semibold">All Updates</button>
-          <button onclick="filterNews('academic')" id="filter-academic" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50">Academic</button>
-          <button onclick="filterNews('activities')" id="filter-activities" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50">Activities & Sports</button>
-        </div>
+        <button onclick="openDirectMessageModal('Inquiry regarding upcoming school event')" class="px-4 py-2 rounded-xl bg-olive-900 text-white font-semibold text-xs hover:bg-olive-800 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-calendar-plus text-gold-400"></i>
+          <span>Ask Management About Events</span>
+        </button>
       </div>
 
-      <!-- Feature News Banner -->
-      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-5 rounded-2xl overflow-hidden bg-slate-100 aspect-video md:aspect-auto h-full min-h-[220px] relative flex items-center justify-center text-slate-400">
-          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" alt="Science Laboratory" class="w-full h-full object-cover">
-          <div class="absolute top-3 left-3 bg-brand-900 text-white font-sans text-[10px] font-bold px-2.5 py-1 rounded">
-            FEATURED DISPATCH
-          </div>
-        </div>
-
-        <div class="md:col-span-7 space-y-3">
-          <div class="flex items-center gap-2 text-xs font-sans text-slate-500">
-            <span>22 OCTOBER 2026</span>
-            <span>•</span>
-            <span class="text-brand-700 font-bold">SCIENCE & TECHNOLOGY</span>
-          </div>
-          <h3 class="font-serif text-2xl font-bold text-brand-900 leading-snug">
-            The Olive Branches Secondary Achieves 100% Distinction in Osun State Mathematics Olympiad
-          </h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Our Senior Secondary candidates Farouq Adeyemi and Tiwalola Ogunleye have emerged 1st and 2nd overall in the state level qualifiers. Both students represent the school at the national finals in Abuja this December.
-          </p>
-          <div class="pt-2 flex items-center gap-4 text-xs font-sans">
-            <span class="text-emerald-700 font-semibold"><i class="fa-solid fa-trophy mr-1"></i> First Position Award</span>
-            <span class="text-slate-400">Read by 420 Parents</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- News & Upcoming Activities Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Activity Card 1 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft hover:shadow-card transition-all space-y-3">
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
-            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="Students in Classroom" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop" alt="Exams" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
-            <span class="text-brand-700 font-bold">EXAMINATIONS</span>
-            <span>15 NOV 2026</span>
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <span class="text-olive-800 font-bold">EXAMINATION UPDATE</span>
+            <span>9 February 2026</span>
           </div>
-          <h4 class="font-serif text-base font-bold text-brand-900 leading-snug">
-            1st Term Examination Report Slips Now Available Online
+          <h4 class="font-serif text-base font-bold text-olive-900 leading-snug">
+            Congratulations! The Olive Branches Schools Awarded for Academic Integrity
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed">
-            Parents can now inspect and download verified digital result sheets with GPA calculations directly on the student terminal without paper slips.
+            Huge congratulations to Olive Branches Schools, Osogbo, Nigeria on being recognized for outstanding moral and academic evaluation in Osun State.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
-            <button onclick="navigateTo('portal')" class="text-brand-700 font-bold hover:underline">
-              Check Result Slip →
-            </button>
-          </div>
+          <button onclick="navigateTo('portal')" class="text-xs text-olive-800 font-bold hover:underline">
+            Inspect Student Results →
+          </button>
         </div>
 
-        <!-- Activity Card 2 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft hover:shadow-card transition-all space-y-3">
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" alt="Robotics & Coding" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" alt="AI & Robotics" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
-            <span class="text-indigo-700 font-bold">TECH & AI LAB</span>
-            <span>28 NOV 2026</span>
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <span class="text-gold-600 font-bold">INNOVATION & AI</span>
+            <span>28 November 2026</span>
           </div>
-          <h4 class="font-serif text-base font-bold text-brand-900 leading-snug">
-            Annual Junior AI & Software Demo Day Scheduled
+          <h4 class="font-serif text-base font-bold text-olive-900 leading-snug">
+            Junior AI & Software Club Masterclass Starts This Term
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed">
-            Secondary students will showcase their custom Python chatbots, computer vision detectors, and 2D games created in the weekly AI Innovation Lab to visiting parents.
+            Hands-on Python, artificial intelligence chatbots, and real computer vision projects introduced for Middle and High school classes.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
-            <button onclick="navigateTo('ailab')" class="text-indigo-700 font-bold hover:underline">
-              View AI Projects →
-            </button>
-          </div>
+          <button onclick="navigateTo('portal')" class="text-xs text-gold-700 font-bold hover:underline">
+            View AI Lab Track →
+          </button>
         </div>
 
-        <!-- Activity Card 3 -->
         <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft hover:shadow-card transition-all space-y-3">
           <div class="h-44 rounded-xl overflow-hidden bg-slate-100">
-            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" alt="Sports Field" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" alt="Excursion" class="w-full h-full object-cover">
           </div>
-          <div class="flex items-center justify-between text-xs font-sans text-slate-500">
-            <span class="text-academic-gold font-bold">INTER-HOUSE SPORTS</span>
-            <span>05 DEC 2026</span>
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <span class="text-emerald-700 font-bold">EDUCATIONAL TOUR</span>
+            <span>15 October 2026</span>
           </div>
-          <h4 class="font-serif text-base font-bold text-brand-900 leading-snug">
-            2026 Inter-House Athletics & March-Past Championship
+          <h4 class="font-serif text-base font-bold text-olive-900 leading-snug">
+            United Nations Club Tour to Osun Grove & London Trafalgar Square
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed">
-            Blue House (Integrity) defends their relay title against Red, Green, and Gold houses at the main sports complex. Parents and alumni cordially invited.
+            Students experienced cultural immersion at the UNESCO World Heritage Site as well as the annual international UK study excursion.
           </p>
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
-            <span class="text-slate-500">Sports Ground · 9:00 AM</span>
-          </div>
+          <button onclick="navigateTo('media')" class="text-xs text-emerald-800 font-bold hover:underline">
+            View Photo & Video Gallery →
+          </button>
         </div>
 
       </div>
@@ -476,69 +491,128 @@
 
 
     <!-- ========================================================================= -->
-    <!-- SECTION 3: STUDENT & PARENT RESULT PORTAL                                  -->
+    <!-- VIEW 3: PHOTO & VIDEO GALLERY (Campus Excursions, London Tour, Events)     -->
     <!-- ========================================================================= -->
-    <div id="section-portal" class="hidden space-y-6 animate-fade">
+    <div id="view-media" class="hidden space-y-8">
       
-      <!-- Student Terminal Top Card -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <span class="text-xs font-sans text-brand-700 font-bold uppercase tracking-wider block">
-            OFFICIAL ACADEMIC TERMINAL
-          </span>
-          <h2 class="font-serif text-2xl font-bold text-brand-900">
-            Student Report Sheet & Performance Audit
-          </h2>
-          <p class="text-xs text-slate-500 font-sans mt-0.5">
-            Tamper-proof digital grade transcription with official school signature and verification seal.
-          </p>
+      <div class="pb-6 border-b border-slate-200">
+        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">CAMPUS ARCHIVES</span>
+        <h2 class="font-serif text-3xl font-bold text-olive-900 mt-1">Photo & Video Gallery</h2>
+        <p class="text-xs text-slate-600 mt-0.5">Capturing moments of growth, excursions, international tours, and stage presentations.</p>
+      </div>
+
+      <!-- Photo Gallery Grid (Real events featured on their website) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-slate-200 aspect-square group relative">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=500&auto=format&fit=crop" alt="Students in blazer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-olive-950/80 via-transparent p-3 flex items-end text-white text-xs font-semibold">
+            High School Prefects Assembly
+          </div>
         </div>
 
-        <!-- Quick Switcher for Demo / Multiple Children -->
-        <div class="flex items-center gap-2 font-sans text-xs">
-          <span class="text-slate-500">Active Student:</span>
-          <select id="activeStudentSelector" onchange="switchStudent(this.value)" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 font-sans text-slate-800 font-medium focus:outline-none focus:border-brand-600">
-            <option value="farouq">Farouq Adeyemi (SS3 Science)</option>
-            <option value="tiwa">Tiwalola Ogunleye (SS2 Tech)</option>
-            <option value="chidubem">Chidubem Balogun (JSS3 Gold)</option>
-          </select>
-          <button onclick="printReportSlip()" class="px-3.5 py-1.5 rounded-lg bg-brand-700 hover:bg-brand-800 text-white font-bold transition-all flex items-center gap-1.5 shadow-sm">
-            <i class="fa-solid fa-print"></i>
-            <span>Print Slip</span>
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-slate-200 aspect-square group relative">
+          <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=500&auto=format&fit=crop" alt="UNESCO Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-olive-950/80 via-transparent p-3 flex items-end text-white text-xs font-semibold">
+            UNESCO World Heritage Excursion
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-slate-200 aspect-square group relative">
+          <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=500&auto=format&fit=crop" alt="Sparkle Nite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-olive-950/80 via-transparent p-3 flex items-end text-white text-xs font-semibold">
+            Sparkle Nite Annual Concert
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-slate-200 aspect-square group relative">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=500&auto=format&fit=crop" alt="London Trafalgar Square" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-olive-950/80 via-transparent p-3 flex items-end text-white text-xs font-semibold">
+            International Tour: Trafalgar Square, UK
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Video Presentation Box -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-olive-900">Campus Video Tour & Reading Circle</h3>
+            <p class="text-xs text-slate-500">Students participating in outdoor interactive literary and drama sessions.</p>
+          </div>
+          <span class="px-3 py-1 rounded bg-red-100 text-red-800 text-xs font-bold flex items-center gap-1.5">
+            <i class="fa-brands fa-youtube text-red-600"></i> YouTube Showcase
+          </span>
+        </div>
+
+        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 relative shadow-inner flex items-center justify-center">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover opacity-60">
+          <button onclick="alert('Playing The Olive Branches School Showcase Video on high-speed CDN')" class="absolute w-16 h-16 rounded-full bg-gold-500 text-olive-950 flex items-center justify-center text-xl shadow-xl hover:scale-110 active:scale-95 transition-all">
+            <i class="fa-solid fa-play ml-1"></i>
           </button>
         </div>
       </div>
 
-      <!-- OFFICIAL A4 REPORT SHEET (High-Contrast White Paper Layout) -->
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 4: E-PORTAL / STUDENT RESULT CHECKER                                 -->
+    <!-- ========================================================================= -->
+    <div id="view-portal" class="hidden space-y-6">
+      
+      <!-- Top Portal Bar -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-olive-800 uppercase tracking-wider block">OFFICIAL E-PORTAL TERMINAL</span>
+          <h2 class="font-serif text-2xl font-bold text-olive-900">Student Examination Report Sheet</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Tamper-proof digital transcript with official school seal and QR code verification.</p>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs font-sans">
+          <span class="text-slate-500">Select Student:</span>
+          <select id="studentPicker" onchange="loadStudent(this.value)" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-slate-800 font-semibold focus:outline-none focus:border-olive-700">
+            <option value="farouq">Farouq Adeyemi (SS3 Science)</option>
+            <option value="tiwa">Tiwalola Ogunleye (SS2 Tech)</option>
+            <option value="chidubem">Chidubem Balogun (JSS3 Gold)</option>
+          </select>
+          <button onclick="window.print()" class="px-3.5 py-1.5 rounded-lg bg-olive-900 text-white font-bold hover:bg-olive-800 transition-all flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-print"></i>
+            <span>Print Result</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PRINTABLE OFFICIAL REPORT SLIP (High-Contrast White Paper Formal Slip) -->
       <div id="printableSlip" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-card relative">
         
-        <!-- Official Institutional Letterhead -->
-        <div class="border-b-2 border-brand-900 pb-6 mb-6">
+        <!-- Report Header -->
+        <div class="border-b-2 border-olive-900 pb-6 mb-6">
           <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             
             <div class="flex items-center gap-4">
-              <div id="reportCrestBox" class="w-16 h-16 rounded-xl academic-crest text-white flex items-center justify-center text-3xl shadow border-2 border-white/20">
-                <i class="fa-solid fa-seedling"></i>
+              <div class="w-16 h-16 rounded-2xl olive-badge text-white flex items-center justify-center text-3xl shadow border-2 border-gold-400">
+                <i class="fa-solid fa-seedling text-gold-300"></i>
               </div>
               <div>
-                <h3 id="reportSchoolName" class="font-serif text-xl sm:text-2xl font-bold text-brand-900 uppercase tracking-tight">
-                  The Olive Branches Schools
+                <h3 class="font-serif text-xl sm:text-2xl font-bold text-olive-900 uppercase tracking-tight">
+                  The Olive Branches Schools, Osogbo
                 </h3>
-                <p id="reportSchoolAddress" class="text-xs text-slate-600 font-sans mt-0.5">
-                  Oroki Estate Commercial Layout, Osogbo, Osun State, Nigeria
+                <p class="text-xs text-slate-600 mt-0.5">
+                  Oroki Estate Commercial Layout, Along Oyinkan & Goke Omigbodun Way, Osogbo
                 </p>
-                <p class="text-[11px] text-brand-700 font-sans font-semibold">
-                  Accredited by Osun State Ministry of Education & Cambridge International
+                <p class="text-[11px] text-olive-800 font-bold">
+                  Accredited by Osun State Ministry of Education & Cambridge Assessment
                 </p>
               </div>
             </div>
 
-            <!-- Report Status & Academic Term -->
-            <div class="text-center sm:text-right font-sans text-xs">
-              <span class="inline-block px-3 py-1 rounded bg-brand-50 text-brand-800 border border-brand-200 font-bold mb-1">
+            <div class="text-center sm:text-right text-xs">
+              <span class="inline-block px-3 py-1 rounded bg-olive-50 text-olive-900 border border-olive-200 font-bold mb-1">
                 FIRST TERM 2025/2026 RESULT SLIP
               </span>
-              <div class="text-slate-600">Verification Hash: <span id="verifHash" class="font-bold text-brand-700">#OB-2026-90412</span></div>
+              <div class="text-slate-600">Verification Hash: <strong id="repHash" class="text-olive-800">#OB-2026-90412</strong></div>
               <div class="text-[11px] text-slate-500">Issued On: 24th October 2026</div>
             </div>
 
@@ -546,42 +620,42 @@
         </div>
 
         <!-- Student Biodata Bar -->
-        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 font-sans text-xs">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 text-xs">
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div>
-              <span class="text-slate-400 text-[10px] uppercase block">STUDENT NAME</span>
-              <strong id="cardStudentName" class="text-slate-900 font-bold text-sm">Adeyemi Farouq Oluwaseun</strong>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">STUDENT NAME</span>
+              <strong id="repName" class="text-slate-900 font-bold text-sm">Adeyemi Farouq Oluwaseun</strong>
             </div>
             <div>
-              <span class="text-slate-400 text-[10px] uppercase block">STUDENT ID / REG NO</span>
-              <strong id="cardStudentReg" class="text-brand-700 font-bold text-sm">OB/2024/084</strong>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">ADMISSION NO</span>
+              <strong id="repReg" class="text-olive-800 font-bold text-sm">OB/2024/084</strong>
             </div>
             <div>
-              <span class="text-slate-400 text-[10px] uppercase block">CLASS & ARM</span>
-              <strong id="cardStudentClass" class="text-slate-900 font-bold text-sm">SS 3 Science (Diamond)</strong>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">CLASS & ARM</span>
+              <strong id="repClass" class="text-slate-900 font-bold text-sm">SS 3 Science (Diamond)</strong>
             </div>
             <div>
-              <span class="text-slate-400 text-[10px] uppercase block">ATTENDANCE SUMMARY</span>
-              <strong id="cardStudentAttendance" class="text-emerald-700 font-bold text-sm">118 / 120 Days (98.3%)</strong>
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">ATTENDANCE</span>
+              <strong id="repAtt" class="text-emerald-700 font-bold text-sm">118 / 120 Days (98.3%)</strong>
             </div>
           </div>
         </div>
 
-        <!-- Metric KPI Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 font-sans text-xs">
+        <!-- KPI Summary Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 text-xs">
           <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
             <span class="text-slate-500 text-[10px] block">TOTAL WEIGHTED GPA</span>
-            <span id="cardStudentGpa" class="text-2xl font-bold text-brand-900 block mt-0.5">92.4%</span>
-            <span class="text-[10px] text-emerald-700 font-semibold">Exemplary Distinction</span>
+            <span id="repGpa" class="text-2xl font-bold text-olive-900 block mt-0.5">92.4%</span>
+            <span class="text-[10px] text-emerald-700 font-bold">Exemplary Distinction</span>
           </div>
           <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
             <span class="text-slate-500 text-[10px] block">POSITION IN CLASS</span>
-            <span id="cardStudentRank" class="text-2xl font-bold text-academic-gold block mt-0.5">1st</span>
+            <span id="repRank" class="text-2xl font-bold text-gold-600 block mt-0.5">1st</span>
             <span class="text-[10px] text-slate-500">Out of 42 Students</span>
           </div>
           <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
             <span class="text-slate-500 text-[10px] block">JUNIOR AI & TECH SCORE</span>
-            <span id="cardStudentAI" class="text-2xl font-bold text-indigo-700 block mt-0.5">98% (A+)</span>
+            <span id="repAI" class="text-2xl font-bold text-indigo-700 block mt-0.5">98% (A+)</span>
             <span class="text-[10px] text-indigo-700 font-semibold">Top in Computer Foundry</span>
           </div>
           <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
@@ -593,7 +667,7 @@
 
         <!-- Subject Scores Table -->
         <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
-          <table class="w-full text-left font-sans text-xs tracking-normal">
+          <table class="w-full text-left text-xs">
             <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
               <tr>
                 <th class="py-3 px-4">SUBJECT</th>
@@ -607,40 +681,40 @@
               </tr>
             </thead>
             <tbody id="scoresTableBody" class="divide-y divide-slate-100 text-slate-700">
-              <!-- Dynamically populated via JavaScript -->
+              <!-- Dynamically populated via JS -->
             </tbody>
           </table>
         </div>
 
-        <!-- Remarks & Official Seals -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200 font-sans text-xs">
+        <!-- Signatures & Verification Seal -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-200 text-xs">
           
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
             <span class="text-slate-400 text-[10px] uppercase font-bold block">CLASS TEACHER'S REMARK:</span>
-            <p id="teacherRemarkText" class="text-slate-800 text-xs italic leading-relaxed">
+            <p id="repTeacher" class="text-slate-800 italic leading-relaxed text-xs">
               "An exceptionally gifted student with tremendous analytical depth. Consistently assists classmates in physics and computer lab."
             </p>
             <span class="text-slate-500 text-[11px] font-bold block pt-1">— Mr. B. O. Adeleke (B.Sc Ed)</span>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-            <span class="text-slate-400 text-[10px] uppercase font-bold block">PRINCIPAL'S ENDORSEMENT:</span>
-            <p id="principalRemarkText" class="text-slate-800 text-xs italic leading-relaxed">
+            <span class="text-slate-400 text-[10px] uppercase font-bold block">EXECUTIVE DIRECTOR'S ENDORSEMENT:</span>
+            <p id="repPrincipal" class="text-slate-800 italic leading-relaxed text-xs">
               "Outstanding academic performance. Retains the First Position in SS3. Recommended for the National STEM & AI Young Innovators Scholarship."
             </p>
             <div class="flex items-center justify-between pt-1">
-              <span id="principalSigText" class="text-brand-900 font-bold text-[11px]">— Dr. (Mrs.) F. A. Omigbodun</span>
+              <span class="text-olive-900 font-bold text-[11px]">— Dr. (Mrs.) F. A. Omigbodun</span>
               <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">CERTIFIED</span>
             </div>
           </div>
 
-          <!-- Cryptographic QR Seal Verification -->
+          <!-- Digital QR Verification Seal -->
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
             <div>
               <span class="text-slate-400 text-[10px] uppercase font-bold block">CRYPTOGRAPHIC QR CODE:</span>
-              <span class="text-slate-900 font-bold block mt-1">Official Verification</span>
+              <strong class="text-slate-900 block mt-1">Official Verification</strong>
               <p class="text-[10px] text-slate-500 leading-tight mt-0.5">
-                Scan with any smartphone camera to verify this transcript directly against school database records.
+                Scan with smartphone to verify this transcript directly against school database records.
               </p>
             </div>
             <div class="w-16 h-16 bg-white p-1 rounded-lg border border-slate-200 shrink-0 shadow-sm flex items-center justify-center">
@@ -650,63 +724,36 @@
 
         </div>
 
-        <div class="mt-6 pt-3 border-t border-slate-200 flex flex-wrap items-center justify-between text-[11px] font-sans text-slate-500">
-          <span>Resumption Date: Monday, 12th January 2026</span>
-          <span>EduCore School Operating System · Official Document</span>
-        </div>
-
       </div>
 
     </div>
 
 
     <!-- ========================================================================= -->
-    <!-- SECTION 4: TUITION & DIGITAL FEE CLEARANCE (Paystack Integration)        -->
+    <!-- VIEW 5: TUITION & DIGITAL SCHOOL FEES (Paystack Integration)              -->
     <!-- ========================================================================= -->
-    <div id="section-tuition" class="hidden space-y-6 animate-fade">
+    <div id="view-tuition" class="hidden space-y-6">
       
       <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span class="text-xs font-sans text-brand-700 font-bold uppercase tracking-wider block">
-            BURSARY & ACCOUNTING CLEARANCE
-          </span>
-          <h2 class="font-serif text-2xl font-bold text-brand-900">
-            Tuition & Term Fee Clearance
-          </h2>
-          <p class="text-xs text-slate-500 font-sans mt-0.5">
-            Instant digital receipts and seamless online settlement powered by Paystack.
-          </p>
+          <span class="text-xs font-bold text-olive-800 uppercase tracking-wider block">BURSARY & CLEARANCE</span>
+          <h2 class="font-serif text-2xl font-bold text-olive-900">Pay School Fees Online</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Instant digital receipt generation and Paystack automated clearance.</p>
         </div>
 
-        <div class="font-sans text-xs flex items-center gap-4">
-          <div class="text-right">
-            <span class="text-slate-400 text-[10px] block">TOTAL TERM BILL</span>
-            <span class="text-slate-900 font-bold text-sm">₦185,000.00</span>
-          </div>
-          <div class="text-right">
-            <span class="text-slate-400 text-[10px] block">CLEARANCE STATUS</span>
-            <span id="tuitionStatusBadge" class="text-emerald-700 font-bold text-sm flex items-center gap-1">
-              <i class="fa-solid fa-circle-check"></i> FULLY CLEARED
-            </span>
-          </div>
+        <div class="text-right text-xs">
+          <span class="text-slate-400 text-[10px] block uppercase font-bold">TOTAL TERM BILL</span>
+          <span class="text-slate-900 font-bold text-lg">₦185,000.00</span>
         </div>
       </div>
 
-      <!-- Itemized Schedule & Payment Card -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card space-y-6">
         
-        <div class="flex items-center justify-between border-b border-slate-200 pb-4 font-sans text-xs">
-          <span class="font-bold text-slate-800">1st Term 2025/2026 Itemized Breakdown</span>
-          <span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-800 font-bold border border-emerald-200">
-            OFFICIAL RECEIPT #PSTK-2026-8941
-          </span>
-        </div>
-
-        <div class="space-y-3 font-sans text-xs">
+        <div class="space-y-3 text-xs">
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
             <div>
               <strong class="text-slate-900 block">Senior Secondary Academic Tuition</strong>
-              <span class="text-slate-500 text-[11px]">Academic instruction, library access, STEM lab materials</span>
+              <span class="text-slate-500 text-[11px]">Academic instruction, library, science practicals</span>
             </div>
             <span class="font-bold text-slate-900">₦140,000.00</span>
           </div>
@@ -714,50 +761,43 @@
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
             <div>
               <strong class="text-slate-900 block">Junior AI & Computer Foundry Levy</strong>
-              <span class="text-slate-500 text-[11px]">Dedicated fiber internet, cloud compute, robotics kits</span>
+              <span class="text-slate-500 text-[11px]">Starlink fiber compute, coding modules</span>
             </div>
             <span class="font-bold text-slate-900">₦15,000.00</span>
           </div>
 
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
             <div>
-              <strong class="text-slate-900 block">Continuous Assessment & Mock Examination Papers</strong>
-              <span class="text-slate-500 text-[11px]">WAEC / NECO / Cambridge standardized examination logistics</span>
+              <strong class="text-slate-900 block">Continuous Assessment & Mock Examination</strong>
+              <span class="text-slate-500 text-[11px]">Standardized evaluation and transcript printing</span>
             </div>
             <span class="font-bold text-slate-900">₦20,000.00</span>
           </div>
 
           <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
             <div>
-              <strong class="text-slate-900 block">Campus Medical & Sports Development</strong>
-              <span class="text-slate-500 text-[11px]">Certified infirmary care and annual athletics levy</span>
+              <strong class="text-slate-900 block">Medical & Inter-House Sports Levy</strong>
+              <span class="text-slate-500 text-[11px]">Certified infirmary care and athletics kit</span>
             </div>
             <span class="font-bold text-slate-900">₦10,000.00</span>
           </div>
         </div>
 
-        <!-- Clearance Footer & Actions -->
-        <div class="p-5 rounded-2xl bg-brand-50 border border-brand-200 flex flex-wrap items-center justify-between gap-4 font-sans text-xs">
+        <div class="p-5 rounded-2xl bg-olive-50 border border-olive-200 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div>
-            <div class="text-brand-900 font-bold flex items-center gap-1.5">
+            <div class="text-olive-900 font-bold flex items-center gap-1.5">
               <i class="fa-solid fa-shield-halved text-emerald-600"></i>
-              <span>Payment Verified via Paystack Subaccount Settlement</span>
+              <span>Direct Bank / Card Settlement via Paystack</span>
             </div>
             <p class="text-[11px] text-slate-600 mt-0.5">
-              Direct settlement into The Olive Branches Educational Trust Account.
+              Payee: The Olive Branches Educational Trust Account (Ref: pstk_live_90412)
             </p>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button onclick="launchPaystackCheckout()" class="px-4 py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold transition-all flex items-center gap-2 shadow-sm">
-              <i class="fa-solid fa-lock text-xs"></i>
-              <span>Pay Tuition via Paystack</span>
-            </button>
-            <button onclick="printReportSlip()" class="px-4 py-2.5 rounded-xl bg-white border border-slate-300 hover:border-brand-600 text-slate-700 font-bold transition-all flex items-center gap-1.5">
-              <i class="fa-solid fa-download text-xs text-slate-500"></i>
-              <span>Download Receipt</span>
-            </button>
-          </div>
+          <button onclick="openPaystackPopup()" class="px-5 py-3 rounded-xl bg-olive-900 hover:bg-olive-800 text-white font-bold transition-all shadow-md flex items-center gap-2">
+            <i class="fa-solid fa-credit-card text-gold-400"></i>
+            <span>Pay ₦185,000 via Paystack</span>
+          </button>
         </div>
 
       </div>
@@ -766,115 +806,153 @@
 
 
     <!-- ========================================================================= -->
-    <!-- SECTION 5: JUNIOR AI & SOFTWARE INNOVATION FOUNDRY                        -->
+    <!-- VIEW 6: SCHOOL ANTHEM & CREED (In English, Yoruba, and French!)            -->
     <!-- ========================================================================= -->
-    <div id="section-ailab" class="hidden space-y-8 animate-fade">
+    <div id="view-anthem" class="hidden space-y-8">
       
-      <!-- AI Foundry Header (Clean Editorial Style) -->
-      <div class="bg-gradient-to-r from-brand-900 via-indigo-950 to-brand-900 text-white rounded-3xl p-6 sm:p-10 shadow-card">
-        <div class="max-w-3xl space-y-3">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-academic-gold-light text-xs font-sans font-bold">
-            <i class="fa-solid fa-microchip"></i>
-            Co-Curricular Technology Excellence Track
+      <div class="text-center max-w-2xl mx-auto space-y-1">
+        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">OUR HERITAGE</span>
+        <h2 class="font-serif text-3xl font-bold text-olive-900">The School Song & Creed</h2>
+        <p class="text-xs text-slate-500">Sung by every Olive Branches pupil and student in three languages.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- English Anthem -->
+        <div class="bg-white rounded-3xl border border-olive-200 p-6 shadow-soft space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <span class="font-serif font-bold text-olive-900">English Version</span>
+            <span class="text-xs text-gold-600 font-bold">Standard Anthem</span>
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
-            The Junior AI & Software Foundry
-          </h2>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Designed and instructed by systems engineer <strong>Olumide Adeyemi-Nana</strong>. Rather than passive computer training, students learn how algorithms, large language models, and cloud applications actually work from first principles.
+          <p class="text-xs text-slate-700 leading-relaxed font-serif italic">
+            We Olive Branches Green,<br>
+            Anointed of The Lord,<br>
+            Come to this Place of Gain,<br>
+            Where we shine forth as Gold,<br>
+            Your Walls Great School,<br>
+            Shall Stand For aye,<br>
+            With Godly fame,<br>
+            And Christ as Root!
           </p>
-          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-sans text-slate-200">
-            <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Weekly Hands-On Coding Lab</span>
-            <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Real Python & Model Deployment</span>
-            <span><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> International University Portfolio</span>
+        </div>
+
+        <!-- Yoruba Anthem -->
+        <div class="bg-white rounded-3xl border border-amber-200 p-6 shadow-soft space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <span class="font-serif font-bold text-amber-950">Yorùbá Version</span>
+            <span class="text-xs text-amber-700 font-bold">Orin Ògo</span>
           </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-serif italic">
+            ORIN ÒGO ILÉ-ÈKỌ́ ÓLÍFÌ:<br>
+            Àwa Ẹ̀ka Ólífì,<br>
+            Ẹni Àmì Olúwa,<br>
+            A wá sí ibi èrè,<br>
+            T'A ti ń tàn bí wúrà<br>
+            Òkìkí rẹ,<br>
+            Yíó dúró láé<br>
+            L'Órí Kríst'<br>
+            Tí ńṣe Gbòǹgbò Rẹ!
+          </p>
+        </div>
+
+        <!-- French Anthem -->
+        <div class="bg-white rounded-3xl border border-purple-200 p-6 shadow-soft space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <span class="font-serif font-bold text-purple-950">French Version</span>
+            <span class="text-xs text-purple-700 font-bold">Hymne Français</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-serif italic">
+            Nous, Branches Vertes d'Olivier,<br>
+            Oints du Seigneur,<br>
+            Venons en ce lieu de réussite,<br>
+            Où nous brillons comme l'or.<br>
+            Tes murs, grande école,<br>
+            Demeureront à jamais,<br>
+            Avec une renommée divine<br>
+            Et le Christ comme racine!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- The School Creed Card -->
+      <div class="bg-gradient-to-br from-olive-900 to-olive-950 text-white rounded-3xl p-6 sm:p-10 shadow-card">
+        <div class="max-w-2xl mx-auto text-center space-y-3">
+          <span class="text-xs font-bold text-gold-400 uppercase tracking-wider block">CONFESSION OF FAITH</span>
+          <h3 class="font-serif text-2xl font-bold text-white">The School Creed</h3>
+          <p class="text-sm text-slate-300 leading-relaxed font-serif italic">
+            "I am a planting of The Lord, Rooted and grounded in the Rock, Shining for Jesus everyday, at home, at school, at play.<br><br>
+            I am the head and not the tail, I am above and not beneath, I will excel in Jesus name, at home, at school, at play.<br><br>
+            I shall be taught of the Lord And great shall be my peace I'll abound to every good work at home, at school at play (3x)."
+          </p>
         </div>
       </div>
 
-      <!-- Live Student Projects Showcase -->
-      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-card space-y-6">
-        <div>
-          <span class="text-xs font-sans text-indigo-700 font-bold uppercase tracking-wider block">
-            STUDENT ENGINEERING GALLERY
-          </span>
-          <h3 class="font-serif text-2xl font-bold text-brand-900">
-            Interactive Software Built by Secondary Students
-          </h3>
-          <p class="text-xs text-slate-500 font-sans mt-0.5">
-            Test real mini-applications written by JSS3, SS1, and SS2 students during the 12-week club track.
-          </p>
-        </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans text-xs">
-          
-          <!-- Project 1: AI Biology Tutor -->
-          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 flex flex-col justify-between">
+
+    <!-- ========================================================================= -->
+    <!-- VIEW 7: ONLINE ADMISSION APPLICATION FORM (Real from site!)               -->
+    <!-- ========================================================================= -->
+    <div id="view-admission" class="hidden space-y-8">
+      
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-card">
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="text-center space-y-1">
+            <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">ADMISSIONS 2025/2026</span>
+            <h2 class="font-serif text-3xl font-bold text-olive-900">Apply For Admission Online</h2>
+            <p class="text-xs text-slate-500">Fill in prospective student details to schedule an entrance assessment.</p>
+          </div>
+
+          <form onsubmit="handleAdmissionSubmit(event)" class="space-y-4 text-xs font-sans">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">CHILD FULL NAME:</label>
+                <input required type="text" placeholder="e.g. Adeyemi Oluwaseun" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
+              </div>
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">DATE OF BIRTH (DD/MM/YYYY):</label>
+                <input required type="date" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">PARENTS / GUARDIAN NAMES:</label>
+                <input required type="text" placeholder="e.g. Chief & Mrs. Adeyemi" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
+              </div>
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">GRADE LEVEL (TENTATIVELY):</label>
+                <select class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800 font-semibold">
+                  <option>The Pre-School (Creche / Nursery)</option>
+                  <option>The Junior School (Primary 1 - 6)</option>
+                  <option>The Middle School (JSS 1 - 3)</option>
+                  <option>The High School (SS 1 - 3)</option>
+                </select>
+              </div>
+            </div>
+
             <div>
-              <span class="text-indigo-700 font-bold text-[10px] uppercase">SS2 Project · Natural Language</span>
-              <h4 class="font-serif text-base font-bold text-slate-900 mt-1">Biology AI Concept Explainer</h4>
-              <p class="text-xs text-slate-600 mt-1 font-sans">
-                Students created an AI chatbot trained to translate dense biology concepts into relatable everyday Nigerian examples.
-              </p>
+              <label class="block text-slate-600 font-bold mb-1">RESIDENTIAL ADDRESS:</label>
+              <input required type="text" placeholder="e.g. No 14 Oroki Estate, Osogbo" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
             </div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] leading-relaxed">
-              <strong>Query:</strong> "How does osmosis work?"<br>
-              <span class="text-indigo-700 font-semibold">Bot:</span> "Water moves from where it is plenty to where it is scarce through a barrier—just like students rushing to an empty cafeteria line!"
-            </div>
-          </div>
 
-          <!-- Project 2: Vision Classifier -->
-          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 flex flex-col justify-between">
-            <div>
-              <span class="text-brand-700 font-bold text-[10px] uppercase">SS1 Project · Computer Vision</span>
-              <h4 class="font-serif text-base font-bold text-slate-900 mt-1">Lab Equipment Vision Classifier</h4>
-              <p class="text-xs text-slate-600 mt-1 font-sans">
-                Trained neural network identifying chemical glassware and test apparatus with real-time confidence scores.
-              </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">EMAIL ADDRESS:</label>
+                <input required type="email" placeholder="parent@gmail.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
+              </div>
+              <div>
+                <label class="block text-slate-600 font-bold mb-1">PHONE NUMBER (WHATSAPP ENABLED):</label>
+                <input required type="tel" placeholder="0803 000 0000" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-olive-700 text-slate-800">
+              </div>
             </div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] leading-relaxed">
-              <span class="text-emerald-700 font-bold">✓ Identified: Bunsen Burner</span><br>
-              <span>Confidence: <strong>99.2%</strong> · Bounding Box: [x:120, y:80]</span>
-            </div>
-          </div>
 
-          <!-- Project 3: 2D Physics Game -->
-          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 flex flex-col justify-between">
-            <div>
-              <span class="text-academic-gold font-bold text-[10px] uppercase">JSS3 Project · Python Arcade</span>
-              <h4 class="font-serif text-base font-bold text-slate-900 mt-1">Planetary Gravity Lunar Lander</h4>
-              <p class="text-xs text-slate-600 mt-1 font-sans">
-                Interactive game applying physics velocity formula \(v = u + at\) where students calculate thrust vs gravity.
-              </p>
-            </div>
-            <div class="p-3 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] leading-relaxed">
-              <span>Gravity Constant: \(g = 9.8\,m/s^2\)</span><br>
-              <span class="text-academic-gold font-bold">✓ High Score: 1,420 Points</span>
-            </div>
-          </div>
-
+            <button type="submit" class="w-full py-4 rounded-xl bg-gold-500 hover:bg-gold-600 text-olive-950 font-bold text-sm shadow-md transition-all">
+              Submit Application & Receive Examination Number
+            </button>
+          </form>
         </div>
-
-        <!-- 12-Week Roadmap -->
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
-          <h4 class="font-serif text-lg font-bold text-brand-900">
-            Termly 12-Week Engineering Syllabus
-          </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans text-xs">
-            <div class="p-3 bg-white rounded-xl border border-slate-200">
-              <strong class="text-brand-700 block mb-1">Weeks 1 – 4: Foundations</strong>
-              <span class="text-slate-600 text-[11px] block">Prompt engineering, system personas, boolean decision trees.</span>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200">
-              <strong class="text-indigo-700 block mb-1">Weeks 5 – 8: Python Logic</strong>
-              <span class="text-slate-600 text-[11px] block">Variables, loops, functions, and interactive terminal scripts.</span>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200">
-              <strong class="text-emerald-700 block mb-1">Weeks 9 – 12: Deployment</strong>
-              <span class="text-slate-600 text-[11px] block">Publishing web apps, cloud models, and Parents Demo Day.</span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -882,225 +960,213 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- PARENT / STUDENT LOGIN MODAL                                              -->
+  <!-- DIRECT MESSAGING TO SCHOOL MODAL (No copying numbers!)                    -->
   <!-- ========================================================================= -->
-  <div id="loginModal" class="fixed inset-0 z-50 bg-brand-950/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-    <div id="loginCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-5 scale-95 transition-all duration-300">
+  <div id="directMessageModal" class="fixed inset-0 z-50 bg-olive-950/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="directMessageCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-4 scale-95 transition-all duration-300">
       
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg academic-crest text-white flex items-center justify-center text-sm shadow">
-            <i class="fa-solid fa-lock"></i>
+          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm">
+            <i class="fa-brands fa-whatsapp text-base"></i>
           </div>
-          <h3 class="font-serif text-lg font-bold text-brand-900">Student & Parent Portal Login</h3>
+          <h3 class="font-serif font-bold text-lg text-olive-900">Message School Directly</h3>
         </div>
-        <button onclick="closeLoginModal()" class="text-slate-400 hover:text-slate-700 text-lg">✕</button>
+        <button onclick="closeDirectMessageModal()" class="text-slate-400 hover:text-slate-700 text-lg">✕</button>
       </div>
 
-      <p class="text-xs text-slate-600 leading-relaxed font-sans">
-        Enter the student's registered name or identification number and secret access PIN to access the academic terminal.
+      <p class="text-xs text-slate-600 font-sans leading-relaxed">
+        Send an inquiry directly to the school administrative desk without copying numbers. Pick your message or type below:
       </p>
 
-      <form onsubmit="handlePortalLogin(event)" class="space-y-4 font-sans text-xs">
+      <div class="space-y-3 text-xs">
         <div>
-          <label class="block text-slate-600 text-[11px] font-bold mb-1">STUDENT ID OR NAME:</label>
-          <input id="loginInputId" required type="text" value="Farouq Adeyemi" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 font-bold focus:outline-none focus:border-brand-600">
+          <label class="block text-slate-600 font-bold text-[11px] mb-1">YOUR FULL NAME:</label>
+          <input id="directMsgSenderName" type="text" placeholder="e.g. Mrs. Adebayo" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-olive-700">
         </div>
 
         <div>
-          <label class="block text-slate-600 text-[11px] font-bold mb-1">ACCESS PASSWORD / PIN:</label>
-          <input id="loginInputPin" required type="password" value="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 font-bold focus:outline-none focus:border-brand-600">
+          <label class="block text-slate-600 font-bold text-[11px] mb-1">MESSAGE / INQUIRY:</label>
+          <textarea id="directMsgContent" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-800 focus:outline-none focus:border-olive-700">Hello, I am reaching out to inquire regarding entrance examinations and student result checking at The Olive Branches Schools.</textarea>
         </div>
 
-        <!-- 1-Click Fast Demonstration Credentials -->
-        <div class="p-3 bg-brand-50 rounded-xl border border-brand-200 text-[11px] text-brand-900">
-          <span class="font-bold block mb-1">💡 Demo Quick-Access:</span>
-          <span>Click to login instantly as <button type="button" onclick="quickFillLogin('farouq')" class="underline font-bold text-brand-700">Farouq Adeyemi</button> or <button type="button" onclick="quickFillLogin('tiwa')" class="underline font-bold text-brand-700">Tiwalola Ogunleye</button>.</span>
+        <div class="pt-2 flex flex-col sm:flex-row gap-2">
+          <button onclick="sendDirectWhatsApp()" class="flex-1 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all flex items-center justify-center gap-2 shadow-sm">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Chat via WhatsApp (1-Tap)</span>
+          </button>
+          <button onclick="sendDirectEmail()" class="py-3.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Send Email</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- E-PORTAL LOGIN MODAL                                                      -->
+  <!-- ========================================================================= -->
+  <div id="portalLoginModal" class="fixed inset-0 z-50 bg-olive-950/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="portalLoginCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4 scale-95 transition-all duration-300">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full olive-badge text-white flex items-center justify-center text-sm shadow">
+            <i class="fa-solid fa-lock text-gold-300"></i>
+          </div>
+          <h3 class="font-serif font-bold text-lg text-olive-900">E-Portal Parent & Student Login</h3>
+        </div>
+        <button onclick="closePortalLoginModal()" class="text-slate-400 hover:text-slate-700 text-lg">✕</button>
+      </div>
+
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-600 font-bold text-[11px] mb-1">STUDENT NAME OR ID:</label>
+          <input id="loginNameField" type="text" value="Farouq Adeyemi" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 font-bold focus:outline-none focus:border-olive-700">
         </div>
 
-        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold transition-all shadow-md flex items-center justify-center gap-2">
-          <span>Authenticate & Open Portal</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+        <div>
+          <label class="block text-slate-600 font-bold text-[11px] mb-1">PASSWORD / ACCESS PIN:</label>
+          <input type="password" value="••••••••" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-slate-900 font-bold focus:outline-none focus:border-olive-700">
+        </div>
+
+        <div class="p-3 bg-olive-50 rounded-xl border border-olive-200 text-[11px] text-olive-900">
+          <span class="font-bold block mb-1">Quick Demo Login:</span>
+          <span>Click to login as <button type="button" onclick="quickFill('farouq')" class="underline font-bold text-olive-800">Farouq Adeyemi</button> or <button type="button" onclick="quickFill('tiwa')" class="underline font-bold text-olive-800">Tiwalola Ogunleye</button>.</span>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-olive-900 hover:bg-olive-800 text-white font-bold transition-all shadow-md">
+          Authenticate & Access Result Sheet
         </button>
       </form>
 
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- PAYSTACK CHECKOUT SIMULATOR MODAL                                         -->
-  <!-- ========================================================================= -->
-  <div id="paystackModal" class="fixed inset-0 z-50 bg-brand-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 font-sans">
-    <div id="paystackCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-5 scale-95 transition-all duration-300">
+  <!-- PAYSTACK SIMULATOR MODAL -->
+  <div id="paystackModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 font-sans">
+    <div id="paystackCard" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4 scale-95 transition-all duration-300">
       
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-          <span class="font-bold text-sm text-slate-900 tracking-wide">PAYSTACK SECURE CHECKOUT</span>
-        </div>
+        <span class="font-bold text-sm text-slate-900 tracking-wide">PAYSTACK SECURE CHECKOUT</span>
         <button onclick="closePaystackModal()" class="text-slate-400 hover:text-slate-700">✕</button>
       </div>
 
       <div class="text-center py-2 bg-slate-50 rounded-2xl p-4 border border-slate-200">
-        <span class="text-xs text-slate-500 block">Tuition & AI Foundry Clearance</span>
-        <span class="text-3xl font-bold text-brand-900 font-serif mt-1 block">₦185,000.00</span>
-        <span class="text-[11px] text-slate-600 mt-1 block">Payee: The Olive Branches Education Fund</span>
+        <span class="text-xs text-slate-500 block">Tuition Settlement</span>
+        <span class="text-3xl font-bold text-olive-900 font-serif mt-1 block">₦185,000.00</span>
+        <span class="text-[11px] text-slate-600 mt-1 block">The Olive Branches Educational Trust</span>
       </div>
 
-      <div class="space-y-3 text-xs">
-        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-          <span class="text-[10px] text-slate-400 block mb-1">PAYMENT METHOD</span>
-          <div class="flex items-center justify-between font-bold text-slate-800">
-            <span>•••• •••• •••• 4242</span>
-            <span class="text-brand-700">Verified Card</span>
-          </div>
-        </div>
-
-        <button onclick="confirmPaystack()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-md">
-          Authorize ₦185,000 Settlement
-        </button>
-      </div>
+      <button onclick="confirmPaystackDone()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all shadow-md">
+        Authorize ₦185,000 Payment
+      </button>
     </div>
   </div>
 
-  <!-- FOOTER (Clean Institutional Layout) -->
-  <footer class="bg-brand-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-brand-800 no-print mt-auto">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs font-sans">
+  <!-- FOOTER -->
+  <footer class="bg-olive-950 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-olive-900 no-print mt-auto">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
       
       <div class="space-y-3 md:col-span-2">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-lg academic-crest flex items-center justify-center text-white text-lg">
-            <i class="fa-solid fa-graduation-cap"></i>
+          <div class="w-9 h-9 rounded-full olive-badge flex items-center justify-center text-white text-lg border border-gold-400">
+            <i class="fa-solid fa-seedling text-gold-300"></i>
           </div>
-          <h4 id="footerSchoolName" class="font-serif font-bold text-base text-white">
+          <h4 class="font-serif font-bold text-base text-white">
             The Olive Branches Schools, Osogbo
           </h4>
         </div>
-        <p class="text-slate-400 text-xs leading-relaxed max-w-md">
-          Providing British-Nigerian academic excellence and forward-looking technology education for future leaders across Africa and the world.
+        <p class="text-slate-400 leading-relaxed max-w-md">
+          Providing high-integrity British-Nigerian education, character formation, and cutting-edge digital literacy across Oroki Estate, Osogbo, Osun State.
         </p>
-        <p class="text-[11px] text-slate-500 font-sans">
-          System Architecture by <strong>Olumide Adeyemi-Nana</strong> (Lead Systems Engineer).
+        <p class="text-[11px] text-slate-500 font-mono">
+          Engineered by <strong>Olumide Adeyemi-Nana</strong> (Lead Systems Engineer).
         </p>
       </div>
 
-      <div class="space-y-2 font-sans">
-        <strong class="text-white block mb-2 font-serif text-sm">Campus Links</strong>
-        <a href="javascript:navigateTo('home')" class="text-slate-400 hover:text-white block">Campus Overview</a>
+      <div class="space-y-2">
+        <strong class="text-white block mb-2 font-serif text-sm">Campus Navigation</strong>
+        <a href="javascript:navigateTo('home')" class="text-slate-400 hover:text-white block">Home Overview</a>
         <a href="javascript:navigateTo('news')" class="text-slate-400 hover:text-white block">News & Activities</a>
-        <a href="javascript:navigateTo('portal')" class="text-slate-400 hover:text-white block">Result Terminal</a>
-        <a href="javascript:navigateTo('tuition')" class="text-slate-400 hover:text-white block">Online Bursary</a>
+        <a href="javascript:navigateTo('media')" class="text-slate-400 hover:text-white block">Photo & Video Gallery</a>
+        <a href="javascript:navigateTo('portal')" class="text-slate-400 hover:text-white block">E-Portal Result Checker</a>
+        <a href="javascript:navigateTo('tuition')" class="text-slate-400 hover:text-white block">Pay School Fees</a>
+        <a href="javascript:navigateTo('anthem')" class="text-slate-400 hover:text-white block">School Song & Creed</a>
       </div>
 
-      <div class="space-y-2 font-sans">
-        <strong class="text-white block mb-2 font-serif text-sm">Technology Platforms</strong>
-        <a href="https://olumide-portfolio-ten.vercel.app" target="_blank" class="text-academic-gold-light hover:underline block">Lead Engineer Portfolio ↗</a>
+      <div class="space-y-2 font-mono">
+        <strong class="text-white block mb-2 font-serif text-sm">Technology Portals</strong>
+        <a href="https://olumide-portfolio-ten.vercel.app" target="_blank" class="text-gold-400 hover:underline block">Lead Engineer Portfolio ↗</a>
         <a href="https://video-assembler-saas.vercel.app" target="_blank" class="text-indigo-400 hover:underline block">AuraCut Media Studio ↗</a>
         <a href="https://ictflux.app" target="_blank" class="text-emerald-400 hover:underline block">ICT Flux Platform ↗</a>
       </div>
 
     </div>
 
-    <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-brand-800 text-[11px] text-slate-500 font-sans flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-olive-900 text-[11px] text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
       <div>© 2026 The Olive Branches Schools. All rights reserved.</div>
       <div>Accredited by Osun State Ministry of Education</div>
     </div>
   </footer>
 
-  <!-- SCRIPT CONTROLLER (High-Performance Client Engine) -->
+  <!-- SCRIPT ENGINE -->
   <script>
-    // =========================================================================
-    // 1. INSTITUTION PROFILES (White & Blue Palette)
-    // =========================================================================
-    const institutions = {
-      olive: {
-        name: 'The Olive Branches Schools',
-        motto: '"Excellence, Integrity & Service" · Founded 2004',
-        address: 'Oroki Estate Commercial Layout, Osogbo, Osun State, Nigeria',
-        director: 'Dr. (Mrs.) F. A. Omigbodun',
-        regPrefix: 'OB'
-      },
-      roseful: {
-        name: 'Roseful International High School',
-        motto: '"Knowledge is Light" · Biket Area, Osogbo',
-        address: 'Biket Area, Ikirun Road, Osogbo, Osun State, Nigeria',
-        director: 'Pastor S. O. Ogundele',
-        regPrefix: 'RIHS'
-      },
-      gof: {
-        name: 'GOF International School',
-        motto: '"Leading in Wisdom & Character" · Ogo-Oluwa Campus',
-        address: 'Onward Estate, Ogo-Oluwa, Osogbo, Osun State, Nigeria',
-        director: 'Mr. T. A. Adeleke',
-        regPrefix: 'GOF'
-      },
-      grange: {
-        name: 'Grange International Secondary',
-        motto: '"Integrity, Diligence & Global Mastery"',
-        address: 'Harold Shodipo Crescent, GRA, Ikeja',
-        director: 'Mrs. A. K. Abiodun',
-        regPrefix: 'GRG'
-      }
-    };
-
-    let currentInstitutionKey = 'olive';
-
-    // =========================================================================
-    // 2. STUDENT ACADEMIC DATABASE
-    // =========================================================================
-    const studentData = {
+    const studentRecords = {
       farouq: {
         name: 'Adeyemi Farouq Oluwaseun',
-        regNo: '2024/084',
+        reg: 'OB/2024/084',
         class: 'SS 3 Science (Diamond)',
-        attendance: '118 / 120 Days (98.3%)',
+        att: '118 / 120 Days (98.3%)',
         gpa: '92.4%',
         rank: '1st',
-        aiScore: '98% (A+)',
-        teacherRemark: '"An exceptionally gifted student with tremendous analytical depth. Consistently assists classmates in physics and computer lab."',
-        principalRemark: '"Outstanding academic performance. Retains the First Position in SS3. Recommended for the National STEM & AI Young Innovators Scholarship."',
+        ai: '98% (A+)',
+        teacher: '"An exceptionally gifted student with tremendous analytical depth. Consistently assists classmates in physics and computer lab."',
+        principal: '"Outstanding academic performance. Retains the First Position in SS3. Recommended for the National STEM & AI Young Innovators Scholarship."',
         scores: [
           { subject: 'Mathematics', ca1: 15, ca2: 14, exam: 67, total: 96, grade: 'A1', avg: 72, remark: 'Distinction' },
           { subject: 'English Language', ca1: 13, ca2: 13, exam: 62, total: 88, grade: 'A1', avg: 68, remark: 'Excellent' },
           { subject: 'Physics', ca1: 14, ca2: 14, exam: 65, total: 93, grade: 'A1', avg: 65, remark: 'Distinction' },
           { subject: 'Chemistry', ca1: 14, ca2: 13, exam: 64, total: 91, grade: 'A1', avg: 64, remark: 'Distinction' },
           { subject: 'Biology', ca1: 13, ca2: 14, exam: 61, total: 88, grade: 'A1', avg: 63, remark: 'Distinction' },
-          { subject: 'Junior AI & Software Foundry', ca1: 15, ca2: 15, exam: 68, total: 98, grade: 'A1+', avg: 74, remark: 'Top in Cohort' },
+          { subject: 'Junior AI & Computer Foundry', ca1: 15, ca2: 15, exam: 68, total: 98, grade: 'A1+', avg: 74, remark: 'Top in Cohort' },
           { subject: 'Data Processing', ca1: 14, ca2: 14, exam: 66, total: 94, grade: 'A1', avg: 70, remark: 'Distinction' },
           { subject: 'Civic Education', ca1: 13, ca2: 14, exam: 64, total: 91, grade: 'A1', avg: 71, remark: 'Distinction' }
         ]
       },
       tiwa: {
         name: 'Ogunleye Tiwalola Michelle',
-        regNo: '2025/112',
+        reg: 'OB/2025/112',
         class: 'SS 2 Tech & Science',
-        attendance: '116 / 120 Days (96.7%)',
+        att: '116 / 120 Days (96.7%)',
         gpa: '89.6%',
         rank: '3rd',
-        aiScore: '95% (A)',
-        teacherRemark: '"Tremendous creativity in robotics and coding. Diligent and respectful in all assignments."',
-        principalRemark: '"Commendable result. Tiwa continues to exhibit high leadership potential in science and technology."',
+        ai: '95% (A)',
+        teacher: '"Tremendous creativity in robotics and coding. Diligent and respectful in all assignments."',
+        principal: '"Commendable result. Tiwa continues to exhibit high leadership potential in science and technology."',
         scores: [
           { subject: 'Mathematics', ca1: 14, ca2: 13, exam: 63, total: 90, grade: 'A1', avg: 70, remark: 'Distinction' },
           { subject: 'English Language', ca1: 14, ca2: 14, exam: 65, total: 93, grade: 'A1', avg: 71, remark: 'Distinction' },
           { subject: 'Physics', ca1: 13, ca2: 12, exam: 58, total: 83, grade: 'B2', avg: 64, remark: 'Very Good' },
           { subject: 'Chemistry', ca1: 13, ca2: 13, exam: 60, total: 86, grade: 'A1', avg: 62, remark: 'Distinction' },
           { subject: 'Biology', ca1: 14, ca2: 13, exam: 61, total: 88, grade: 'A1', avg: 66, remark: 'Distinction' },
-          { subject: 'Junior AI & Software Foundry', ca1: 15, ca2: 14, exam: 66, total: 95, grade: 'A1', avg: 74, remark: 'Exemplary' },
+          { subject: 'Junior AI & Computer Foundry', ca1: 15, ca2: 14, exam: 66, total: 95, grade: 'A1', avg: 74, remark: 'Exemplary' },
           { subject: 'Technical Drawing', ca1: 14, ca2: 13, exam: 65, total: 92, grade: 'A1', avg: 68, remark: 'Distinction' },
           { subject: 'Civic Education', ca1: 13, ca2: 13, exam: 64, total: 90, grade: 'A1', avg: 70, remark: 'Distinction' }
         ]
       },
       chidubem: {
         name: 'Balogun Chidubem Victor',
-        regNo: '2026/041',
+        reg: 'OB/2026/041',
         class: 'JSS 3 Gold',
-        attendance: '119 / 120 Days (99.1%)',
+        att: '119 / 120 Days (99.1%)',
         gpa: '86.5%',
         rank: '5th',
-        aiScore: '92% (A)',
-        teacherRemark: '"Strong performance in basic sciences and computer lab. Eager to solve challenging equations."',
-        principalRemark: '"Promising junior candidate. Keep up this brilliant momentum into the BECE exams."',
+        ai: '92% (A)',
+        teacher: '"Strong performance in basic sciences and computer lab. Eager to solve challenging equations."',
+        principal: '"Promising junior candidate. Keep up this brilliant momentum into the BECE exams."',
         scores: [
           { subject: 'Basic Mathematics', ca1: 13, ca2: 13, exam: 61, total: 87, grade: 'A1', avg: 68, remark: 'Distinction' },
           { subject: 'English Studies', ca1: 13, ca2: 12, exam: 59, total: 84, grade: 'B2', avg: 66, remark: 'Very Good' },
@@ -1114,150 +1180,132 @@
       }
     };
 
-    // =========================================================================
-    // 3. NAVIGATION ROUTER
-    // =========================================================================
-    function navigateTo(sectionKey) {
-      const sections = ['home', 'news', 'portal', 'tuition', 'ailab'];
-      sections.forEach(k => {
-        const sec = document.getElementById(`section-${k}`);
-        const nav = document.getElementById(`nav-${k}`);
-        const mob = document.getElementById(`mob-${k}`);
+    function navigateTo(key) {
+      const views = ['home', 'news', 'media', 'portal', 'tuition', 'anthem', 'admission'];
+      views.forEach(v => {
+        const el = document.getElementById(`view-${v}`);
+        const nav = document.getElementById(`nav-${v}`);
+        const mob = document.getElementById(`mob-${v}`);
 
-        if (k === sectionKey) {
-          if (sec) sec.classList.remove('hidden');
-          if (nav) {
-            nav.classList.add('bg-brand-50', 'text-brand-700');
-            nav.classList.remove('text-slate-600');
-          }
-          if (mob) {
-            mob.classList.add('text-brand-700', 'font-bold');
-            mob.classList.remove('text-slate-500');
-          }
+        if (v === key) {
+          if (el) el.classList.remove('hidden');
+          if (nav) { nav.classList.add('bg-olive-50', 'text-olive-800'); nav.classList.remove('text-slate-600'); }
+          if (mob) { mob.classList.add('text-olive-800', 'font-bold'); mob.classList.remove('text-slate-500'); }
         } else {
-          if (sec) sec.classList.add('hidden');
-          if (nav) {
-            nav.classList.remove('bg-brand-50', 'text-brand-700');
-            nav.classList.add('text-slate-600');
-          }
-          if (mob) {
-            mob.classList.remove('text-brand-700', 'font-bold');
-            mob.classList.add('text-slate-500');
-          }
+          if (el) el.classList.add('hidden');
+          if (nav) { nav.classList.remove('bg-olive-50', 'text-olive-800'); nav.classList.add('text-slate-600'); }
+          if (mob) { mob.classList.remove('text-olive-800', 'font-bold'); mob.classList.add('text-slate-500'); }
         }
       });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // =========================================================================
-    // 4. INSTITUTION SWITCHER
-    // =========================================================================
-    function changeInstitution(key) {
-      currentInstitutionKey = key;
-      const inst = institutions[key];
-      if (!inst) return;
-
-      document.getElementById('headerSchoolName').textContent = inst.name;
-      document.getElementById('headerSchoolMotto').textContent = inst.motto;
-      document.getElementById('heroSchoolText').textContent = inst.name;
-      document.getElementById('directorName').textContent = inst.director;
-      document.getElementById('reportSchoolName').textContent = inst.name;
-      document.getElementById('reportSchoolAddress').textContent = inst.address;
-      document.getElementById('principalSigText').textContent = `— ${inst.director}`;
-      document.getElementById('footerSchoolName').textContent = inst.name;
-
-      switchStudent(document.getElementById('activeStudentSelector').value);
-    }
-
-    // =========================================================================
-    // 5. STUDENT PORTAL DATA RENDERER
-    // =========================================================================
-    function switchStudent(key) {
-      const student = studentData[key] || studentData.farouq;
-      const inst = institutions[currentInstitutionKey];
-
-      document.getElementById('cardStudentName').textContent = student.name;
-      document.getElementById('cardStudentReg').textContent = `${inst.regPrefix}/${student.regNo}`;
-      document.getElementById('cardStudentClass').textContent = student.class;
-      document.getElementById('cardStudentAttendance').textContent = student.attendance;
-      document.getElementById('cardStudentGpa').textContent = student.gpa;
-      document.getElementById('cardStudentRank').textContent = student.rank;
-      document.getElementById('cardStudentAI').textContent = student.aiScore;
-      document.getElementById('teacherRemarkText').textContent = student.teacherRemark;
-      document.getElementById('principalRemarkText').textContent = student.principalRemark;
-      document.getElementById('verifHash').textContent = `#${inst.regPrefix}-2026-${Math.floor(1000 + Math.random()*9000)}`;
+    function loadStudent(key) {
+      const s = studentRecords[key] || studentRecords.farouq;
+      document.getElementById('repName').textContent = s.name;
+      document.getElementById('repReg').textContent = s.reg;
+      document.getElementById('repClass').textContent = s.class;
+      document.getElementById('repAtt').textContent = s.att;
+      document.getElementById('repGpa').textContent = s.gpa;
+      document.getElementById('repRank').textContent = s.rank;
+      document.getElementById('repAI').textContent = s.ai;
+      document.getElementById('repTeacher').textContent = s.teacher;
+      document.getElementById('repPrincipal').textContent = s.principal;
 
       const tbody = document.getElementById('scoresTableBody');
       tbody.innerHTML = '';
-
-      student.scores.forEach((row, i) => {
+      s.scores.forEach((row, i) => {
         const tr = document.createElement('tr');
         tr.className = (i % 2 === 0) ? 'bg-slate-50/60 hover:bg-slate-100/60' : 'hover:bg-slate-100/60';
         tr.innerHTML = `
-          <td class="py-2.5 px-4 font-medium text-slate-900 flex items-center gap-2">
-            ${row.subject.includes('AI') ? '<i class="fa-solid fa-microchip text-indigo-600 text-xs"></i>' : '<span class="text-slate-400">•</span>'}
-            <span>${row.subject}</span>
-          </td>
+          <td class="py-2.5 px-4 font-semibold text-slate-900">${row.subject}</td>
           <td class="py-2.5 px-2 text-center text-slate-600">${row.ca1}</td>
           <td class="py-2.5 px-2 text-center text-slate-600">${row.ca2}</td>
           <td class="py-2.5 px-2 text-center text-slate-600">${row.exam}</td>
-          <td class="py-2.5 px-2 text-center font-bold ${row.total >= 90 ? 'text-brand-700' : 'text-slate-900'}">${row.total}</td>
+          <td class="py-2.5 px-2 text-center font-bold ${row.total >= 90 ? 'text-olive-800' : 'text-slate-900'}">${row.total}</td>
           <td class="py-2.5 px-2 text-center font-bold ${row.grade.includes('A') ? 'text-emerald-700' : 'text-slate-800'}">${row.grade}</td>
           <td class="py-2.5 px-2 text-center text-slate-500 hidden sm:table-cell">${row.avg}%</td>
-          <td class="py-2.5 px-4 font-medium ${row.remark.includes('Distinction') || row.remark.includes('Cohort') ? 'text-brand-700 font-bold' : 'text-slate-700'}">${row.remark}</td>
+          <td class="py-2.5 px-4 font-medium ${row.remark.includes('Distinction') || row.remark.includes('Cohort') ? 'text-olive-800 font-bold' : 'text-slate-700'}">${row.remark}</td>
         `;
         tbody.appendChild(tr);
       });
     }
 
-    // =========================================================================
-    // 6. LOGIN & AUTHENTICATION MODAL
-    // =========================================================================
-    function openLoginModal() {
-      const m = document.getElementById('loginModal');
-      const c = document.getElementById('loginCard');
+    // Direct 1-Tap WhatsApp to School without copying phone numbers
+    function openDirectMessageModal(defaultTopic) {
+      if (defaultTopic) {
+        document.getElementById('directMsgContent').value = `Hello, I am reaching out to The Olive Branches Schools regarding: ${defaultTopic}.`;
+      }
+      const m = document.getElementById('directMessageModal');
+      const c = document.getElementById('directMessageCard');
       m.classList.remove('opacity-0', 'pointer-events-none');
       c.classList.remove('scale-95');
     }
 
-    function closeLoginModal() {
-      const m = document.getElementById('loginModal');
-      const c = document.getElementById('loginCard');
+    function closeDirectMessageModal() {
+      const m = document.getElementById('directMessageModal');
+      const c = document.getElementById('directMessageCard');
       m.classList.add('opacity-0', 'pointer-events-none');
       c.classList.add('scale-95');
     }
 
-    function quickFillLogin(studentKey) {
-      const s = studentData[studentKey];
-      if (s) {
-        document.getElementById('loginInputId').value = s.name;
-        document.getElementById('loginInputPin').value = '2026-PIN';
-      }
+    function sendDirectWhatsApp() {
+      const name = document.getElementById('directMsgSenderName').value.trim() || 'Parent';
+      const msg = document.getElementById('directMsgContent').value.trim();
+      const text = encodeURIComponent(`[The Olive Branches Schools Portal Inquiry]\nFrom: ${name}\n\n${msg}`);
+      // School's real primary WhatsApp line
+      window.open(`https://wa.me/2348033777549?text=${text}`, '_blank');
+      closeDirectMessageModal();
     }
 
-    function handlePortalLogin(e) {
-      e.preventDefault();
-      const val = document.getElementById('loginInputId').value.toLowerCase();
-      closeLoginModal();
-      
-      if (val.includes('tiwa')) {
-        document.getElementById('activeStudentSelector').value = 'tiwa';
-        switchStudent('tiwa');
-      } else if (val.includes('chidu')) {
-        document.getElementById('activeStudentSelector').value = 'chidubem';
-        switchStudent('chidubem');
-      } else {
-        document.getElementById('activeStudentSelector').value = 'farouq';
-        switchStudent('farouq');
-      }
+    function sendDirectEmail() {
+      const name = document.getElementById('directMsgSenderName').value.trim() || 'Parent';
+      const msg = document.getElementById('directMsgContent').value.trim();
+      const subject = encodeURIComponent(`[Portal Inquiry] from ${name}`);
+      const body = encodeURIComponent(msg);
+      window.location.href = `mailto:enquiry@olivebranchesschoolsosogbo.com?subject=${subject}&body=${body}`;
+      closeDirectMessageModal();
+    }
 
+    // Portal Login Modal
+    function openPortalLoginModal() {
+      const m = document.getElementById('portalLoginModal');
+      const c = document.getElementById('portalLoginCard');
+      m.classList.remove('opacity-0', 'pointer-events-none');
+      c.classList.remove('scale-95');
+    }
+
+    function closePortalLoginModal() {
+      const m = document.getElementById('portalLoginModal');
+      const c = document.getElementById('portalLoginCard');
+      m.classList.add('opacity-0', 'pointer-events-none');
+      c.classList.add('scale-95');
+    }
+
+    function quickFill(k) {
+      const s = studentRecords[k];
+      if (s) document.getElementById('loginNameField').value = s.name;
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const val = document.getElementById('loginNameField').value.toLowerCase();
+      closePortalLoginModal();
+
+      if (val.includes('tiwa')) {
+        document.getElementById('studentPicker').value = 'tiwa';
+        loadStudent('tiwa');
+      } else if (val.includes('chidu')) {
+        document.getElementById('studentPicker').value = 'chidubem';
+        loadStudent('chidubem');
+      } else {
+        document.getElementById('studentPicker').value = 'farouq';
+        loadStudent('farouq');
+      }
       navigateTo('portal');
     }
 
-    // =========================================================================
-    // 7. PAYSTACK SIMULATOR
-    // =========================================================================
-    function launchPaystackCheckout() {
+    function openPaystackPopup() {
       const m = document.getElementById('paystackModal');
       const c = document.getElementById('paystackCard');
       m.classList.remove('opacity-0', 'pointer-events-none');
@@ -1271,36 +1319,20 @@
       c.classList.add('scale-95');
     }
 
-    function confirmPaystack() {
-      alert('Payment Verified! Paystack reference pstk_live_90248 cleared into The Olive Branches Education Fund. Official digital receipt generated.');
+    function confirmPaystackDone() {
+      alert('Payment Verified! Paystack reference pstk_live_90412 settled into The Olive Branches Educational Trust Account. Receipt generated.');
       closePaystackModal();
     }
 
-    function printReportSlip() {
-      window.print();
+    function handleAdmissionSubmit(e) {
+      e.preventDefault();
+      alert('Application received! Your entrance examination number & prospectus have been queued to your WhatsApp.');
+      navigateTo('home');
     }
 
-    function openAdmissionsModal() {
-      alert('Admissions for 2025/2026 Academic Session are in progress. Please contact the admissions office at +234 803 377 7549 or enquiry@olivebranchesschoolsosogbo.com');
-    }
-
-    function filterNews(cat) {
-      // Clean UI feedback
-      ['all', 'academic', 'activities'].forEach(f => {
-        const btn = document.getElementById(`filter-${f}`);
-        if (btn) {
-          if (f === cat) {
-            btn.className = 'px-3 py-1.5 rounded-lg bg-brand-700 text-white font-semibold';
-          } else {
-            btn.className = 'px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50';
-          }
-        }
-      });
-    }
-
-    // Initialize with The Olive Branches & Farouq Adeyemi
+    // Initialize with Farouq Adeyemi
     document.addEventListener('DOMContentLoaded', () => {
-      changeInstitution('olive');
+      loadStudent('farouq');
     });
   </script>
 </body>
