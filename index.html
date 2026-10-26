@@ -1671,14 +1671,19 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-brand-forest">
-          <i data-lucide="credit-card" class="w-5 h-5"></i>
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-brand-forest">
+            <i data-lucide="credit-card" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-headline font-black text-xl text-brand-deepNavy">Pay Tuition Fees</h3>
+            <p class="text-xs text-gray-500">Paystack Secured Gateway</p>
+          </div>
         </div>
-        <div>
-          <h3 class="font-headline font-black text-xl text-brand-deepNavy">Pay Tuition Fees</h3>
-          <p class="text-xs text-gray-500">Paystack Verified Gateway</p>
-        </div>
+        <span class="bg-blue-100 text-blue-800 text-[10px] font-black uppercase px-2.5 py-1 rounded-full border border-blue-200">
+          Sandbox Demo
+        </span>
       </div>
 
       <div class="bg-green-50 p-4 rounded-2xl border border-green-100 text-xs space-y-1.5 mb-5 font-body">
@@ -1821,6 +1826,169 @@
         <button onclick="closeArticleModal()" class="w-full sm:w-auto bg-brand-forest hover:bg-green-900 text-white text-xs font-headline font-bold px-6 py-2.5 rounded-full transition-colors">
           Back to School News
         </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAYSTACK PROCESSING LOADER (The "Waiting" State)
+       ========================================== -->
+  <div id="paystack-processing-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl text-center space-y-5 border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Animated Spinner -->
+      <div class="relative w-20 h-20 mx-auto">
+        <div class="w-20 h-20 rounded-full border-4 border-gray-100 border-t-brand-leaf animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img src="images/crops/school_circular_crest.png" class="w-8 h-8 object-contain">
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="font-headline font-black text-xl text-brand-deepNavy" id="pay-proc-title">
+          Contacting Paystack...
+        </h3>
+        <p class="text-xs text-gray-500 font-body" id="pay-proc-subtitle">
+          Securely connecting to banking network & authenticating transaction...
+        </p>
+      </div>
+
+      <!-- Animated Progress Bar -->
+      <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+        <div id="pay-proc-bar" class="bg-brand-leaf h-2 rounded-full transition-all duration-700" style="width: 25%;"></div>
+      </div>
+
+      <div class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+        Do not refresh or close this window
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       OFFICIAL DIGITAL BURSARY CLEARANCE RECEIPT MODAL
+       ========================================== -->
+  <div id="bursary-receipt-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden my-auto border-4 border-brand-forest relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Close Button -->
+      <button onclick="closeReceiptModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Receipt Inner Container (Printable) -->
+      <div id="printable-receipt-content" class="p-6 sm:p-8 space-y-6 bg-white text-gray-900 font-body">
+        
+        <!-- Receipt Top Header -->
+        <div class="flex items-center justify-between border-b-2 border-brand-forest pb-4">
+          <div class="flex items-center space-x-3">
+            <img src="images/crops/school_circular_crest.png" alt="School Crest" class="w-14 h-14 object-contain">
+            <div>
+              <h2 class="font-headline font-black text-base sm:text-lg text-brand-forest uppercase tracking-tight leading-none">
+                The Olive Branches Schools
+              </h2>
+              <p class="text-[11px] font-bold text-gray-500 mt-0.5">
+                Bursary & Financial Accounts Directorate
+              </p>
+              <p class="text-[10px] text-gray-400">
+                Oroki Estate Commercial Layout, Along Oyinkan & Goke Omigbodun Way, Osogbo
+              </p>
+            </div>
+          </div>
+          <!-- Digital Stamp -->
+          <div class="w-20 h-20 rounded-full border-4 border-green-600 border-dashed p-1 flex flex-col items-center justify-center text-center transform rotate-6 select-none bg-green-50/50">
+            <span class="text-[9px] font-black text-green-700 uppercase leading-tight">PAID IN FULL</span>
+            <span class="text-[8px] font-bold text-green-800">CLEARED</span>
+            <span class="text-[7px] text-gray-600">BURSARY</span>
+          </div>
+        </div>
+
+        <!-- Receipt Reference & Success Badge -->
+        <div class="bg-green-50 p-4 rounded-2xl border border-green-200 flex justify-between items-center text-xs">
+          <div>
+            <span class="text-gray-500 font-medium">Payment Reference:</span>
+            <div id="receipt-ref-code" class="font-headline font-black text-sm sm:text-base text-brand-forest">
+              OBS-REC-2026-948102
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-500 font-medium">Date & Time:</span>
+            <div id="receipt-timestamp" class="font-bold text-gray-800">
+              Oct 26, 2026 • 11:54 AM
+            </div>
+          </div>
+        </div>
+
+        <!-- Student & Term Information -->
+        <div class="grid grid-cols-2 gap-4 text-xs bg-gray-50 p-4 rounded-2xl border border-gray-100">
+          <div>
+            <span class="text-gray-500 font-medium">Student Name:</span>
+            <div id="receipt-student-name" class="font-bold text-gray-900 text-sm mt-0.5">Farouq Adeyemi</div>
+          </div>
+          <div>
+            <span class="text-gray-500 font-medium">Admission / Reg No:</span>
+            <div id="receipt-student-reg" class="font-bold text-gray-900 text-sm mt-0.5">OBS/2022/0481</div>
+          </div>
+          <div>
+            <span class="text-gray-500 font-medium">Class & Stream:</span>
+            <div id="receipt-student-class" class="font-bold text-gray-900 mt-0.5">SSS 2 Science</div>
+          </div>
+          <div>
+            <span class="text-gray-500 font-medium">Academic Term:</span>
+            <div class="font-bold text-gray-900 mt-0.5">Second Term 2025/2026</div>
+          </div>
+        </div>
+
+        <!-- Financial Summary -->
+        <div class="border-t border-b border-gray-200 py-3 space-y-1.5 text-xs">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Tuition & Term Assessment Levy:</span>
+            <span class="font-bold text-gray-900" id="receipt-amount-sub">₦185,000.00</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Gateway Processing (Paystack):</span>
+            <span class="font-bold text-green-700">₦0.00 (School Absorbed)</span>
+          </div>
+          <div class="flex justify-between text-base font-headline font-black text-brand-forest pt-2 border-t border-gray-200">
+            <span>Total Amount Cleared:</span>
+            <span id="receipt-amount-total">₦185,000.00</span>
+          </div>
+          <div class="flex justify-between text-xs font-bold text-emerald-700 pt-1">
+            <span>Outstanding Balance:</span>
+            <span>₦0.00 (Zero Balance)</span>
+          </div>
+        </div>
+
+        <!-- Dual Delivery Notice (Email + Physical Bursary Fallback) -->
+        <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-200 space-y-2 text-xs text-amber-950">
+          <div class="flex items-start space-x-2">
+            <i data-lucide="mail-check" class="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5"></i>
+            <span><strong>Electronic Copy:</strong> A verified PDF receipt has been dispatched to <strong id="receipt-parent-email">parent@example.com</strong>.</span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <i data-lucide="building" class="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5"></i>
+            <span><strong>Physical Collection Fallback:</strong> For parents who prefer an embossed hardcopy, present this digital clearance slip at the <strong>Bursary Office, Oroki Estate Campus, Osogbo</strong> for an immediate stamped physical receipt.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Bottom Actions -->
+      <div class="p-4 sm:p-6 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <button onclick="window.print()" class="w-full sm:w-auto bg-brand-softGreen hover:bg-green-100 text-brand-forest border border-green-300 font-headline font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-colors">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>Print Official Receipt</span>
+        </button>
+
+        <div class="flex items-center space-x-2 w-full sm:w-auto">
+          <button onclick="shareReceiptWhatsApp()" class="flex-1 sm:flex-initial bg-green-600 hover:bg-green-700 text-white font-headline font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center space-x-1.5 shadow-sm transition-colors">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Send to WhatsApp</span>
+          </button>
+          <button onclick="closeReceiptModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-headline font-bold text-xs px-4 py-2.5 rounded-xl transition-colors">
+            Done
+          </button>
+        </div>
       </div>
 
     </div>
@@ -2278,45 +2446,100 @@
     function closeTuitionModal() {
       document.getElementById('tuition-modal').classList.add('hidden');
     }
+    let lastPaymentReceiptData = null;
+
     function handlePaystackPayment(e) {
       e.preventDefault();
       const email = document.getElementById('pay-email').value || 'parent@example.com';
       const phone = document.getElementById('pay-phone').value || '08033777549';
       const student = students[activeStudentKey];
       const amountNaira = student.balanceDue > 0 ? student.balanceDue : student.totalFee;
-      
-      // Paystack Public Key: configured via environment or sandbox key
-      const paystackKey = window.PAYSTACK_PUBLIC_KEY || 'pk_test_df209b587f7d3e0987fec45678b66ef082348';
+      const genRef = 'OBS-REC-' + Math.floor(Math.random() * 899999 + 100000);
 
-      if (typeof PaystackPop !== 'undefined') {
-        const handler = PaystackPop.setup({
-          key: paystackKey,
+      // Close tuition modal and open processing waiting screen
+      closeTuitionModal();
+      openPaystackProcessing();
+
+      // Step 1: Connecting (0s - 1.2s)
+      setTimeout(() => {
+        document.getElementById('pay-proc-title').innerText = "Authorizing with Bank...";
+        document.getElementById('pay-proc-subtitle').innerText = "Simulating Paystack card/transfer clearance for " + student.name + "...";
+        document.getElementById('pay-proc-bar').style.width = "65%";
+      }, 1200);
+
+      // Step 2: Reconciling with Bursary Ledger (1.2s - 2.5s)
+      setTimeout(() => {
+        document.getElementById('pay-proc-title').innerText = "Reconciling with School Bursary...";
+        document.getElementById('pay-proc-subtitle').innerText = "Generating official clearance certificate and updating student ledger...";
+        document.getElementById('pay-proc-bar').style.width = "95%";
+      }, 2400);
+
+      // Step 3: Complete & Display Official Digital Receipt (3.2s)
+      setTimeout(() => {
+        closePaystackProcessing();
+
+        // Update student internal state
+        student.amountPaid = student.totalFee;
+        student.balanceDue = 0;
+        student.feeStatus = "CLEARED";
+        student.receiptNo = genRef;
+
+        // Re-render student dashboard
+        switchStudent(activeStudentKey);
+        switchPortalTab('fees');
+
+        // Store receipt metadata
+        lastPaymentReceiptData = {
+          ref: genRef,
+          studentName: student.name,
+          reg: student.reg,
+          studentClass: student.class,
+          amount: amountNaira,
           email: email,
-          amount: amountNaira * 100, // Paystack amount is in Kobo
-          currency: 'NGN',
-          ref: 'OBS-' + Math.floor((Math.random() * 1000000000) + 1),
-          metadata: {
-            custom_fields: [
-              { display_name: "Student Name", variable_name: "student_name", value: student.name },
-              { display_name: "Reg Number", variable_name: "reg_number", value: student.reg },
-              { display_name: "Class", variable_name: "class", value: student.class },
-              { display_name: "Parent Phone", variable_name: "parent_phone", value: phone }
-            ]
-          },
-          callback: function(response) {
-            closeTuitionModal();
-            showTuitionSuccessBanner(response.reference, student.name, amountNaira);
-          },
-          onClose: function() {
-            alert("Tuition transaction cancelled. You can retry anytime or contact the bursary desk on WhatsApp.");
-          }
-        });
-        handler.openIframe();
-      } else {
-        closeTuitionModal();
-        const demoRef = 'OBS-PAY-' + Math.floor(Math.random() * 899999 + 100000);
-        showTuitionSuccessBanner(demoRef, student.name, amountNaira);
-      }
+          phone: phone,
+          timestamp: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' • ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+        };
+
+        // Open official digital bursary receipt modal
+        openBursaryReceiptModal(lastPaymentReceiptData);
+      }, 3400);
+    }
+
+    function openPaystackProcessing() {
+      const proc = document.getElementById('paystack-processing-modal');
+      document.getElementById('pay-proc-title').innerText = "Contacting Paystack Gateway...";
+      document.getElementById('pay-proc-subtitle').innerText = "Connecting to Nigerian banking switch & debiting test card...";
+      document.getElementById('pay-proc-bar').style.width = "25%";
+      proc.classList.remove('hidden');
+    }
+
+    function closePaystackProcessing() {
+      document.getElementById('paystack-processing-modal').classList.add('hidden');
+    }
+
+    function openBursaryReceiptModal(data) {
+      document.getElementById('receipt-ref-code').innerText = data.ref;
+      document.getElementById('receipt-timestamp').innerText = data.timestamp;
+      document.getElementById('receipt-student-name').innerText = data.studentName;
+      document.getElementById('receipt-student-reg').innerText = data.reg;
+      document.getElementById('receipt-student-class').innerText = data.studentClass;
+      document.getElementById('receipt-amount-sub').innerText = '₦' + data.amount.toLocaleString() + '.00';
+      document.getElementById('receipt-amount-total').innerText = '₦' + data.amount.toLocaleString() + '.00';
+      document.getElementById('receipt-parent-email').innerText = data.email;
+
+      const modal = document.getElementById('bursary-receipt-modal');
+      modal.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('bursary-receipt-modal').classList.add('hidden');
+    }
+
+    function shareReceiptWhatsApp() {
+      if (!lastPaymentReceiptData) return;
+      const msg = `*THE OLIVE BRANCHES SCHOOLS, OSOGBO*%0A*Official Tuition Clearance Receipt*%0A*Ref:* ${lastPaymentReceiptData.ref}%0A*Student:* ${lastPaymentReceiptData.studentName} (${lastPaymentReceiptData.reg})%0A*Class:* ${lastPaymentReceiptData.studentClass}%0A*Amount Paid:* ₦${lastPaymentReceiptData.amount.toLocaleString()}.00%0A*Status:* PAID IN FULL (CLEARED)%0A*Date:* ${lastPaymentReceiptData.timestamp}%0A%0A_A copy has been registered with the school bursary desk._`;
+      window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
     }
 
     function showTuitionSuccessBanner(ref, studentName, amount) {
