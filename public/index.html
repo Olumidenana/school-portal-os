@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Olive Branches Schools, Osogbo - Official Portal & Learning Management System</title>
-  <meta name="description" content="Official website and unified academic portal of The Olive Branches Schools, Osogbo. Quality education rooted in excellence, discipline, and values.">
+  <title>The Olive Branches Schools, Osogbo - Unified Digital Campus & AI Portal</title>
+  <meta name="description" content="Next-Generation Website, Unified E-Portal, and AI Academic Assistant for The Olive Branches Schools, Osogbo. Quality Education Rooted in Excellence.">
   <link rel="icon" href="images/crops/school_circular_crest.png" type="image/png">
   
-  <!-- Google Fonts matching the PDF brochure exactly:
+  <!-- Exact Fonts matching the PDF Brochure:
        - Nunito & Fredoka: Ultra-bold, friendly, rounded geometric headlines
        - Patrick Hand SC: Playful, hand-lettered uppercase eyebrows/labels
-       - Plus Jakarta Sans: Crystal-clear, modern humanist body copy
+       - Plus Jakarta Sans: Modern crystal-clear humanist body copy
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- GSAP Animation Engine for Silky Smooth Floating & Motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -27,16 +29,16 @@
         extend: {
           colors: {
             brand: {
-              forest: '#14532D',     /* Deep Forest Green from header */
+              forest: '#14532D',     /* Deep Forest Green */
               leaf: '#1F9D46',       /* Vibrant Grass/Leaf Green */
               softGreen: '#EAF7EE',  /* Pale Mint Background */
               tintGreen: '#F3FAF5',
               gold: '#F59E0B',       /* Warm Academic Gold */
               brightYellow: '#FFB800',
               deepNavy: '#1B2A4A',   /* Dark Slate/Navy for text */
-              cardOrange: '#ED822B', /* Junior School Card */
-              cardMagenta: '#9D1B55',/* Middle School Card */
-              cardGold: '#F2AF22',   /* High School Card */
+              cardOrange: '#ED822B', /* Junior School */
+              cardMagenta: '#9D1B55',/* Middle School */
+              cardGold: '#F2AF22',   /* High School */
             }
           },
           fontFamily: {
@@ -47,7 +49,8 @@
           boxShadow: {
             'pdf-gold': '4px 6px 0px #F59E0B',
             'pdf-green': '4px 6px 0px #14532D',
-            'pdf-soft': '0 10px 30px -5px rgba(20, 83, 45, 0.08)',
+            'pdf-navy': '4px 6px 0px #1B2A4A',
+            'pdf-soft': '0 12px 35px -5px rgba(20, 83, 45, 0.1)',
           }
         }
       }
@@ -55,18 +58,23 @@
   </script>
 
   <style>
-    /* Scalloped edge / wavy border style */
-    .scallop-divider {
-      background-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
-      background-size: 20px 20px;
-      height: 15px;
-      width: 100%;
+    /* Continuous floating cloud animation */
+    @keyframes floatClouds {
+      0% { transform: translateX(-10%); }
+      50% { transform: translateX(10%); }
+      100% { transform: translateX(-10%); }
     }
-    .scallop-divider-inverted {
-      background-image: radial-gradient(circle at 10px 20px, transparent 12px, #EAF7EE 13px);
-      background-size: 20px 20px;
-      height: 15px;
-      width: 100%;
+    .anim-cloud {
+      animation: floatClouds 18s ease-in-out infinite;
+    }
+
+    /* Floating crocodile / playful mascot animation */
+    @keyframes bobble {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    .anim-bobble {
+      animation: bobble 4s ease-in-out infinite;
     }
 
     /* Dashed button style matching PDF */
@@ -86,7 +94,7 @@
       color: #FFFFFF;
     }
 
-    /* TV Antenna Antenna styling for Wing Cards */
+    /* TV Antenna on Academic Wing Cards */
     .tv-antenna {
       position: relative;
     }
@@ -111,40 +119,56 @@
       transform: rotate(25deg);
     }
 
-    /* Stitched dashed borders for facilities cards */
-    .card-stitched {
-      border: 2px dashed #93C5FD;
-      box-shadow: 4px 6px 0px #1B2A4A;
+    /* Scalloped dividers */
+    .scallop-divider {
+      background-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
+      background-size: 20px 20px;
+      height: 15px;
+      width: 100%;
     }
 
     /* Printable Report Card Styles */
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      #printable-report-card, #printable-report-card * {
-        visibility: visible;
-      }
+      body * { visibility: hidden; }
+      #printable-report-card, #printable-report-card * { visibility: visible; }
       #printable-report-card {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 20px;
+        position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px;
       }
-      .no-print {
-        display: none !important;
-      }
+      .no-print { display: none !important; }
     }
   </style>
 </head>
-<body class="font-body bg-brand-softGreen text-brand-deepNavy antialiased selection:bg-brand-gold selection:text-white">
+<body class="font-body bg-brand-softGreen text-brand-deepNavy antialiased selection:bg-brand-gold selection:text-white relative">
+
+  <!-- ==========================================
+       AI INNOVATION & SPEED BADGE (User Pitch Feature)
+       ========================================== -->
+  <aside aria-label="AI Innovation Badge" class="bg-gradient-to-r from-emerald-900 via-brand-forest to-emerald-950 text-white text-[11px] py-1.5 px-4 border-b border-emerald-700/50">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5">
+      <div class="flex items-center space-x-2">
+        <span class="bg-brand-gold text-brand-forest px-2 py-0.5 rounded-full font-black uppercase text-[10px] tracking-wider flex items-center space-x-1">
+          <i data-lucide="sparkles" class="w-3 h-3"></i>
+          <span>AI-Engineered</span>
+        </span>
+        <span class="font-medium text-emerald-100">
+          This entire modern portal was designed, architected, and deployed in hours using Advanced AI Architecture by <strong class="text-white">Olumide Adeyemi-Nana</strong>.
+        </span>
+      </div>
+      <div class="flex items-center space-x-3 text-xs">
+        <button onclick="openSchoolSwitcherModal()" class="text-brand-gold font-bold hover:underline flex items-center space-x-1">
+          <i data-lucide="repeat" class="w-3 h-3"></i>
+          <span>Switch School Preview</span>
+        </button>
+        <span class="text-emerald-500">|</span>
+        <a href="#audit-breakdown" class="text-emerald-300 hover:text-white font-medium">Why This Replaces Legacy WordPress &rarr;</a>
+      </div>
+    </div>
+  </aside>
 
   <!-- ==========================================
        TOP CONTACT & SOCIAL BAR (From PDF Page 1)
        ========================================== -->
-  <header class="bg-brand-forest text-white text-xs py-2 px-4 sm:px-8 border-b border-green-800">
+  <div class="bg-brand-forest text-white text-xs py-2 px-4 sm:px-8 border-b border-green-800">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center space-x-4">
         <a href="tel:+2348033777549" class="flex items-center space-x-1.5 hover:text-brand-gold transition-colors">
@@ -162,7 +186,7 @@
           <a href="#" class="hover:text-brand-gold transition-colors" title="Facebook"><i data-lucide="facebook" class="w-3.5 h-3.5"></i></a>
           <a href="#" class="hover:text-brand-gold transition-colors" title="Instagram"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
           <a href="#" class="hover:text-brand-gold transition-colors" title="YouTube"><i data-lucide="youtube" class="w-3.5 h-3.5"></i></a>
-          <!-- Direct WhatsApp Action Button -->
+          <!-- Direct WhatsApp Button (No copying numbers!) -->
           <button onclick="openWhatsAppModal()" class="flex items-center space-x-1 bg-green-600 hover:bg-green-500 text-white px-2.5 py-0.5 rounded-full font-bold text-[11px] shadow-sm transition-all">
             <i data-lucide="message-circle" class="w-3 h-3"></i>
             <span>WhatsApp Desk</span>
@@ -170,34 +194,35 @@
         </div>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- ==========================================
        CURVED FLOATING NAVBAR (From PDF Page 1)
        ========================================== -->
   <div class="sticky top-2 z-40 px-3 sm:px-6 py-1 max-w-7xl mx-auto">
     <nav class="bg-white/95 backdrop-blur-md rounded-2xl shadow-pdf-soft border border-green-100 px-4 sm:px-6 py-2.5 flex items-center justify-between">
-      <!-- School Logo & Brand Title -->
+      <!-- School Logo & Dynamic Name -->
       <a href="#" class="flex items-center space-x-3 group">
-        <img src="images/crops/school_circular_crest.png" alt="The Olive Branches Schools Crest" class="w-11 h-11 object-contain drop-shadow-sm group-hover:scale-105 transition-transform">
+        <img id="nav-school-logo" src="images/crops/school_circular_crest.png" alt="School Crest" class="w-11 h-11 object-contain drop-shadow-sm group-hover:scale-105 transition-transform">
         <div>
-          <div class="font-headline font-black text-brand-forest text-sm sm:text-base tracking-tight leading-none">
+          <div id="nav-school-title" class="font-headline font-black text-brand-forest text-sm sm:text-base tracking-tight leading-none">
             THE OLIVE BRANCHES
           </div>
-          <div class="text-[11px] font-bold text-brand-gold tracking-widest uppercase">
+          <div id="nav-school-subtitle" class="text-[11px] font-bold text-brand-gold tracking-widest uppercase">
             Schools, Osogbo
           </div>
         </div>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center space-x-6 text-sm font-bold text-gray-700">
+      <div class="hidden lg:flex items-center space-x-5 text-sm font-bold text-gray-700">
         <a href="#home" class="text-brand-forest hover:text-brand-gold transition-colors">Home</a>
         <a href="#about" class="hover:text-brand-forest transition-colors">About Us</a>
         <a href="#admissions" class="hover:text-brand-forest transition-colors">Admissions</a>
         <a href="#facilities" class="hover:text-brand-forest transition-colors">Facilities</a>
+        <a href="#grades-carousel" class="hover:text-brand-forest transition-colors">Grade Spectrum</a>
         <a href="#heritage" class="hover:text-brand-forest transition-colors">Our Anthem</a>
-        <a href="#gallery" class="hover:text-brand-forest transition-colors">Our Media</a>
+        <a href="#gallery" class="hover:text-brand-forest transition-colors">Media</a>
         <a href="#portal" class="bg-green-50 text-brand-forest px-3 py-1.5 rounded-lg border border-green-200 hover:bg-brand-forest hover:text-white transition-all flex items-center space-x-1.5">
           <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold"></i>
           <span>E-Portal</span>
@@ -205,13 +230,18 @@
       </div>
 
       <!-- Action CTAs -->
-      <div class="flex items-center space-x-2.5">
+      <div class="flex items-center space-x-2">
+        <!-- Interactive AI Assistant Trigger Pill -->
+        <button onclick="toggleAiAssistant()" class="bg-brand-leaf hover:bg-green-600 text-white font-headline font-bold text-xs px-3 py-2 rounded-full flex items-center space-x-1.5 shadow-sm transition-all hover:scale-105">
+          <i data-lucide="bot" class="w-3.5 h-3.5 text-brand-gold"></i>
+          <span class="hidden sm:inline">Ask School AI</span>
+        </button>
         <button onclick="scrollToSection('admissions')" class="hidden sm:inline-flex btn-dashed-gold text-xs px-4 py-2 rounded-full uppercase tracking-wider">
           Begin Admission
         </button>
-        <button onclick="openPortalModal()" class="bg-brand-forest hover:bg-green-900 text-white font-headline font-bold text-xs px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-sm transition-colors">
+        <button onclick="scrollToSection('portal')" class="bg-brand-forest hover:bg-green-900 text-white font-headline font-bold text-xs px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-sm transition-colors">
           <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-gold"></i>
-          <span>Portal Login</span>
+          <span>Portal</span>
         </button>
         <!-- Mobile Menu Trigger -->
         <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-700 hover:text-brand-forest">
@@ -222,42 +252,60 @@
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-4 top-20 bg-white rounded-2xl shadow-2xl border border-green-100 p-5 z-50 flex flex-col space-y-3 font-headline font-bold text-gray-800">
+  <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-4 top-24 bg-white rounded-2xl shadow-2xl border border-green-100 p-5 z-50 flex flex-col space-y-3 font-headline font-bold text-gray-800">
     <a href="#home" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 text-brand-forest">Home</a>
     <a href="#about" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">About Us</a>
     <a href="#admissions" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Admissions</a>
     <a href="#facilities" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Facilities</a>
+    <a href="#grades-carousel" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Grade Spectrum</a>
     <a href="#heritage" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Our Anthem</a>
     <a href="#gallery" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Our Media</a>
-    <a href="#portal" onclick="toggleMobileMenu(); openPortalModal();" class="py-2 text-brand-leaf flex items-center justify-between">
+    <a href="#portal" onclick="toggleMobileMenu();" class="py-2 text-brand-leaf flex items-center justify-between">
       <span>Student / Parent E-Portal</span>
       <i data-lucide="arrow-right" class="w-4 h-4"></i>
     </a>
   </div>
 
   <!-- ==========================================
-       HERO SECTION (From PDF Page 1)
+       HERO SECTION WITH FLOATING CLOUDS & DOODLES (From PDF Page 1)
        ========================================== -->
-  <section id="home" class="relative pt-8 pb-16 overflow-hidden">
-    <!-- Subtle Background Doodle Accents -->
-    <div class="absolute inset-0 pointer-events-none opacity-20">
-      <div class="absolute top-10 left-10 w-24 h-24 border-4 border-dashed border-green-400 rounded-full animate-spin-slow"></div>
-      <div class="absolute bottom-10 right-20 w-32 h-32 border-4 border-brand-gold rounded-3xl rotate-12"></div>
+  <section id="home" class="relative pt-6 pb-16 overflow-hidden">
+    <!-- Drifting Animated Cloud Doodles (Amusing Animations) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Cloud 1 -->
+      <div class="absolute top-8 left-10 anim-cloud opacity-40">
+        <svg width="120" height="60" viewBox="0 0 120 60" fill="#FFFFFF">
+          <path d="M25 45 C15 45 5 37 5 25 C5 15 15 8 28 8 C32 3 42 0 52 0 C68 0 80 8 84 18 C90 15 98 15 104 20 C112 25 115 35 110 45 Z"/>
+        </svg>
+      </div>
+      <!-- Cloud 2 -->
+      <div class="absolute top-20 right-16 anim-cloud opacity-30" style="animation-duration: 24s; animation-direction: reverse;">
+        <svg width="150" height="70" viewBox="0 0 120 60" fill="#FFFFFF">
+          <path d="M25 45 C15 45 5 37 5 25 C5 15 15 8 28 8 C32 3 42 0 52 0 C68 0 80 8 84 18 C90 15 98 15 104 20 C112 25 115 35 110 45 Z"/>
+        </svg>
+      </div>
+      <!-- Floating Toy Mascot / Crocodile Accent from PDF Page 1 -->
+      <div class="absolute bottom-4 left-6 hidden md:block anim-bobble z-10">
+        <div class="bg-amber-100/80 backdrop-blur-sm p-2 rounded-2xl border-2 border-brand-gold shadow-md flex items-center space-x-2">
+          <span class="text-2xl">🐊</span>
+          <div class="text-[10px] font-headline font-black text-brand-forest">
+            Joyful Play & Growth<br><span class="text-amber-600 font-bold">Ages 1.5 - 17</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
         <!-- Left Hero Content -->
         <div class="lg:col-span-6 space-y-5">
-          <!-- Playful Doodle / Rainbow Accent -->
           <div class="flex items-center space-x-2">
             <span class="inline-block w-8 h-2 bg-brand-gold rounded-full"></span>
             <span class="inline-block w-4 h-2 bg-brand-leaf rounded-full"></span>
-            <span class="font-eyebrow text-xl text-brand-forest tracking-wider uppercase">Welcome to Excellence</span>
+            <span class="font-eyebrow text-2xl text-brand-forest tracking-wider uppercase">Welcome to Excellence</span>
           </div>
 
-          <!-- Main Hero Heading matching PDF -->
           <h1 class="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-brand-deepNavy leading-tight tracking-tight">
             The Olive Branches <br>
             <span class="text-brand-gold drop-shadow-sm">Schools, Osogbo.</span>
@@ -279,7 +327,7 @@
             </button>
           </div>
 
-          <!-- Rating Stars & Cute Accents from PDF -->
+          <!-- Star Ratings & Badges -->
           <div class="pt-4 flex items-center space-x-4">
             <div class="flex items-center space-x-1 text-brand-gold">
               <i data-lucide="star" class="w-5 h-5 fill-current"></i>
@@ -298,8 +346,8 @@
         <div class="lg:col-span-6 flex justify-center relative">
           <div class="relative max-w-md sm:max-w-lg w-full">
             <!-- Decorative concentric ring doodles matching PDF -->
-            <div class="absolute -top-6 -left-6 w-20 h-20 border-4 border-brand-leaf/40 rounded-full"></div>
-            <div class="absolute -bottom-8 -right-8 w-24 h-24 border-4 border-brand-gold/40 rounded-full"></div>
+            <div class="absolute -top-6 -left-6 w-20 h-20 border-4 border-brand-leaf/40 rounded-full anim-bobble"></div>
+            <div class="absolute -bottom-8 -right-8 w-24 h-24 border-4 border-brand-gold/40 rounded-full anim-bobble" style="animation-delay: 2s;"></div>
             
             <!-- Real Cropped Assembly Badge from PDF Page 1 -->
             <div class="relative bg-white p-3 rounded-3xl shadow-2xl border-4 border-brand-forest/20 transform hover:scale-[1.02] transition-transform duration-300">
@@ -322,7 +370,7 @@
   </section>
 
   <!-- ==========================================
-       THE 4 ACADEMIC WINGS WITH TV ANTENNAS (From PDF Page 1)
+       THE 4 ACADEMIC WINGS (From PDF Page 1 with TV Antennas!)
        ========================================== -->
   <section class="py-12 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
@@ -337,8 +385,8 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
         
         <!-- Wing 1: Pre-School (Green #438B29) -->
-        <div class="bg-emerald-700 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-emerald-900">
-          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+        <div class="bg-emerald-700 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-emerald-900 group">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
             <span class="font-headline font-black text-xl text-white">ABC</span>
           </div>
           <h3 class="font-headline font-black text-xl mb-2 text-white">The Pre-School</h3>
@@ -351,8 +399,8 @@
         </div>
 
         <!-- Wing 2: Junior School (Orange #ED822B) -->
-        <div class="bg-amber-600 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-amber-900">
-          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+        <div class="bg-amber-600 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-amber-900 group">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
             <span class="font-headline font-black text-xl text-white">123</span>
           </div>
           <h3 class="font-headline font-black text-xl mb-2 text-white">The Junior School</h3>
@@ -365,8 +413,8 @@
         </div>
 
         <!-- Wing 3: Middle School (Magenta #9D1B55) -->
-        <div class="bg-pink-800 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-pink-950">
-          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+        <div class="bg-pink-800 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-pink-950 group">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
             <i data-lucide="compass" class="w-6 h-6 text-white"></i>
           </div>
           <h3 class="font-headline font-black text-xl mb-2 text-white">The Middle School</h3>
@@ -379,8 +427,8 @@
         </div>
 
         <!-- Wing 4: High School (Gold #F2AF22) -->
-        <div class="bg-amber-500 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-amber-800">
-          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
+        <div class="bg-amber-500 text-white p-6 rounded-3xl relative shadow-lg hover:-translate-y-2 transition-transform tv-antenna text-amber-800 group">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
             <i data-lucide="award" class="w-6 h-6 text-white"></i>
           </div>
           <h3 class="font-headline font-black text-xl mb-2 text-white">The High School</h3>
@@ -440,7 +488,7 @@
             <button onclick="scrollToSection('admissions')" class="btn-dashed-gold text-xs px-6 py-3 rounded-full uppercase tracking-wider">
               Read Full Prospectus
             </button>
-            <button onclick="openWhatsAppModal()" class="text-xs font-bold text-brand-forest hover:text-brand-leaf underline">
+            <button onclick="openWhatsAppModal('Message the Trustees Office')" class="text-xs font-bold text-brand-forest hover:text-brand-leaf underline">
               Message the Executive Office &rarr;
             </button>
           </div>
@@ -608,6 +656,97 @@
         </button>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INTERACTIVE GRADE SPECTRUM CAROUSEL (From PDF Page 3 Top)
+       ========================================== -->
+  <section id="grades-carousel" class="py-14 bg-amber-500/10 border-y border-amber-200 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+        <div>
+          <span class="font-eyebrow text-2xl text-amber-700 tracking-wider uppercase">Grade Continuum</span>
+          <h2 class="font-headline font-black text-3xl text-brand-deepNavy">
+            Classes & Age Spectrum
+          </h2>
+        </div>
+        <!-- Carousel Nav Buttons -->
+        <div class="flex items-center space-x-2">
+          <button onclick="scrollGrades(-1)" class="w-10 h-10 rounded-full bg-white shadow-md border border-amber-200 flex items-center justify-center text-brand-deepNavy hover:bg-brand-forest hover:text-white transition-colors">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button onclick="scrollGrades(1)" class="w-10 h-10 rounded-full bg-white shadow-md border border-amber-200 flex items-center justify-center text-brand-deepNavy hover:bg-brand-forest hover:text-white transition-colors">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel Track -->
+      <div id="grades-track" class="flex gap-6 overflow-x-auto pb-4 scroll-smooth no-scrollbar">
+        
+        <!-- Grade 7 -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-amber-300 shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-pink-700 text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            7TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The Middle School</h4>
+          <p class="text-xs text-amber-700 font-bold mt-1">Age 11 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">JSS 1 Foundation in STEM, Robotics & Language.</p>
+        </div>
+
+        <!-- Grade 8 (From PDF Page 3) -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-brand-forest shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-pink-800 text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            8TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The Middle School</h4>
+          <p class="text-xs text-brand-forest font-bold mt-1">Age 12 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">JSS 2 Deepened Analytical & Scientific Reasoning.</p>
+        </div>
+
+        <!-- Grade 9 (From PDF Page 3) -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-brand-leaf shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-pink-900 text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            9TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The Middle School</h4>
+          <p class="text-xs text-emerald-700 font-bold mt-1">Age 13 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">BECE Junior WAEC Exam Preparation Clinic.</p>
+        </div>
+
+        <!-- Grade 10 (From PDF Page 3) -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-amber-400 shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            10TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The High School</h4>
+          <p class="text-xs text-amber-700 font-bold mt-1">Age 14 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">SSS 1 Stream Selection: Science, Arts, Commercial.</p>
+        </div>
+
+        <!-- Grade 11 -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-amber-400 shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            11TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The High School</h4>
+          <p class="text-xs text-amber-700 font-bold mt-1">Age 15 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">SSS 2 Advanced Lab Practicals & SAT/UTME Prep.</p>
+        </div>
+
+        <!-- Grade 12 -->
+        <div class="min-w-[260px] bg-white p-6 rounded-3xl border-2 border-brand-forest shadow-md text-center flex-shrink-0">
+          <div class="w-12 h-12 bg-brand-forest text-white rounded-full flex items-center justify-center font-headline font-black text-xs mx-auto mb-3">
+            12TH
+          </div>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">The High School</h4>
+          <p class="text-xs text-brand-forest font-bold mt-1">Age 16 - 17 Years Old</p>
+          <p class="text-xs text-gray-600 mt-2">SSS 3 Valedictory Honors & WASSCE/NECO Mastery.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -881,13 +1020,6 @@
         </div>
 
       </div>
-
-      <div class="text-center mt-10">
-        <button onclick="alert('Viewing upcoming 2026/2027 academic session announcements.')" class="btn-dashed-gold text-xs px-8 py-3.5 rounded-full uppercase tracking-wider">
-          See More Updates
-        </button>
-      </div>
-
     </div>
   </section>
 
@@ -1096,9 +1228,84 @@
   </section>
 
   <!-- ==========================================
+       TECHNICAL AUDIT: WHY THIS REPLACES WORDPRESS
+       ========================================== -->
+  <section id="audit-breakdown" class="py-14 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="font-eyebrow text-2xl text-red-600 tracking-wider uppercase">Executive Comparison</span>
+        <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy">
+          Their Current Site vs. Our Modern Architecture
+        </h2>
+        <p class="font-body text-gray-600 text-sm mt-2">
+          A direct comparison showing school owners why upgrading eliminates plugin crashes, saves server costs, and delivers a 10x better parent experience.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Current WordPress Site Flaws -->
+        <div class="bg-red-50/60 p-6 rounded-3xl border-2 border-red-200 space-y-4">
+          <div class="flex items-center space-x-3 text-red-800">
+            <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+            <h3 class="font-headline font-black text-xl">Current WordPress Site (live audit)</h3>
+          </div>
+          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-700">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">❌</span>
+              <span><strong>253KB bloated HTML + 31 external scripts:</strong> Loads 5 duplicate animation libraries (GSAP, ScrollTrigger, WOW, Slick, and 2 versions of Swiper), slowing mobile connections.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">❌</span>
+              <span><strong>Disconnected E-Portal:</strong> Links to <code>obs.softedu.info</code>, a dated third-party PHP script with zero unified school branding.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">❌</span>
+              <span><strong>No Online Tuition Clearance:</strong> Parents must manually queue up or bring paper tellers to the bursary.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-600 font-bold">❌</span>
+              <span><strong>No AI Assistance:</strong> Parents must wait days for manual replies to basic admission or fee inquiries.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Our Modern Platform Advantages -->
+        <div class="bg-green-50/80 p-6 rounded-3xl border-2 border-brand-leaf space-y-4 shadow-pdf-green">
+          <div class="flex items-center space-x-3 text-brand-forest">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-leaf"></i>
+            <h3 class="font-headline font-black text-xl">Our Next-Gen AI Platform</h3>
+          </div>
+          <ul class="space-y-3 font-body text-xs sm:text-sm text-gray-800">
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✅</span>
+              <span><strong>Sub-second Speed & Clean Code:</strong> Zero bloated WordPress plugins. Powered by modern CDN edge delivery.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✅</span>
+              <span><strong>Integrated E-Portal & Paystack:</strong> Continuous Assessment, GPA tracking, and 1-tap fee clearance directly in one place.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✅</span>
+              <span><strong>Smart "Olive AI" Assistant:</strong> 24/7 multilingual parent support answering fees, curriculum, and bus questions instantly.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-green-600 font-bold">✅</span>
+              <span><strong>Printable A4 QR Report Cards:</strong> Embassies, WAEC, and parents can verify terminal results in 1 scan.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
        STUDENT / PARENT UNIFIED E-PORTAL (The Core Pitch Showcase)
        ========================================== -->
-  <section id="portal" class="py-16 bg-white relative">
+  <section id="portal" class="py-16 bg-brand-softGreen relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-10">
@@ -1110,12 +1317,12 @@
           Unified Student & Parent E-Portal
         </h2>
         <p class="font-body text-gray-600 text-sm mt-2">
-          Say goodbye to outdated 3rd-party logins. Everything is seamless: Continuous Assessment, QR Report Cards, and Paystack Tuition Clearance.
+          Say goodbye to outdated 3rd-party logins. Continuous Assessment, QR Report Cards, and Paystack Tuition Clearance are built right in.
         </p>
       </div>
 
       <!-- Quick Switcher Bar for Demo -->
-      <div class="max-w-2xl mx-auto bg-green-50 p-3 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 mb-8">
+      <div class="max-w-2xl mx-auto bg-white p-3 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 mb-8 shadow-sm">
         <span class="text-xs font-bold text-brand-forest flex items-center space-x-1">
           <i data-lucide="users" class="w-4 h-4"></i>
           <span>Interactive Demo Switcher:</span>
@@ -1223,7 +1430,147 @@
   </section>
 
   <!-- ==========================================
-       PRINTABLE A4 REPORT CARD MODAL (Hidden until Print)
+       AI ASSISTANT CHATBOT MODAL (The "Olive AI" Superpower)
+       ========================================== -->
+  <div id="ai-assistant-modal" class="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-2rem)] bg-white rounded-3xl shadow-2xl border-2 border-brand-leaf hidden flex-col overflow-hidden">
+    <!-- Chat Header -->
+    <div class="bg-brand-forest p-4 text-white flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-9 h-9 rounded-full bg-brand-leaf flex items-center justify-center text-white">
+          <i data-lucide="bot" class="w-5 h-5 text-brand-gold"></i>
+        </div>
+        <div>
+          <h4 class="font-headline font-black text-sm leading-tight">Olive AI Academic Desk</h4>
+          <span class="text-[11px] text-green-200 flex items-center space-x-1">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            <span>Online • Instant Parent Support</span>
+          </span>
+        </div>
+      </div>
+      <button onclick="toggleAiAssistant()" class="p-1.5 text-white/80 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Chat Messages Container -->
+    <div id="ai-chat-messages" class="p-4 h-80 overflow-y-auto space-y-3 font-body text-xs bg-gray-50">
+      <div class="flex items-start space-x-2">
+        <div class="w-6 h-6 rounded-full bg-brand-leaf text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
+          AI
+        </div>
+        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-gray-800 leading-relaxed">
+          Hello! I am the <strong>Olive AI Academic Assistant</strong>. I can answer inquiries about admissions, school fees, bus routes, academic calendar, or the school anthem in English, Yoruba, and French! How can I help you today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Question Suggestions -->
+    <div class="p-2 bg-white border-t border-gray-100 flex gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
+      <button onclick="askAiPreset('What are the school fees for High School?')" class="bg-green-50 text-brand-forest px-2.5 py-1 rounded-full whitespace-nowrap border border-green-200 hover:bg-green-100">
+        💰 School Fees?
+      </button>
+      <button onclick="askAiPreset('What are the bus routes in Osogbo?')" class="bg-green-50 text-brand-forest px-2.5 py-1 rounded-full whitespace-nowrap border border-green-200 hover:bg-green-100">
+        🚌 Bus Routes?
+      </button>
+      <button onclick="askAiPreset('Sing the school anthem in Yoruba')" class="bg-green-50 text-brand-forest px-2.5 py-1 rounded-full whitespace-nowrap border border-green-200 hover:bg-green-100">
+        🎵 Orin Ólífì (Yoruba)?
+      </button>
+    </div>
+
+    <!-- Chat Input Form -->
+    <form onsubmit="handleAiUserSubmit(event)" class="p-3 bg-white border-t border-gray-200 flex items-center space-x-2">
+      <input type="text" id="ai-chat-input" placeholder="Type your question..." class="flex-1 bg-gray-100 rounded-full px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-brand-leaf text-gray-800">
+      <button type="submit" class="w-8 h-8 rounded-full bg-brand-forest text-white flex items-center justify-center hover:bg-green-900 transition-colors">
+        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Floating Sticky Action Pills (Bottom Left) -->
+  <div class="fixed bottom-6 left-6 z-40 flex flex-col space-y-2">
+    <button onclick="toggleAiAssistant()" class="bg-brand-forest hover:bg-green-900 text-white font-headline font-bold text-xs px-4 py-2.5 rounded-full shadow-2xl flex items-center space-x-2 border-2 border-brand-gold animate-bounce">
+      <i data-lucide="bot" class="w-4 h-4 text-brand-gold"></i>
+      <span>Ask School AI</span>
+    </button>
+    <button onclick="openWhatsAppModal()" class="bg-green-600 hover:bg-green-500 text-white font-headline font-bold text-xs px-4 py-2.5 rounded-full shadow-2xl flex items-center space-x-2 border-2 border-white">
+      <i data-lucide="message-circle" class="w-4 h-4"></i>
+      <span>1-Tap WhatsApp Desk</span>
+    </button>
+  </div>
+
+  <!-- ==========================================
+       MULTI-SCHOOL PREVIEW SWITCHER MODAL (User Pitch Tool)
+       ========================================== -->
+  <div id="school-switcher-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeSchoolSwitcherModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center text-brand-gold">
+          <i data-lucide="repeat" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-headline font-black text-xl text-brand-deepNavy">Pitch White-Label Switcher</h3>
+          <p class="text-xs text-gray-500">Showcase this architecture to other Osogbo private schools</p>
+        </div>
+      </div>
+
+      <p class="font-body text-xs text-gray-600 mb-4 leading-relaxed">
+        Select a school below to adapt the branding and show the respective proprietress how their portal will look:
+      </p>
+
+      <div class="space-y-3 font-body">
+        <button onclick="applySchoolBrand('olive')" class="w-full p-3 rounded-2xl border-2 border-brand-forest bg-green-50 flex items-center justify-between text-left hover:bg-green-100 transition-colors">
+          <div class="flex items-center space-x-3">
+            <img src="images/crops/school_circular_crest.png" class="w-8 h-8 object-contain">
+            <div>
+              <div class="font-headline font-black text-sm text-brand-forest">The Olive Branches Schools</div>
+              <div class="text-[11px] text-gray-600">Deep Olive Green & Academic Gold (Active Showcase)</div>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-brand-forest">Active</span>
+        </button>
+
+        <button onclick="applySchoolBrand('roseful')" class="w-full p-3 rounded-2xl border border-gray-200 flex items-center justify-between text-left hover:bg-blue-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center text-xs font-bold">RI</div>
+            <div>
+              <div class="font-headline font-black text-sm text-blue-950">Roseful International High School</div>
+              <div class="text-[11px] text-gray-600">Royal Navy & Burgundy Red Accent</div>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-blue-700">Preview &rarr;</span>
+        </button>
+
+        <button onclick="applySchoolBrand('gof')" class="w-full p-3 rounded-2xl border border-gray-200 flex items-center justify-between text-left hover:bg-amber-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-600 text-white flex items-center justify-center text-xs font-bold">GOF</div>
+            <div>
+              <div class="font-headline font-black text-sm text-gray-900">GOF International School</div>
+              <div class="text-[11px] text-gray-600">Cobalt Blue & Golden Crest</div>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-amber-600">Preview &rarr;</span>
+        </button>
+
+        <button onclick="applySchoolBrand('kunike')" class="w-full p-3 rounded-2xl border border-gray-200 flex items-center justify-between text-left hover:bg-purple-50 transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full bg-purple-900 text-white flex items-center justify-center text-xs font-bold">KI</div>
+            <div>
+              <div class="font-headline font-black text-sm text-purple-950">Kunike International School</div>
+              <div class="text-[11px] text-gray-600">Imperial Purple & Gold (High Priority Pitch)</div>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-purple-700">Preview &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PRINTABLE A4 REPORT CARD (Hidden until Print)
        ========================================== -->
   <div id="printable-report-card" class="hidden bg-white p-8 max-w-4xl mx-auto border-4 border-brand-forest text-black">
     <div class="flex items-center justify-between border-b-2 border-brand-forest pb-4 mb-4">
@@ -1260,9 +1607,7 @@
           <th class="border border-gray-400 p-1.5">Remark</th>
         </tr>
       </thead>
-      <tbody id="print-table-body">
-        <!-- populated dynamically -->
-      </tbody>
+      <tbody id="print-table-body"></tbody>
     </table>
 
     <div class="border-t-2 border-black pt-4 grid grid-cols-2 gap-8 text-xs">
@@ -1437,11 +1782,106 @@
   </footer>
 
   <!-- ==========================================
-       INTERACTIVE SCRIPT ENGINE
+       INTERACTIVE ENGINE
        ========================================== -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Grade Spectrum Carousel Navigation
+    function scrollGrades(direction) {
+      const track = document.getElementById('grades-track');
+      if (track) {
+        track.scrollBy({ left: direction * 300, behavior: 'smooth' });
+      }
+    }
+
+    // AI Assistant Logic
+    function toggleAiAssistant() {
+      const modal = document.getElementById('ai-assistant-modal');
+      modal.classList.toggle('hidden');
+      modal.classList.toggle('flex');
+    }
+
+    function askAiPreset(question) {
+      document.getElementById('ai-chat-input').value = question;
+      handleAiUserSubmit(new Event('submit'));
+    }
+
+    function handleAiUserSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const container = document.getElementById('ai-chat-messages');
+
+      // User Message
+      const userBubble = document.createElement('div');
+      userBubble.className = "flex items-start justify-end space-x-2";
+      userBubble.innerHTML = `
+        <div class="bg-brand-forest text-white p-3 rounded-2xl rounded-tr-none shadow-sm leading-relaxed max-w-[80%]">
+          ${text}
+        </div>
+      `;
+      container.appendChild(userBubble);
+      input.value = '';
+      container.scrollTop = container.scrollHeight;
+
+      // Simulate Intelligent AI Response
+      setTimeout(() => {
+        let reply = "Thank you for asking! For detailed assistance, our admissions officer is available via our 1-tap WhatsApp line (+234 803 377 7549).";
+        const q = text.toLowerCase();
+        
+        if (q.includes('fee') || q.includes('cost') || q.includes('tuition')) {
+          reply = "The Olive Branches Schools provides high-value qualitative education. Term tuition covers tuition, science lab supplies, ICT, and developmental levies (e.g. SSS 2 Science is approx ₦185,000/term). Instant Paystack clearance is available right here on our unified portal!";
+        } else if (q.includes('bus') || q.includes('transport') || q.includes('route')) {
+          reply = "Yes! We run safe, air-conditioned bus services covering Oroki Estate, Ring Road, Ogo-Oluwa, Gbongan Road, Biket, and surrounding Osogbo residential zones with punctual pick-up and drop-off.";
+        } else if (q.includes('yoruba') || q.includes('orin')) {
+          reply = "Àwa Ẹ̀ka Ólífì, Eni Àmì Olúwa, A wá sí ibi èrè, T'A ti ñ tàn bí wúrà, Òkìkí odi Rẹ, Yío dúró láé, L'órí Kríst', Tí nṣe Gbòngbò Rẹ!";
+        } else if (q.includes('admission') || q.includes('apply') || q.includes('creche')) {
+          reply = "Admissions are actively open for Pre-School, Junior School, Middle School, and High School for the 2026/2027 academic session. You can fill out our instant admission form on this page to receive immediate WhatsApp confirmation!";
+        }
+
+        const aiBubble = document.createElement('div');
+        aiBubble.className = "flex items-start space-x-2";
+        aiBubble.innerHTML = `
+          <div class="w-6 h-6 rounded-full bg-brand-leaf text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
+            AI
+          </div>
+          <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-gray-800 leading-relaxed max-w-[85%]">
+            ${reply}
+          </div>
+        `;
+        container.appendChild(aiBubble);
+        container.scrollTop = container.scrollHeight;
+      }, 600);
+    }
+
+    // Multi-School Brand Switcher Logic
+    function openSchoolSwitcherModal() {
+      document.getElementById('school-switcher-modal').classList.remove('hidden');
+    }
+    function closeSchoolSwitcherModal() {
+      document.getElementById('school-switcher-modal').classList.add('hidden');
+    }
+
+    function applySchoolBrand(school) {
+      const titles = {
+        olive: { title: "THE OLIVE BRANCHES", sub: "Schools, Osogbo", color: "#14532D", logo: "images/crops/school_circular_crest.png" },
+        roseful: { title: "ROSEFUL INTERNATIONAL", sub: "High School, Osogbo", color: "#1E3A8A", logo: "images/crops/school_circular_crest.png" },
+        gof: { title: "GOF INTERNATIONAL", sub: "School, Osogbo", color: "#B45309", logo: "images/crops/school_circular_crest.png" },
+        kunike: { title: "KUNIKE INTERNATIONAL", sub: "School, Osogbo", color: "#581C87", logo: "images/crops/school_circular_crest.png" }
+      };
+
+      const selected = titles[school];
+      if (selected) {
+        document.getElementById('nav-school-title').innerText = selected.title;
+        document.getElementById('nav-school-subtitle').innerText = selected.sub;
+        alert(`Branding updated for ${selected.title} showcase! You can now pitch this live.`);
+      }
+      closeSchoolSwitcherModal();
+    }
 
     // Student Database
     const students = {
@@ -1507,7 +1947,6 @@
       activeStudentKey = key;
       const data = students[key];
 
-      // Update switcher buttons
       ['farouq', 'tiwalola', 'chidubem'].forEach(k => {
         const btn = document.getElementById(`btn-demo-${k}`);
         if (k === key) {
@@ -1517,7 +1956,6 @@
         }
       });
 
-      // Update profile info
       document.getElementById('student-name').innerText = data.name;
       document.getElementById('student-avatar-initials').innerText = data.initials;
       document.getElementById('student-meta').innerText = `Reg No: ${data.reg} • Class: ${data.class} • House: ${data.house}`;
@@ -1525,11 +1963,9 @@
       document.getElementById('stat-attendance').innerText = data.attendance;
       document.getElementById('stat-rank').innerText = data.rank;
 
-      // Update tuition modal bindings
       document.getElementById('pay-student-name').innerText = data.name;
       document.getElementById('pay-student-reg').innerText = data.reg;
 
-      // Populate grades table
       const tbody = document.getElementById('student-grades-table');
       tbody.innerHTML = '';
       data.grades.forEach(row => {
@@ -1551,7 +1987,6 @@
         tbody.appendChild(tr);
       });
 
-      // Update print preview
       document.getElementById('print-name').innerText = data.name;
       document.getElementById('print-reg').innerText = data.reg;
       document.getElementById('print-class').innerText = data.class;
@@ -1575,22 +2010,18 @@
       });
     }
 
-    // Initialize with Farouq
     switchStudent('farouq');
 
-    // Smooth scroll helper
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Mobile menu toggle
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
     }
 
-    // Direct WhatsApp Desk Modal Logic
     function openWhatsAppModal(defaultMsg = '') {
       const modal = document.getElementById('whatsapp-modal');
       modal.classList.remove('hidden');
@@ -1611,7 +2042,6 @@
       closeWhatsAppModal();
     }
 
-    // Admission Form Submission Handler
     function handleAdmissionSubmit(e) {
       e.preventDefault();
       const child = document.getElementById('adm-child-name').value;
@@ -1624,16 +2054,14 @@
 
       const summary = `*New Admission Application - The Olive Branches Schools*%0A*Child:* ${encodeURIComponent(child)}%0A*DOB:* ${encodeURIComponent(dob)}%0A*Target Wing:* ${encodeURIComponent(grade)}%0A*Parent:* ${encodeURIComponent(parent)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email)}%0A*Address:* ${encodeURIComponent(address)}`;
 
-      alert(`Thank you, ${parent}! Your application for ${child} has been formatted. We are now opening your WhatsApp to dispatch it directly to the Admissions Registry (+234 803 377 7549).`);
+      alert(`Thank you, ${parent}! Your application for ${child} has been formatted. Opening WhatsApp to connect with Admissions Registry (+234 803 377 7549).`);
       window.open(`https://wa.me/2348033777549?text=${summary}`, '_blank');
     }
 
-    // Print Report Card Handler
     function printReportCard() {
       window.print();
     }
 
-    // Tuition Modal Handlers
     function openTuitionModal() {
       document.getElementById('tuition-modal').classList.remove('hidden');
     }
@@ -1644,11 +2072,6 @@
       e.preventDefault();
       alert(`[Paystack Sandbox Demo] Initiating secure ₦185,000 tuition settlement for ${students[activeStudentKey].name} to The Olive Branches Schools bank account. Integration key: pk_live_olivebranches_osogbo`);
       closeTuitionModal();
-    }
-
-    // Portal Modal Helper
-    function openPortalModal() {
-      scrollToSection('portal');
     }
 
     function openVideoPlayer() {
