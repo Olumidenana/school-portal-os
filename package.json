@@ -2,10 +2,9 @@
   "name": "school-portal-os",
   "version": "1.0.0",
   "description": "EduCore OS — Premier School, Parent & AI Academy Platform",
-  "main": "index.html",
   "scripts": {
-    "start": "npx serve -l 3000 .",
-    "dev": "npx serve -l 3000 ."
+    "build": "echo 'Static build complete'",
+    "start": "npx serve ."
   },
   "author": "Olumide Adeyemi-Nana",
   "license": "MIT"
