@@ -2664,55 +2664,106 @@
       if (m) m.classList.add('hidden');
     }
 
+    
+    // ==========================================
+    // TEACHER & STAFF PORTAL CONTROLLERS
+    // ==========================================
     function openStaffPortalModal() {
       const m = document.getElementById('staff-portal-modal');
-      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+      if (m) { 
+        m.classList.remove('hidden'); 
+        if (window.lucide) lucide.createIcons(); 
+      }
     }
     function closeStaffPortalModal() {
       const m = document.getElementById('staff-portal-modal');
       if (m) m.classList.add('hidden');
     }
 
-    function openCbtModal() {
-      const m = document.getElementById('cbt-modal');
-      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
-    }
-    function closeCbtModal() {
-      const m = document.getElementById('cbt-modal');
-      if (m) m.classList.add('hidden');
+    function handleStaffLogin(e) {
+      if (e) e.preventDefault();
+      const btn = document.getElementById('btn-staff-login');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span class="inline-block animate-spin mr-1">⏳</span> Verifying Staff Faculty Credentials...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.disabled = false;
+        document.getElementById('staff-login-gate').classList.add('hidden');
+        document.getElementById('staff-dashboard-view').classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
+      }, 500);
     }
 
-    function openCareersModal() {
-      const m = document.getElementById('careers-modal');
-      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
-    }
-    function closeCareersModal() {
-      const m = document.getElementById('careers-modal');
-      if (m) m.classList.add('hidden');
+    function quickStaffLogin() {
+      document.getElementById('staff-id-input').value = 'OBS/TCH/2021/042';
+      handleStaffLogin();
     }
 
-    // Staff Gradebook Live Recalculation
-    function recalcDemoGrade() {
-      const ca1 = parseFloat(document.getElementById('ca1-farouq').value) || 0;
-      const ca2 = parseFloat(document.getElementById('ca2-farouq').value) || 0;
-      const exam = parseFloat(document.getElementById('exam-farouq').value) || 0;
-      const total = Math.min(100, Math.round(ca1 + ca2 + exam));
-      document.getElementById('total-farouq').innerText = total + '%';
-      
-      let grade = 'F9';
-      if (total >= 75) grade = 'A1';
-      else if (total >= 70) grade = 'B2';
-      else if (total >= 65) grade = 'B3';
-      else if (total >= 60) grade = 'C4';
-      else if (total >= 50) grade = 'C6';
-      
-      document.getElementById('grade-farouq').innerText = grade;
+    function lockStaffPortal() {
+      document.getElementById('staff-dashboard-view').classList.add('hidden');
+      document.getElementById('staff-login-gate').classList.remove('hidden');
+    }
+
+    function switchStaffUploadMode(mode) {
+      const tabGrid = document.getElementById('tab-mode-grid');
+      const tabExcel = document.getElementById('tab-mode-excel');
+      const viewGrid = document.getElementById('staff-view-grid');
+      const viewExcel = document.getElementById('staff-view-excel');
+
+      if (mode === 'grid') {
+        tabGrid.className = "bg-brand-forest text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 shadow-sm";
+        tabExcel.className = "bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-colors";
+        viewGrid.classList.remove('hidden');
+        viewExcel.classList.add('hidden');
+      } else {
+        tabExcel.className = "bg-brand-forest text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 shadow-sm";
+        tabGrid.className = "bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-colors";
+        viewExcel.classList.remove('hidden');
+        viewGrid.classList.add('hidden');
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function triggerSimulatedExcelUpload() {
+      const prog = document.getElementById('excel-upload-progress');
+      const bar = document.getElementById('excel-progress-bar');
+      const text = document.getElementById('excel-progress-text');
+      const percent = document.getElementById('excel-progress-percent');
+      const log = document.getElementById('excel-progress-log');
+
+      prog.classList.remove('hidden');
+      bar.style.width = '25%';
+      percent.innerText = '25%';
+      text.innerText = 'Parsing "SSS_2_Physics_2nd_Term_2026.xlsx"...';
+      log.innerText = 'Extracting 34 student Continuous Assessment marks...';
+
+      setTimeout(() => {
+        bar.style.width = '65%';
+        percent.innerText = '65%';
+        text.innerText = 'Validating Score Ranges & Reg Numbers...';
+        log.innerText = 'Verifying CA1 (max 20), CA2 (max 20), Exam (max 60) for all 34 rows...';
+      }, 700);
+
+      setTimeout(() => {
+        bar.style.width = '100%';
+        percent.innerText = '100%';
+        text.innerText = '✓ Validation Complete!';
+        log.innerText = '34 student records matched with 0 errors. Ready to broadcast to student report cards.';
+      }, 1400);
     }
 
     function saveDemoStaffEntry() {
-      alert('✓ Staff CA Entry Saved: Continuous Assessment automatically synced to Student Portal & Bursary Clearing Engine!');
+      alert(`✓ RESULTS BROADCAST SUCCESSFUL!
+
+• Class: SSS 2 Science (Physics)
+• Total Students Updated: 34
+• Continuous Assessment & Terminal Grades published to student portals
+• Electronic copy dispatched to Vice-Principal Academics for digital seal endorsement.`);
       closeStaffPortalModal();
     }
+
 
     // Wing Detail Viewer Data
     const wingDetails = {
@@ -3521,90 +3572,252 @@
   </div>
 
   <!-- ==========================================
-       4. STAFF / TEACHER CA GRADEBOOK DEMO MODAL
+       4. STAFF / TEACHER CA GRADEBOOK & RESULT UPLOAD SUITE
        ========================================== -->
   <div id="staff-portal-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
       <div class="flex justify-between items-start border-b border-gray-100 pb-4">
         <div>
           <span class="inline-flex items-center space-x-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
             <i data-lucide="briefcase" class="w-3.5 h-3.5 text-blue-700"></i>
-            <span>Teacher Portal & Continuous Assessment</span>
+            <span>Educator & Faculty Academic Suite</span>
           </span>
           <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
-            Staff Digital Gradebook & Evaluation Suite
+            Staff Portal & Result Upload Engine
           </h3>
-          <p class="text-xs text-gray-500 font-medium">Interactive preview showing how educators input CA scores that seamlessly feed student report cards</p>
+          <p class="text-xs text-gray-500 font-medium">Continuous Assessment (CA) Compilation, Excel Broadsheet Batch Upload, and Terminal Grading</p>
         </div>
         <button onclick="closeStaffPortalModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <!-- Demo Class Info -->
-      <div class="bg-green-50 p-4 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 text-xs">
-        <div>
-          <span class="font-bold text-brand-forest">Class:</span> SSS 2 Science &bull;
-          <span class="font-bold text-brand-forest">Subject:</span> Physics &bull;
-          <span class="font-bold text-brand-forest">Instructor:</span> Mr. K. Olawale
+      <!-- ==========================================
+           PHASE 1: TEACHER LOGIN GATE (LOCKED BY DEFAULT)
+           ========================================== -->
+      <div id="staff-login-gate" class="max-w-md mx-auto bg-gray-50 p-6 rounded-3xl border-2 border-brand-forest/30 space-y-5">
+        <div class="text-center space-y-1.5">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-headline font-black text-xl text-brand-deepNavy">Teacher & Staff Sign-In</h4>
+          <p class="text-xs text-gray-500">Sign in with your official staff credentials to compile or upload terminal student grades.</p>
         </div>
-        <span class="bg-brand-forest text-white px-2.5 py-1 rounded-full font-bold text-[10px]">
-          Second Term Examination Entry
-        </span>
+
+        <form onsubmit="handleStaffLogin(event)" class="space-y-3.5 text-xs font-body">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase mb-1">Staff ID / Payroll Code</label>
+            <input type="text" id="staff-id-input" value="OBS/TCH/2021/042" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl font-bold text-gray-800 outline-none focus:ring-2 focus:ring-brand-leaf">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase mb-1">Staff Passcode</label>
+            <input type="password" id="staff-pin-input" value="••••••••" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl font-bold text-gray-800 outline-none focus:ring-2 focus:ring-brand-leaf">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase mb-1">Assigned Department / Subject</label>
+            <select class="w-full p-2.5 bg-white border border-gray-300 rounded-xl font-medium text-gray-700 outline-none">
+              <option>Senior School: Physics (SSS 2 Science)</option>
+              <option>Senior School: Chemistry (SSS 1 Science)</option>
+              <option>Junior School: Mathematics (JSS 3)</option>
+              <option>Early Years: Phonics & Numeracy (Nursery 2)</option>
+            </select>
+          </div>
+          <button type="submit" id="btn-staff-login" class="w-full bg-brand-forest hover:bg-green-900 text-white font-headline font-bold py-3 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2">
+            <i data-lucide="lock" class="w-4 h-4 text-brand-gold"></i>
+            <span>Access Subject Gradebook</span>
+          </button>
+        </form>
+
+        <div class="pt-3 border-t border-gray-200 text-center">
+          <p class="text-[11px] font-bold text-gray-500 mb-2">Management Reviewer 1-Click Demo:</p>
+          <button type="button" onclick="quickStaffLogin()" class="bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold py-2 px-3 rounded-xl w-full flex items-center justify-center space-x-1.5 transition-colors">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+            <span>Instant Login as Mr. K. Olawale (Senior Physics Master)</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Live Editable Gradebook Demo Table -->
-      <div class="overflow-x-auto rounded-2xl border border-gray-200">
-        <table class="w-full text-left text-xs font-body">
-          <thead class="bg-gray-100 text-gray-700 font-headline uppercase font-bold text-[11px]">
-            <tr>
-              <th class="p-3">Student Name</th>
-              <th class="p-3">Reg No.</th>
-              <th class="p-3">1st CA (20)</th>
-              <th class="p-3">2nd CA (20)</th>
-              <th class="p-3">Exam (60)</th>
-              <th class="p-3">Total (100)</th>
-              <th class="p-3">Grade</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr class="hover:bg-green-50/50">
-              <td class="p-3 font-bold text-brand-deepNavy">Farouq Adeyemi</td>
-              <td class="p-3 text-gray-500">OBS/2022/0481</td>
-              <td class="p-3"><input type="number" id="ca1-farouq" value="18" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
-              <td class="p-3"><input type="number" id="ca2-farouq" value="19" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
-              <td class="p-3"><input type="number" id="exam-farouq" value="55" max="60" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
-              <td class="p-3 font-black text-brand-forest" id="total-farouq">92%</td>
-              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black" id="grade-farouq">A1</span></td>
-            </tr>
-            <tr class="hover:bg-green-50/50">
-              <td class="p-3 font-bold text-brand-deepNavy">Tiwalola Adesina</td>
-              <td class="p-3 text-gray-500">OBS/2021/0192</td>
-              <td class="p-3"><span class="font-bold text-gray-700">17</span></td>
-              <td class="p-3"><span class="font-bold text-gray-700">18</span></td>
-              <td class="p-3"><span class="font-bold text-gray-700">53</span></td>
-              <td class="p-3 font-black text-brand-forest">88%</td>
-              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">A1</span></td>
-            </tr>
-            <tr class="hover:bg-green-50/50">
-              <td class="p-3 font-bold text-brand-deepNavy">Chidubem Okafor</td>
-              <td class="p-3 text-gray-500">OBS/2024/0512</td>
-              <td class="p-3"><span class="font-bold text-gray-700">16</span></td>
-              <td class="p-3"><span class="font-bold text-gray-700">16</span></td>
-              <td class="p-3"><span class="font-bold text-gray-700">49</span></td>
-              <td class="p-3 font-black text-brand-forest">81%</td>
-              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">B2</span></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- ==========================================
+           PHASE 2: AUTHENTICATED TEACHER DASHBOARD
+           ========================================== -->
+      <div id="staff-dashboard-view" class="hidden space-y-5">
+        
+        <!-- Teacher Profile Bar -->
+        <div class="bg-green-50 p-4 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-forest text-white font-headline font-bold flex items-center justify-center text-sm">
+              KO
+            </div>
+            <div>
+              <div class="font-headline font-black text-sm text-brand-deepNavy">
+                Mr. Kehinde Olawale <span class="text-xs font-bold text-brand-forest">(Senior Physics Master)</span>
+              </div>
+              <p class="text-gray-500 text-[11px]">
+                Class: <strong class="text-gray-700">SSS 2 Science</strong> &bull; Subject: <strong class="text-gray-700">Physics</strong> &bull; Students: <strong class="text-gray-700">34 Registered</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <span class="bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-full font-bold text-[11px] flex items-center space-x-1">
+              <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+              <span>Grading Window Open</span>
+            </span>
+            <button onclick="lockStaffPortal()" class="bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs font-bold px-3 py-1.5 rounded-xl transition-colors">
+              Sign Out
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode Toggle Tabs (Direct Entry vs Batch Excel Upload) -->
+        <div class="flex items-center space-x-2 border-b border-gray-200 pb-2">
+          <button onclick="switchStaffUploadMode('grid')" id="tab-mode-grid" class="bg-brand-forest text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 shadow-sm">
+            <i data-lucide="table" class="w-3.5 h-3.5"></i>
+            <span>Interactive Gradebook Grid</span>
+          </button>
+          <button onclick="switchStaffUploadMode('excel')" id="tab-mode-excel" class="bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 transition-colors">
+            <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-green-700"></i>
+            <span>Batch Excel Broadsheet Upload</span>
+          </button>
+        </div>
+
+        <!-- MODE A: INTERACTIVE GRID ENTRY -->
+        <div id="staff-view-grid" class="space-y-4">
+          <div class="flex justify-between items-center text-xs text-gray-500">
+            <span>Tip: Edit any score; totals and letter grades auto-recalculate instantly.</span>
+            <span class="font-bold text-brand-forest">Scoring Breakdown: 1st CA (20) + 2nd CA (20) + Exam (60) = 100%</span>
+          </div>
+
+          <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+            <table class="w-full text-left text-xs font-body">
+              <thead class="bg-gray-100 text-gray-700 font-headline uppercase font-bold text-[11px]">
+                <tr>
+                  <th class="p-3">Student Name</th>
+                  <th class="p-3">Reg No.</th>
+                  <th class="p-3 text-center">1st CA (20)</th>
+                  <th class="p-3 text-center">2nd CA (20)</th>
+                  <th class="p-3 text-center">Exam (60)</th>
+                  <th class="p-3 text-center">Total (100)</th>
+                  <th class="p-3 text-center">Grade</th>
+                  <th class="p-3">Teacher's Professional Remark</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-green-50/50">
+                  <td class="p-3 font-bold text-brand-deepNavy">Farouq Adeyemi</td>
+                  <td class="p-3 text-gray-500">OBS/2022/0481</td>
+                  <td class="p-3 text-center"><input type="number" id="ca1-farouq" value="18" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold text-brand-forest"></td>
+                  <td class="p-3 text-center"><input type="number" id="ca2-farouq" value="19" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold text-brand-forest"></td>
+                  <td class="p-3 text-center"><input type="number" id="exam-farouq" value="55" max="60" min="0" oninput="recalcDemoGrade()" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold text-brand-forest"></td>
+                  <td class="p-3 text-center font-black text-brand-forest text-sm" id="total-farouq">92%</td>
+                  <td class="p-3 text-center"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black" id="grade-farouq">A1</span></td>
+                  <td class="p-3"><input type="text" value="Outstanding laboratory aptitude & mathematical rigor." class="w-full p-1 bg-transparent border-b border-gray-200 text-xs italic text-gray-700"></td>
+                </tr>
+                <tr class="hover:bg-green-50/50">
+                  <td class="p-3 font-bold text-brand-deepNavy">Tiwalola Adesina</td>
+                  <td class="p-3 text-gray-500">OBS/2021/0192</td>
+                  <td class="p-3 text-center"><input type="number" value="17" max="20" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center"><input type="number" value="18" max="20" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center"><input type="number" value="53" max="60" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center font-black text-brand-forest text-sm">88%</td>
+                  <td class="p-3 text-center"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">A1</span></td>
+                  <td class="p-3"><input type="text" value="Thorough analysis of optical physics concepts." class="w-full p-1 bg-transparent border-b border-gray-200 text-xs italic text-gray-700"></td>
+                </tr>
+                <tr class="hover:bg-green-50/50">
+                  <td class="p-3 font-bold text-brand-deepNavy">Chidubem Okafor</td>
+                  <td class="p-3 text-gray-500">OBS/2024/0512</td>
+                  <td class="p-3 text-center"><input type="number" value="16" max="20" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center"><input type="number" value="16" max="20" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center"><input type="number" value="49" max="60" class="w-14 p-1.5 bg-white border border-gray-300 rounded-lg text-center font-bold"></td>
+                  <td class="p-3 text-center font-black text-brand-forest text-sm">81%</td>
+                  <td class="p-3 text-center"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">B2</span></td>
+                  <td class="p-3"><input type="text" value="Consistent work ethic. Recommended for distinction honors." class="w-full p-1 bg-transparent border-b border-gray-200 text-xs italic text-gray-700"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Class Analytics Summary Bar -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50 p-3.5 rounded-2xl border border-gray-200 text-center">
+            <div>
+              <span class="text-[10px] text-gray-500 uppercase font-bold">Class Average</span>
+              <div class="font-headline font-black text-lg text-brand-forest">87.0%</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-500 uppercase font-bold">Highest Score</span>
+              <div class="font-headline font-black text-lg text-green-700">92% (Farouq)</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-500 uppercase font-bold">Pass Rate (Credit+)</span>
+              <div class="font-headline font-black text-lg text-blue-700">100%</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-500 uppercase font-bold">Broadsheet Status</span>
+              <div class="font-headline font-black text-lg text-amber-600">Verified</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE B: BATCH EXCEL UPLOAD -->
+        <div id="staff-view-excel" class="hidden space-y-4">
+          <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-200 text-xs text-blue-900 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <div>
+              <strong class="block text-sm font-bold text-blue-950">Bulk Excel Upload Workflow</strong>
+              <p class="text-blue-800">Download the official pre-formatted class broadsheet template, fill in your marks offline, and drop it here for instant automatic reconciliation.</p>
+            </div>
+            <button onclick="alert('Downloading Official OBS Broadsheet Template (SSS2_Physics_Template.xlsx)...')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl flex items-center space-x-1.5 shrink-0 shadow-sm">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download .xlsx Template</span>
+            </button>
+          </div>
+
+          <!-- Drag and Drop Upload Card -->
+          <div id="excel-drop-zone" onclick="triggerSimulatedExcelUpload()" class="border-2 border-dashed border-brand-leaf/60 hover:border-brand-forest bg-green-50/30 hover:bg-green-50/60 p-8 rounded-3xl text-center cursor-pointer transition-all space-y-3">
+            <div class="w-14 h-14 mx-auto rounded-full bg-green-100 text-brand-forest flex items-center justify-center">
+              <i data-lucide="upload-cloud" class="w-7 h-7 text-brand-leaf"></i>
+            </div>
+            <div>
+              <h5 class="font-headline font-black text-base text-brand-deepNavy">Click to Upload SSS 2 Physics Score Sheet</h5>
+              <p class="text-xs text-gray-500 mt-0.5">Supports Microsoft Excel (.xlsx, .xls) and CSV files up to 25MB</p>
+            </div>
+            <div class="inline-flex items-center space-x-1.5 bg-white px-3 py-1 rounded-full text-xs font-bold text-brand-forest border border-green-200 shadow-sm">
+              <i data-lucide="file-check" class="w-3.5 h-3.5 text-brand-gold"></i>
+              <span>Ready for: SSS_2_Physics_2nd_Term_2026.xlsx</span>
+            </div>
+          </div>
+
+          <!-- Upload Simulation Progress (hidden until clicked) -->
+          <div id="excel-upload-progress" class="hidden bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+            <div class="flex justify-between items-center text-xs">
+              <span id="excel-progress-text" class="font-bold text-brand-forest">Reading Excel Broad Sheet...</span>
+              <span id="excel-progress-percent" class="font-black text-brand-deepNavy">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+              <div id="excel-progress-bar" class="bg-brand-leaf h-full w-0 transition-all duration-300"></div>
+            </div>
+            <p id="excel-progress-log" class="text-[11px] text-gray-500 italic">Matching student registration numbers against school master database...</p>
+          </div>
+        </div>
+
+        <!-- Master Actions -->
+        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <div class="text-xs text-gray-500 flex items-center space-x-1">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-600"></i>
+            <span>Signed off by Subject Instructor: <strong>Mr. K. Olawale</strong></span>
+          </div>
+
+          <div class="flex items-center space-x-3 w-full sm:w-auto">
+            <button onclick="saveDemoStaffEntry()" class="w-full sm:w-auto bg-brand-forest hover:bg-green-900 text-white font-headline font-bold text-xs px-6 py-3 rounded-xl flex items-center justify-center space-x-2 shadow-md transition-all">
+              <i data-lucide="send" class="w-4 h-4 text-brand-gold"></i>
+              <span>Approve & Broadcast to Student Portals</span>
+            </button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="bg-gray-50 p-3 rounded-xl text-[11px] text-gray-600 flex items-center justify-between">
-        <span>💡 Test changing the scores above; total and grade automatically compute in real-time.</span>
-        <button onclick="saveDemoStaffEntry()" class="bg-brand-forest hover:bg-green-900 text-white font-bold px-4 py-1.5 rounded-lg">
-          Sync With Bursary & Portal
-        </button>
-      </div>
     </div>
   </div>
 
