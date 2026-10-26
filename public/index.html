@@ -3130,7 +3130,7 @@
         student.receiptNo = genRef;
 
         // Re-render student dashboard
-        switchStudent(activeStudentKey); updatePaystackStatus();
+        switchStudent(activeStudentKey); updatePaystackStatus(); initVercelConfig();
         switchPortalTab('fees');
 
         // Store receipt metadata
@@ -3197,7 +3197,7 @@
       alert(`🎉 TUITION CLEARANCE SUCCESSFUL!\n\nTransaction Reference: ${ref}\nStudent: ${studentName}\nAmount Settled: ₦${amount.toLocaleString()}.00\nStatus: 100% Cleared (Paystack Verified)\n\nA digital receipt has been dispatched to your email and synced to The Olive Branches Bursary records.`);
       
       // Re-render student dashboard to show live CLEARED badge and 0 balance!
-      switchStudent(activeStudentKey); updatePaystackStatus();
+      switchStudent(activeStudentKey); updatePaystackStatus(); initVercelConfig();
       switchPortalTab('fees');
     }
 
