@@ -1392,8 +1392,21 @@
           </div>
         </div>
 
-        <!-- Continuous Assessment Table -->
-        <div class="overflow-x-auto rounded-2xl border border-gray-200">
+        <!-- Interactive Portal View Navigation Tabs -->
+        <div class="flex items-center space-x-2 border-b border-gray-200 mb-6 font-headline font-bold text-xs sm:text-sm">
+          <button id="tab-btn-grades" onclick="switchPortalTab('grades')" class="pb-3 px-3 border-b-2 border-brand-forest text-brand-forest flex items-center space-x-2">
+            <i data-lucide="book-marked" class="w-4 h-4"></i>
+            <span>Continuous Assessment & Grades</span>
+          </button>
+          <button id="tab-btn-fees" onclick="switchPortalTab('fees')" class="pb-3 px-3 border-b-2 border-transparent text-gray-500 hover:text-brand-forest flex items-center space-x-2">
+            <i data-lucide="receipt" class="w-4 h-4"></i>
+            <span>Term Fees & Subject Levies</span>
+            <span id="tab-fee-badge" class="ml-1 px-2 py-0.5 rounded-full text-[10px] font-black bg-green-100 text-green-800">CLEARED</span>
+          </button>
+        </div>
+
+        <!-- View 1: Continuous Assessment Table -->
+        <div id="view-grades" class="overflow-x-auto rounded-2xl border border-gray-200">
           <table class="w-full text-left text-xs sm:text-sm font-body">
             <thead class="bg-brand-softGreen text-brand-forest uppercase text-[11px] font-bold">
               <tr>
@@ -1410,6 +1423,59 @@
               <!-- Dynamically populated by switchStudent() -->
             </tbody>
           </table>
+        </div>
+
+        <!-- View 2: Term Fees & Subject Breakdown -->
+        <div id="view-fees" class="hidden space-y-6">
+          <!-- Fee Status Summary Banner -->
+          <div class="p-5 rounded-2xl border border-gray-200 bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div class="space-y-1">
+              <span class="text-xs font-bold uppercase text-gray-500">Term Billing Assessment (Second Term 2025/2026)</span>
+              <div class="flex items-center space-x-3">
+                <div class="font-headline font-black text-2xl text-brand-deepNavy" id="fee-total-display">₦185,000.00</div>
+                <span id="fee-status-pill" class="px-2.5 py-0.5 rounded-full text-xs font-headline font-black bg-green-100 text-green-800">
+                  CLEARED 100%
+                </span>
+              </div>
+              <p class="text-xs text-gray-500" id="fee-summary-note">
+                Tuition automatically covers all registered science subjects, laboratory chemicals, and computer portal access.
+              </p>
+            </div>
+
+            <div class="flex items-center space-x-3 w-full sm:w-auto">
+              <button onclick="openTuitionModal()" id="btn-pay-now-action" class="btn-dashed-gold text-xs px-5 py-2.5 rounded-xl uppercase tracking-wider flex items-center justify-center space-x-2 w-full sm:w-auto">
+                <i data-lucide="credit-card" class="w-4 h-4"></i>
+                <span id="btn-pay-now-text">Pay Tuition via Paystack</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Itemized Breakdown Table -->
+          <div class="overflow-x-auto rounded-2xl border border-gray-200">
+            <table class="w-full text-left text-xs sm:text-sm font-body">
+              <thead class="bg-brand-softGreen text-brand-forest uppercase text-[11px] font-bold">
+                <tr>
+                  <th class="py-3 px-4">Item / Levy Description</th>
+                  <th class="py-3 px-4">Curricular Coverage</th>
+                  <th class="py-3 px-4 text-right">Amount (₦)</th>
+                </tr>
+              </thead>
+              <tbody id="student-fees-table" class="divide-y divide-gray-100">
+                <!-- Dynamically populated by switchStudent() -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Payment Instructions & Bursary Details -->
+          <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row justify-between items-center text-xs text-emerald-950 gap-2">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-700"></i>
+              <span>Instant Paystack clearance automatically reconciles with The Olive Branches Bursary account.</span>
+            </div>
+            <button onclick="openWhatsAppModal('Bursary Inquiry regarding School Fees')" class="text-emerald-800 font-bold hover:underline">
+              Contact School Bursar on WhatsApp &rarr;
+            </button>
+          </div>
         </div>
 
         <!-- Verification Seal & Direct Desk Messaging -->
@@ -1589,7 +1655,7 @@
         </div>
         <div class="flex justify-between text-base font-headline font-black text-brand-forest pt-2 border-t border-green-200">
           <span>Total Clearance:</span>
-          <span>₦185,000.00</span>
+          <span id="modal-clearance-amount">₦185,000.00</span>
         </div>
       </div>
 
@@ -1603,7 +1669,7 @@
           <input type="tel" id="pay-phone" required placeholder="0803XXXXXXX" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-forest">
         </div>
 
-        <button type="submit" class="btn-dashed-gold w-full text-sm py-3.5 rounded-xl uppercase tracking-wider font-headline font-black flex items-center justify-center space-x-2">
+        <button type="submit" id="btn-modal-pay-submit" class="btn-dashed-gold w-full text-sm py-3.5 rounded-xl uppercase tracking-wider font-headline font-black flex items-center justify-center space-x-2">
           <span>Pay ₦185,000 via Paystack</span>
           <i data-lucide="lock" class="w-4 h-4"></i>
         </button>
@@ -1791,7 +1857,7 @@
 
 
 
-    // Student Database
+    // Student Database with Linked Subjects & Automated Term Fees
     const students = {
       farouq: {
         name: "Farouq Adeyemi",
@@ -1802,6 +1868,18 @@
         gpa: "3.86 / 4.00",
         attendance: "98.5%",
         rank: "3rd of 34",
+        totalFee: 185000,
+        amountPaid: 185000,
+        balanceDue: 0,
+        feeStatus: "CLEARED",
+        receiptNo: "REC-OBS-2026-0481",
+        feeItems: [
+          { item: "Senior Secondary Tuition & Academic Instruction", desc: "Core instruction across 7 registered subjects", amount: 120000 },
+          { item: "Science Lab Practical Consumables & Reagents", desc: "Physics, Chemistry & Biology laboratory materials", amount: 35000 },
+          { item: "ICT Portal & Computer E-Learning Access", desc: "Digital result archives, Wi-Fi & coding lab license", amount: 15000 },
+          { item: "School Health Clinic & Medical Retainer", desc: "Termly physical evaluation & on-campus nurse coverage", amount: 7500 },
+          { item: "Extracurricular, Sports & Club Levy", desc: "Inter-House Sports participation & equipment maintenance", amount: 7500 }
+        ],
         grades: [
           { subject: "Mathematics", t1: 19, t2: 18, exam: 58, total: 95, grade: "A1", remark: "Distinction" },
           { subject: "English Language", t1: 17, t2: 18, exam: 52, total: 87, grade: "A1", remark: "Excellent" },
@@ -1821,6 +1899,17 @@
         gpa: "3.94 / 4.00",
         attendance: "100%",
         rank: "1st of 29",
+        totalFee: 195000,
+        amountPaid: 0,
+        balanceDue: 195000,
+        feeStatus: "OUTSTANDING",
+        receiptNo: "PENDING",
+        feeItems: [
+          { item: "Senior Secondary Tuition & Academic Instruction", desc: "Core instruction across 6 registered Arts subjects", amount: 125000 },
+          { item: "WAEC & NECO External Exam Processing & Mock Clinics", desc: "Senior terminal examination logistics and past question packs", amount: 45000 },
+          { item: "French Language Audio-Visual Lab Levy", desc: "Language laboratory headphones & French literature sets", amount: 10000 },
+          { item: "ICT Portal & E-Learning License", desc: "University prep portal access & digital test bank", amount: 15000 }
+        ],
         grades: [
           { subject: "Literature in English", t1: 20, t2: 19, exam: 58, total: 97, grade: "A1", remark: "Phenomenal essayist" },
           { subject: "English Language", t1: 19, t2: 19, exam: 57, total: 95, grade: "A1", remark: "Outstanding eloquence" },
@@ -1839,6 +1928,17 @@
         gpa: "3.42 / 4.00",
         attendance: "96.9%",
         rank: "8th of 38",
+        totalFee: 140000,
+        amountPaid: 70000,
+        balanceDue: 70000,
+        feeStatus: "PARTIAL",
+        receiptNo: "REC-OBS-PARTIAL-0904",
+        feeItems: [
+          { item: "Junior Secondary Tuition & Academic Instruction", desc: "Core instruction across 5 foundation subjects", amount: 95000 },
+          { item: "Basic Technology & Agricultural Practical Tools", desc: "Workshop materials & school farm seeds/implements", amount: 20000 },
+          { item: "Junior Coding Club & ICT Lab Fee", desc: "Introductory computer programming & robotics", amount: 15000 },
+          { item: "Health Clinic, Sports & Library Registration", desc: "First aid coverage and school library card", amount: 10000 }
+        ],
         grades: [
           { subject: "Basic Science & Technology", t1: 16, t2: 17, exam: 48, total: 81, grade: "B2", remark: "Very Good" },
           { subject: "Mathematics", t1: 15, t2: 16, exam: 46, total: 77, grade: "B3", remark: "Good progress" },
@@ -1850,6 +1950,25 @@
     };
 
     let activeStudentKey = 'farouq';
+
+    function switchPortalTab(tab) {
+      const gradesTabBtn = document.getElementById('tab-btn-grades');
+      const feesTabBtn = document.getElementById('tab-btn-fees');
+      const gradesView = document.getElementById('view-grades');
+      const feesView = document.getElementById('view-fees');
+
+      if (tab === 'grades') {
+        gradesTabBtn.className = "pb-3 px-3 border-b-2 border-brand-forest text-brand-forest flex items-center space-x-2";
+        feesTabBtn.className = "pb-3 px-3 border-b-2 border-transparent text-gray-500 hover:text-brand-forest flex items-center space-x-2";
+        gradesView.classList.remove('hidden');
+        feesView.classList.add('hidden');
+      } else {
+        feesTabBtn.className = "pb-3 px-3 border-b-2 border-brand-forest text-brand-forest flex items-center space-x-2";
+        gradesTabBtn.className = "pb-3 px-3 border-b-2 border-transparent text-gray-500 hover:text-brand-forest flex items-center space-x-2";
+        feesView.classList.remove('hidden');
+        gradesView.classList.add('hidden');
+      }
+    }
 
     function switchStudent(key) {
       activeStudentKey = key;
@@ -1873,6 +1992,52 @@
 
       document.getElementById('pay-student-name').innerText = data.name;
       document.getElementById('pay-student-reg').innerText = data.reg;
+
+      // Update Fees Breakdown View
+      document.getElementById('fee-total-display').innerText = `₦${data.totalFee.toLocaleString()}.00`;
+      const feeStatusPill = document.getElementById('fee-status-pill');
+      const tabFeeBadge = document.getElementById('tab-fee-badge');
+      const btnPayText = document.getElementById('btn-pay-now-text');
+      const btnPayAction = document.getElementById('btn-pay-now-action');
+
+      if (data.feeStatus === "CLEARED") {
+        feeStatusPill.className = "px-2.5 py-0.5 rounded-full text-xs font-headline font-black bg-green-100 text-green-800";
+        feeStatusPill.innerText = "CLEARED 100%";
+        tabFeeBadge.className = "ml-1 px-2 py-0.5 rounded-full text-[10px] font-black bg-green-100 text-green-800";
+        tabFeeBadge.innerText = "CLEARED";
+        btnPayText.innerText = "Download Receipt";
+        btnPayAction.onclick = () => alert(`Official Payment Receipt #OBS-2026-REC for ${data.name} (₦${data.totalFee.toLocaleString()}.00) is already verified and saved to bursary records.`);
+      } else if (data.feeStatus === "PARTIAL") {
+        feeStatusPill.className = "px-2.5 py-0.5 rounded-full text-xs font-headline font-black bg-amber-100 text-amber-800";
+        feeStatusPill.innerText = `PARTIAL (Bal: ₦${data.balanceDue.toLocaleString()})`;
+        tabFeeBadge.className = "ml-1 px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-100 text-amber-800";
+        tabFeeBadge.innerText = "PARTIAL";
+        btnPayText.innerText = `Pay Balance (₦${data.balanceDue.toLocaleString()})`;
+        btnPayAction.onclick = () => openTuitionModal();
+      } else {
+        feeStatusPill.className = "px-2.5 py-0.5 rounded-full text-xs font-headline font-black bg-red-100 text-red-800";
+        feeStatusPill.innerText = `DUE (₦${data.balanceDue.toLocaleString()})`;
+        tabFeeBadge.className = "ml-1 px-2 py-0.5 rounded-full text-[10px] font-black bg-red-100 text-red-800";
+        tabFeeBadge.innerText = "DUE";
+        btnPayText.innerText = `Pay ₦${data.balanceDue.toLocaleString()} via Paystack`;
+        btnPayAction.onclick = () => openTuitionModal();
+      }
+
+      // Populate itemized fee rows
+      const feeTbody = document.getElementById('student-fees-table');
+      if (feeTbody) {
+        feeTbody.innerHTML = '';
+        data.feeItems.forEach(item => {
+          const fRow = document.createElement('tr');
+          fRow.className = "hover:bg-green-50/30 transition-colors";
+          fRow.innerHTML = `
+            <td class="py-3 px-4 font-bold text-gray-800">${item.item}</td>
+            <td class="py-3 px-4 text-xs text-gray-600">${item.desc}</td>
+            <td class="py-3 px-4 text-right font-headline font-black text-brand-forest">₦${item.amount.toLocaleString()}.00</td>
+          `;
+          feeTbody.appendChild(fRow);
+        });
+      }
 
       const tbody = document.getElementById('student-grades-table');
       tbody.innerHTML = '';
@@ -1971,7 +2136,25 @@
     }
 
     function openTuitionModal() {
-      document.getElementById('tuition-modal').classList.remove('hidden');
+      const student = students[activeStudentKey];
+      const modal = document.getElementById('tuition-modal');
+      const amountToPay = student.balanceDue > 0 ? student.balanceDue : student.totalFee;
+      
+      document.getElementById('pay-student-name').innerText = student.name;
+      document.getElementById('pay-student-reg').innerText = student.reg;
+      
+      const modalAmountSpan = document.getElementById('modal-clearance-amount');
+      if (modalAmountSpan) {
+        modalAmountSpan.innerText = `₦${amountToPay.toLocaleString()}.00`;
+      }
+      
+      const modalSubmitBtn = document.getElementById('btn-modal-pay-submit');
+      if (modalSubmitBtn) {
+        modalSubmitBtn.innerHTML = `<span>Pay ₦${amountToPay.toLocaleString()} via Paystack</span><i data-lucide="lock" class="w-4 h-4"></i>`;
+        if (window.lucide) lucide.createIcons();
+      }
+      
+      modal.classList.remove('hidden');
     }
     function closeTuitionModal() {
       document.getElementById('tuition-modal').classList.add('hidden');
@@ -1981,7 +2164,7 @@
       const email = document.getElementById('pay-email').value || 'parent@example.com';
       const phone = document.getElementById('pay-phone').value || '08033777549';
       const student = students[activeStudentKey];
-      const amountNaira = 185000;
+      const amountNaira = student.balanceDue > 0 ? student.balanceDue : student.totalFee;
       
       // Paystack Public Key: configured via environment or sandbox key
       const paystackKey = window.PAYSTACK_PUBLIC_KEY || 'pk_test_df209b587f7d3e0987fec45678b66ef082348';
@@ -2018,11 +2201,17 @@
     }
 
     function showTuitionSuccessBanner(ref, studentName, amount) {
+      const student = students[activeStudentKey];
+      student.amountPaid = student.totalFee;
+      student.balanceDue = 0;
+      student.feeStatus = "CLEARED";
+      student.receiptNo = ref;
+
       alert(`🎉 TUITION CLEARANCE SUCCESSFUL!\n\nTransaction Reference: ${ref}\nStudent: ${studentName}\nAmount Settled: ₦${amount.toLocaleString()}.00\nStatus: 100% Cleared (Paystack Verified)\n\nA digital receipt has been dispatched to your email and synced to The Olive Branches Bursary records.`);
-      const statRank = document.getElementById('stat-rank');
-      if (statRank) {
-        statRank.innerHTML = `<span class="text-green-600 text-2xl font-black">CLEARED</span>`;
-      }
+      
+      // Re-render student dashboard to show live CLEARED badge and 0 balance!
+      switchStudent(activeStudentKey);
+      switchPortalTab('fees');
     }
 
     function openVideoPlayer() {
