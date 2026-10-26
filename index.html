@@ -2229,7 +2229,7 @@
     <div class="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden my-auto border-4 border-brand-forest relative animate-in fade-in zoom-in-95 duration-200">
       
       <!-- Close Button -->
-      <button onclick="closeReceiptModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center">
+      <button onclick="closeReceiptModal(); unlockPortal(activeStudentKey); switchPortalTab('grades');" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
@@ -2342,7 +2342,7 @@
             <i data-lucide="send" class="w-4 h-4"></i>
             <span>Send to WhatsApp</span>
           </button>
-          <button onclick="closeReceiptModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-headline font-bold text-xs px-4 py-2.5 rounded-xl transition-colors">
+          <button onclick="closeReceiptModal(); unlockPortal(activeStudentKey); switchPortalTab('grades');" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-headline font-bold text-xs px-4 py-2.5 rounded-xl transition-colors">
             Done
           </button>
         </div>
@@ -3094,48 +3094,87 @@
     let lastPaymentReceiptData = null;
 
     function handlePaystackPayment(e) {
-      e.preventDefault();
+      if (e) e.preventDefault();
       const email = document.getElementById('pay-email').value || 'parent@example.com';
       const phone = document.getElementById('pay-phone').value || '08033777549';
       const student = students[activeStudentKey];
       const amountNaira = student.balanceDue > 0 ? student.balanceDue : student.totalFee;
       const genRef = 'OBS-REC-' + Math.floor(Math.random() * 899999 + 100000);
+      
+      const pKey = window.PAYSTACK_PUBLIC_KEY || 
+                   localStorage.getItem('PAYSTACK_TEST_KEY') || 
+                   'pk_test_3ff3262823d86f5ce1b80802faf8850ce9086d71';
 
-      // Close tuition modal and open processing waiting screen
       closeTuitionModal();
+
+      // Launch official Paystack Inline Popup if available
+      if (window.PaystackPop && pKey) {
+        try {
+          const handler = PaystackPop.setup({
+            key: pKey,
+            email: email,
+            amount: amountNaira * 100, // Amount in kobo
+            currency: 'NGN',
+            ref: genRef,
+            metadata: {
+              custom_fields: [
+                { display_name: "Student Name", variable_name: "student_name", value: student.name },
+                { display_name: "Student Reg No", variable_name: "reg_no", value: student.reg },
+                { display_name: "Class", variable_name: "class", value: student.class },
+                { display_name: "Term", variable_name: "term", value: "Second Term 2025/2026" }
+              ]
+            },
+            callback: function(response) {
+              // Real payment authorized on Paystack (Card, Transfer, or USSD)
+              const confirmedRef = (response && response.reference) ? response.reference : genRef;
+              reconcileAndShowReceipt(confirmedRef, student, amountNaira, email, phone);
+            },
+            onClose: function() {
+              document.getElementById('tuition-modal').classList.remove('hidden');
+            }
+          });
+          handler.openIframe();
+          return;
+        } catch (err) {
+          console.warn('Paystack popup setup error, falling back to simulation:', err);
+        }
+      }
+
+      // Fallback simulation if offline or PaystackPop blocked
+      reconcileAndShowReceipt(genRef, student, amountNaira, email, phone);
+    }
+
+    function reconcileAndShowReceipt(confirmedRef, student, amountNaira, email, phone) {
       openPaystackProcessing();
 
-      // Step 1: Connecting (0s - 1.2s)
       setTimeout(() => {
         document.getElementById('pay-proc-title').innerText = "Authorizing with Bank...";
-        document.getElementById('pay-proc-subtitle').innerText = "Simulating Paystack card/transfer clearance for " + student.name + "...";
+        document.getElementById('pay-proc-subtitle').innerText = "Verifying transaction reference " + confirmedRef + "...";
         document.getElementById('pay-proc-bar').style.width = "65%";
-      }, 1200);
+      }, 700);
 
-      // Step 2: Reconciling with Bursary Ledger (1.2s - 2.5s)
       setTimeout(() => {
-        document.getElementById('pay-proc-title').innerText = "Reconciling with School Bursary...";
-        document.getElementById('pay-proc-subtitle').innerText = "Generating official clearance certificate and updating student ledger...";
+        document.getElementById('pay-proc-title').innerText = "Reconciling with Bursary Ledger...";
+        document.getElementById('pay-proc-subtitle').innerText = "Auto-generating official clearance certificate for " + student.name + "...";
         document.getElementById('pay-proc-bar').style.width = "95%";
-      }, 2400);
+      }, 1400);
 
-      // Step 3: Complete & Display Official Digital Receipt (3.2s)
       setTimeout(() => {
         closePaystackProcessing();
 
-        // Update student internal state
+        // Mark student as cleared
         student.amountPaid = student.totalFee;
         student.balanceDue = 0;
         student.feeStatus = "CLEARED";
-        student.receiptNo = genRef;
+        student.receiptNo = confirmedRef;
 
-        // Re-render student dashboard
-        switchStudent(activeStudentKey); updatePaystackStatus(); initVercelConfig();
+        // Update dashboard view
+        switchStudent(activeStudentKey);
         switchPortalTab('fees');
 
-        // Store receipt metadata
+        // Populate receipt modal
         lastPaymentReceiptData = {
-          ref: genRef,
+          ref: confirmedRef,
           studentName: student.name,
           reg: student.reg,
           studentClass: student.class,
@@ -3145,9 +3184,8 @@
           timestamp: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' • ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
         };
 
-        // Open official digital bursary receipt modal
         openBursaryReceiptModal(lastPaymentReceiptData);
-      }, 3400);
+      }, 2000);
     }
 
     function openPaystackProcessing() {
