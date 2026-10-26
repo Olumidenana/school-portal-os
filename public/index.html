@@ -214,19 +214,149 @@
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center space-x-5 text-sm font-bold text-gray-700">
-        <a href="#home" class="text-brand-forest hover:text-brand-gold transition-colors">Home</a>
-        <a href="#about" class="hover:text-brand-forest transition-colors">About Us</a>
-        <a href="#admissions" class="hover:text-brand-forest transition-colors">Admissions</a>
-        <a href="#facilities" class="hover:text-brand-forest transition-colors">Facilities</a>
-        <a href="#grades-carousel" class="hover:text-brand-forest transition-colors">Grades</a>
-        <a href="#news-blog" class="hover:text-brand-forest transition-colors">Blog</a>
-        <a href="#gallery" class="hover:text-brand-forest transition-colors">YouTube Media</a>
-        <a href="#portal" class="bg-green-50 text-brand-forest px-3 py-1.5 rounded-lg border border-green-200 hover:bg-brand-forest hover:text-white transition-all flex items-center space-x-1.5">
-          <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-gold"></i>
-          <span>E-Portal</span>
+            <!-- Desktop Links with Hover Dropdowns (Identical to Live Site Structure) -->
+      <div class="hidden lg:flex items-center space-x-1 font-headline font-bold text-xs text-gray-700">
+        
+        <a href="#home" class="px-3 py-2 text-brand-forest hover:text-brand-gold transition-colors">
+          Home
         </a>
+
+        <!-- 1. ABOUT US DROPDOWN -->
+        <div class="relative group py-2">
+          <button class="flex items-center space-x-1 px-3 py-1 rounded-lg hover:text-brand-forest hover:bg-green-50 transition-colors">
+            <span>About Us</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div class="bg-white rounded-2xl shadow-xl border border-green-100 p-2 min-w-[210px] space-y-1">
+              <a href="#about" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="scroll-text" class="w-3.5 h-3.5 text-brand-gold"></i>
+                <span>Welcome Address</span>
+              </a>
+              <a href="#heritage" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="award" class="w-3.5 h-3.5 text-brand-leaf"></i>
+                <span>Our Background & Anthem</span>
+              </a>
+              <button onclick="openGovernorsModal()" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="users" class="w-3.5 h-3.5 text-blue-600"></i>
+                <span>Board of Governors</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ADMISSIONS (Direct) -->
+        <a href="#admissions" class="px-3 py-2 hover:text-brand-forest hover:bg-green-50 rounded-lg transition-colors">
+          Admissions
+        </a>
+
+        <!-- 3. ACADEMICS DROPDOWN -->
+        <div class="relative group py-2">
+          <button class="flex items-center space-x-1 px-3 py-1 rounded-lg hover:text-brand-forest hover:bg-green-50 transition-colors">
+            <span>Academics</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div class="bg-white rounded-2xl shadow-xl border border-green-100 p-2 min-w-[230px] space-y-1">
+              <button onclick="openCurriculumModal()" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-brand-forest bg-green-50/60 hover:bg-brand-softGreen transition-colors border border-green-100">
+                <i data-lucide="book-marked" class="w-3.5 h-3.5 text-brand-gold"></i>
+                <div>
+                  <div class="leading-tight">Our Curriculum</div>
+                  <div class="text-[10px] text-gray-500 font-normal">IB-PYP/MYP & NERDC Integrated</div>
+                </div>
+              </button>
+              <div class="my-1 border-t border-gray-100"></div>
+              <button onclick="openWingDetailModal('preschool')" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="baby" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>The Pre-School (Ages 1 - 4)</span>
+              </button>
+              <button onclick="openWingDetailModal('junior')" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="pencil" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>The Junior School (Grades 1 - 6)</span>
+              </button>
+              <button onclick="openWingDetailModal('middle')" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="compass" class="w-3.5 h-3.5 text-blue-600"></i>
+                <span>The Middle School (JSS 1 - 3)</span>
+              </button>
+              <button onclick="openWingDetailModal('high')" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-purple-600"></i>
+                <span>The High School (SSS 1 - 3)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. E-PORTAL DROPDOWN (Unified & Standalone) -->
+        <div class="relative group py-2">
+          <button class="flex items-center space-x-1 px-3 py-1.5 rounded-xl bg-green-50 text-brand-forest border border-green-200 hover:bg-brand-forest hover:text-white transition-all">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-gold"></i>
+            <span>ePortal</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div class="bg-white rounded-2xl shadow-xl border border-green-100 p-2 min-w-[220px] space-y-1">
+              <a href="#portal" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-brand-forest hover:bg-brand-softGreen transition-colors">
+                <i data-lucide="user-check" class="w-3.5 h-3.5 text-brand-leaf"></i>
+                <div>
+                  <div class="leading-tight">Student / Parent Portal</div>
+                  <div class="text-[10px] text-gray-500 font-normal">Terminal Results & Fees</div>
+                </div>
+              </a>
+              <button onclick="openStaffPortalModal()" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-blue-600"></i>
+                <div>
+                  <div class="leading-tight">Staff / Teacher Portal</div>
+                  <div class="text-[10px] text-gray-500 font-normal">CA Gradebook Entry Demo</div>
+                </div>
+              </button>
+              <button onclick="openCbtModal()" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="laptop" class="w-3.5 h-3.5 text-amber-600"></i>
+                <div>
+                  <div class="leading-tight">CBT Examination Portal</div>
+                  <div class="text-[10px] text-gray-500 font-normal">WAEC/JAMB CBT Simulator</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. OUR MEDIA DROPDOWN -->
+        <div class="relative group py-2">
+          <button class="flex items-center space-x-1 px-3 py-1 rounded-lg hover:text-brand-forest hover:bg-green-50 transition-colors">
+            <span>Our Media</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div class="bg-white rounded-2xl shadow-xl border border-green-100 p-2 min-w-[210px] space-y-1">
+              <a href="#news-blog" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="newspaper" class="w-3.5 h-3.5 text-brand-leaf"></i>
+                <span>News & Blog Updates</span>
+              </a>
+              <a href="#gallery" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="image" class="w-3.5 h-3.5 text-pink-600"></i>
+                <span>Photo Gallery</span>
+              </a>
+              <a href="#gallery" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-600"></i>
+                <span>Video Gallery & YouTube</span>
+              </a>
+              <a href="#events" class="flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>School Events & Calendar</span>
+              </a>
+              <button onclick="openCareersModal()" class="w-full text-left flex items-center space-x-2 px-3 py-2 rounded-xl text-xs font-bold text-gray-700 hover:bg-brand-softGreen hover:text-brand-forest transition-colors">
+                <i data-lucide="user-plus" class="w-3.5 h-3.5 text-indigo-600"></i>
+                <span>Job Offers at OBS</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. CONTACT (Direct) -->
+        <a href="#contact" class="px-3 py-2 hover:text-brand-forest hover:bg-green-50 rounded-lg transition-colors">
+          Contact
+        </a>
+
       </div>
 
       <!-- Action CTAs -->
@@ -251,18 +381,61 @@
     </nav>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-4 top-24 bg-white rounded-2xl shadow-2xl border border-green-100 p-5 z-50 flex flex-col space-y-3 font-headline font-bold text-gray-800">
-    <a href="#home" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100 text-brand-forest">Home</a>
-    <a href="#about" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">About Us</a>
-    <a href="#admissions" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Admissions</a>
-    <a href="#facilities" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Facilities</a>
-    <a href="#grades-carousel" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Grade Spectrum</a>
-    <a href="#heritage" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Our Anthem</a>
-    <a href="#gallery" onclick="toggleMobileMenu()" class="py-2 border-b border-gray-100">Our Media</a>
-    <a href="#portal" onclick="toggleMobileMenu();" class="py-2 text-brand-leaf flex items-center justify-between">
-      <span>Student / Parent E-Portal</span>
-      <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    <!-- Mobile Dropdown Menu with Expandable Sections -->
+  <div id="mobile-menu" class="hidden lg:hidden fixed inset-x-4 top-24 bg-white rounded-3xl shadow-2xl border-2 border-brand-leaf p-5 z-50 flex flex-col space-y-2 font-headline font-bold text-gray-800 max-h-[80vh] overflow-y-auto">
+    <a href="#home" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-green-50 text-brand-forest flex items-center justify-between">
+      <span>Home</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+
+    <!-- Mobile About Submenu -->
+    <div class="border-t border-gray-100 pt-2">
+      <span class="text-[10px] uppercase tracking-wider text-gray-400 px-3">About The School</span>
+      <div class="mt-1 space-y-1">
+        <a href="#about" onclick="toggleMobileMenu()" class="block py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">Welcome Address</a>
+        <a href="#heritage" onclick="toggleMobileMenu()" class="block py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">Our Background & Anthem</a>
+        <button onclick="toggleMobileMenu(); openGovernorsModal();" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50 text-brand-forest font-bold">Board of Governors</button>
+      </div>
+    </div>
+
+    <!-- Mobile Academics Submenu -->
+    <div class="border-t border-gray-100 pt-2">
+      <span class="text-[10px] uppercase tracking-wider text-gray-400 px-3">Academics</span>
+      <div class="mt-1 space-y-1">
+        <button onclick="toggleMobileMenu(); openCurriculumModal();" class="w-full text-left py-1.5 px-3 rounded-xl text-xs text-brand-leaf font-bold">Our Curriculum (IB & Nigerian)</button>
+        <button onclick="toggleMobileMenu(); openWingDetailModal('preschool');" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">The Pre-School (Ages 1 - 4)</button>
+        <button onclick="toggleMobileMenu(); openWingDetailModal('junior');" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">The Junior School (Grades 1 - 6)</button>
+        <button onclick="toggleMobileMenu(); openWingDetailModal('middle');" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">The Middle School (JSS 1 - 3)</button>
+        <button onclick="toggleMobileMenu(); openWingDetailModal('high');" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">The High School (SSS 1 - 3)</button>
+      </div>
+    </div>
+
+    <!-- Mobile ePortal Submenu -->
+    <div class="border-t border-gray-100 pt-2 bg-green-50/60 p-2.5 rounded-2xl border border-green-200">
+      <span class="text-[10px] uppercase tracking-wider text-brand-forest font-black px-1 flex items-center space-x-1">
+        <i data-lucide="lock" class="w-3 h-3 text-brand-gold"></i>
+        <span>ePortal Services</span>
+      </span>
+      <div class="mt-1.5 space-y-1">
+        <a href="#portal" onclick="toggleMobileMenu()" class="block py-1.5 px-2 rounded-xl text-xs font-bold text-brand-forest hover:bg-white">Student & Parent Clearance Portal</a>
+        <button onclick="toggleMobileMenu(); openStaffPortalModal();" class="w-full text-left py-1.5 px-2 rounded-xl text-xs hover:bg-white">Staff / Teacher CA Gradebook</button>
+        <button onclick="toggleMobileMenu(); openCbtModal();" class="w-full text-left py-1.5 px-2 rounded-xl text-xs hover:bg-white">CBT Exam Practice Portal</button>
+      </div>
+    </div>
+
+    <!-- Mobile Media Submenu -->
+    <div class="border-t border-gray-100 pt-2">
+      <span class="text-[10px] uppercase tracking-wider text-gray-400 px-3">Our Media</span>
+      <div class="mt-1 space-y-1">
+        <a href="#news-blog" onclick="toggleMobileMenu()" class="block py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">News & Blog Updates</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="block py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">Photo & Video Gallery</a>
+        <a href="#events" onclick="toggleMobileMenu()" class="block py-1.5 px-3 rounded-xl text-xs hover:bg-green-50">School Events & Excursions</a>
+        <button onclick="toggleMobileMenu(); openCareersModal();" class="w-full text-left py-1.5 px-3 rounded-xl text-xs hover:bg-green-50 text-indigo-700 font-bold">Job Offers at OBS</button>
+      </div>
+    </div>
+
+    <a href="#contact" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-xl hover:bg-green-50 text-gray-700 border-t border-gray-100">
+      Contact & Locations
     </a>
   </div>
 
@@ -1157,6 +1330,118 @@
   <!-- ==========================================
        PHOTO & VIDEO GALLERY (From PDF Pages 5 & 6)
        ========================================== -->
+  
+  <!-- ==========================================
+       OUR EVENTS & GLOBAL EXCURSIONS SECTION (From Subpages & PDF)
+       ========================================== -->
+  <section id="events" class="py-16 bg-gradient-to-b from-white to-brand-softGreen relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="font-eyebrow text-2xl text-brand-leaf tracking-wider uppercase">Enrichment Beyond Classroom</span>
+        <h2 class="font-headline font-black text-3xl sm:text-4xl text-brand-deepNavy">
+          Our Events & Global Study Tours.
+        </h2>
+        <p class="font-body text-gray-600 text-sm mt-2">
+          From historic landmark tours in the United Kingdom to cultural celebrations and athletic triumphs in Osun State.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Event 1: London Excursion -->
+        <div class="bg-white rounded-3xl p-4 shadow-pdf-soft border-2 border-green-100 hover:border-brand-leaf transition-all group">
+          <div class="relative overflow-hidden rounded-2xl mb-4 h-48">
+            <img src="images/crops/excursion_trafalgar_square.jpg" alt="London Study Tour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-brand-forest/90 backdrop-blur-sm text-brand-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+              International Tour
+            </span>
+          </div>
+          <div class="space-y-2">
+            <div class="text-[11px] font-bold text-gray-400 flex items-center space-x-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-leaf"></i>
+              <span>London, United Kingdom</span>
+            </div>
+            <h3 class="font-headline font-black text-base text-brand-deepNavy leading-snug">
+              Trafalgar Square & British Museum Study Tour
+            </h3>
+            <p class="font-body text-xs text-gray-600 leading-relaxed">
+              High School students embarking on our biennial educational excursion to the United Kingdom, connecting global history with modern sciences.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 2: Sparkle Nite -->
+        <div class="bg-white rounded-3xl p-4 shadow-pdf-soft border-2 border-green-100 hover:border-brand-leaf transition-all group">
+          <div class="relative overflow-hidden rounded-2xl mb-4 h-48">
+            <img src="images/crops/sparkle_nite_dancers.jpg" alt="Sparkle Nite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+              Annual Gala
+            </span>
+          </div>
+          <div class="space-y-2">
+            <div class="text-[11px] font-bold text-gray-400 flex items-center space-x-1">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+              <span>School Auditorium, Osogbo</span>
+            </div>
+            <h3 class="font-headline font-black text-base text-brand-deepNavy leading-snug">
+              Annual "Sparkle Nite" Creative Arts Festival
+            </h3>
+            <p class="font-body text-xs text-gray-600 leading-relaxed">
+              A vibrant celebration of music, dramatic arts, spoken word, and traditional choreography showcasing our students' stage eloquence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 3: UNESCO Osun Grove -->
+        <div class="bg-white rounded-3xl p-4 shadow-pdf-soft border-2 border-green-100 hover:border-brand-leaf transition-all group">
+          <div class="relative overflow-hidden rounded-2xl mb-4 h-48">
+            <img src="images/crops/excursion_osun_grove.jpg" alt="Osun Grove Excursion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+              Heritage Expedition
+            </span>
+          </div>
+          <div class="space-y-2">
+            <div class="text-[11px] font-bold text-gray-400 flex items-center space-x-1">
+              <i data-lucide="tree-pine" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>UNESCO World Heritage Site</span>
+            </div>
+            <h3 class="font-headline font-black text-base text-brand-deepNavy leading-snug">
+              Osun-Osogbo Sacred Grove Cultural Research
+            </h3>
+            <p class="font-body text-xs text-gray-600 leading-relaxed">
+              Junior and Middle School learners conducting biological botany sampling and archaeological exploration at the historic sacred grove.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 4: Nobel Laureate Academic Visit -->
+        <div class="bg-white rounded-3xl p-4 shadow-pdf-soft border-2 border-green-100 hover:border-brand-leaf transition-all group">
+          <div class="relative overflow-hidden rounded-2xl mb-4 h-48">
+            <img src="images/crops/wole_soyinka_visit.jpg" alt="Prof. Wole Soyinka Visit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-3 left-3 bg-brand-forest text-brand-gold text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+              Academic Colloquium
+            </span>
+          </div>
+          <div class="space-y-2">
+            <div class="text-[11px] font-bold text-gray-400 flex items-center space-x-1">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-brand-gold"></i>
+              <span>Higher Grounds Campus</span>
+            </div>
+            <h3 class="font-headline font-black text-base text-brand-deepNavy leading-snug">
+              Distinguished Visit: Prof. Wole Soyinka
+            </h3>
+            <p class="font-body text-xs text-gray-600 leading-relaxed">
+              Interactive colloquium between Africa's first Nobel Laureate in Literature, our Trustees, and aspiring student writers and poets.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <section id="gallery" class="py-16 bg-brand-softGreen relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
@@ -2346,6 +2631,178 @@
     // ==========================================
     // EXECUTIVE AUDIT MODAL CONTROLS
     // ==========================================
+    
+    // ==========================================
+    // SUBPAGE MODAL CONTROLLERS (Live Site Feature parity)
+    // ==========================================
+    function openGovernorsModal() {
+      const m = document.getElementById('governors-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeGovernorsModal() {
+      const m = document.getElementById('governors-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function openCurriculumModal() {
+      const m = document.getElementById('curriculum-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeCurriculumModal() {
+      const m = document.getElementById('curriculum-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function openStaffPortalModal() {
+      const m = document.getElementById('staff-portal-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeStaffPortalModal() {
+      const m = document.getElementById('staff-portal-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function openCbtModal() {
+      const m = document.getElementById('cbt-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeCbtModal() {
+      const m = document.getElementById('cbt-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function openCareersModal() {
+      const m = document.getElementById('careers-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeCareersModal() {
+      const m = document.getElementById('careers-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    // Staff Gradebook Live Recalculation
+    function recalcDemoGrade() {
+      const ca1 = parseFloat(document.getElementById('ca1-farouq').value) || 0;
+      const ca2 = parseFloat(document.getElementById('ca2-farouq').value) || 0;
+      const exam = parseFloat(document.getElementById('exam-farouq').value) || 0;
+      const total = Math.min(100, Math.round(ca1 + ca2 + exam));
+      document.getElementById('total-farouq').innerText = total + '%';
+      
+      let grade = 'F9';
+      if (total >= 75) grade = 'A1';
+      else if (total >= 70) grade = 'B2';
+      else if (total >= 65) grade = 'B3';
+      else if (total >= 60) grade = 'C4';
+      else if (total >= 50) grade = 'C6';
+      
+      document.getElementById('grade-farouq').innerText = grade;
+    }
+
+    function saveDemoStaffEntry() {
+      alert('✓ Staff CA Entry Saved: Continuous Assessment automatically synced to Student Portal & Bursary Clearing Engine!');
+      closeStaffPortalModal();
+    }
+
+    // Wing Detail Viewer Data
+    const wingDetails = {
+      'preschool': {
+        title: 'The Pre-School (Pre-Nursery to Nursery 2)',
+        badge: 'Early Years (Ages 1 - 4)',
+        location: 'Olive Towers: Opposite All Souls Anglican Church, Iwo Road, Oke-Fia, Osogbo',
+        content: `
+          <p>Our Pre-School provides a warm, safe, and stimulating environment where young learners build strong foundations through play-based and guided learning that supports early literacy, phonics, numeracy, and motor skills.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2">
+            <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+              <strong class="text-amber-900 block mb-1">Pre-Nursery 1 & 2 (Ages 1.5 - 3)</strong>
+              Sensory exploration, gentle potty habituation, storytelling circles, and motor dexterity games.
+            </div>
+            <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+              <strong class="text-green-900 block mb-1">Nursery 1 & 2 (Ages 3 - 4)</strong>
+              Jolly Phonics, early mathematical concepts, creative painting, and interactive French introduction.
+            </div>
+          </div>
+        `
+      },
+      'junior': {
+        title: 'The Junior (Elementary) School',
+        badge: 'Grades 1 to 6 (Ages 5 - 10)',
+        location: 'Olive Towers: Opposite All Souls Anglican Church, Iwo Road, Oke-Fia, Osogbo',
+        content: `
+          <p>The Junior School focuses on developing core academic skills while nurturing curiosity, creativity, and confidence through a balanced and engaging curriculum inspired by the IB Primary Years Programme (PYP).</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2">
+            <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+              <strong class="text-brand-forest block mb-1">Foundational STEM & Languages</strong>
+              Mathematics, English Grammar & Composition, Basic Science, Agricultural Science, Yoruba & French.
+            </div>
+            <div class="bg-blue-50 p-3 rounded-xl border border-blue-200">
+              <strong class="text-blue-900 block mb-1">Digital & Creative Arts</strong>
+              Computer Literacy, Coding Fundamentals, Music & Brass Instrument training, and Physical Health Education.
+            </div>
+          </div>
+        `
+      },
+      'middle': {
+        title: 'The Middle (Junior Secondary) School',
+        badge: '7th to 9th Grade / JSS 1 - JSS 3 (Ages 11 - 13)',
+        location: 'Higher Grounds Campus: Along Oyinkan & Goke Omigbodun Way, Oroki Estate, Osogbo',
+        content: `
+          <p>Our Middle School bridges primary and secondary education, strengthening academic understanding, critical thinking, and personal responsibility during this vital developmental stage.</p>
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 my-2">
+            <strong class="text-amber-900 block mb-1">Academic Progression Benchmark:</strong>
+            To proceed into the terminal 9th Grade (JSS 3), learners must achieve a minimum of <strong>65% in Mathematics, 65% in English Language, and a 65% cumulative average</strong> across all evaluated subjects.
+          </div>
+        `
+      },
+      'high': {
+        title: 'The High (Senior Secondary) School',
+        badge: '10th to 12th Grade / SSS 1 - SSS 3 (Ages 14 - 17)',
+        location: 'Higher Grounds Campus: Along Oyinkan & Goke Omigbodun Way, Oroki Estate, Osogbo',
+        content: `
+          <p>The High School prepares students for external examinations (WAEC, NECO, UTME, SAT, Cambridge IGCSE) and global university placement through rigorous academics, individualized coaching clinics, and character building.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2">
+            <div class="bg-purple-50 p-3 rounded-xl border border-purple-200">
+              <strong class="text-purple-900 block mb-1">Science & Technology Stream</strong>
+              Advanced Physics, Chemistry, Biology, Further Mathematics, Technical Drawing & Computer Studies.
+            </div>
+            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+              <strong class="text-emerald-900 block mb-1">Arts & Social Sciences Stream</strong>
+              Literature-in-English, Government, Economics, Financial Accounting, History & French.
+            </div>
+          </div>
+        `
+      }
+    };
+
+    function openWingDetailModal(wingKey) {
+      renderWingContent(wingKey);
+      const m = document.getElementById('wing-detail-modal');
+      if (m) { m.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+    }
+    function closeWingDetailModal() {
+      const m = document.getElementById('wing-detail-modal');
+      if (m) m.classList.add('hidden');
+    }
+
+    function renderWingContent(wingKey) {
+      const data = wingDetails[wingKey] || wingDetails['preschool'];
+      document.getElementById('wing-modal-title').innerText = data.title;
+      document.getElementById('wing-modal-badge').innerText = data.badge;
+      document.getElementById('wing-modal-location').innerText = data.location;
+      document.getElementById('wing-modal-body').innerHTML = data.content;
+
+      ['preschool', 'junior', 'middle', 'high'].forEach(k => {
+        const btn = document.getElementById(`tab-wing-${k}`);
+        if (btn) {
+          if (k === wingKey) {
+            btn.className = "px-3 py-1.5 rounded-full bg-brand-forest text-white";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200";
+          }
+        }
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
     function openExecutiveAuditModal() {
       const modal = document.getElementById('executive-audit-modal');
       if (modal) { modal.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
@@ -2872,6 +3329,388 @@
         </button>
       </div>
 
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       1. BOARD OF GOVERNORS MODAL (Live Site Feature)
+       ========================================== -->
+  <div id="governors-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-blue-700"></i>
+            <span>Historic Leadership & Governance</span>
+          </span>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            The Board of Governors
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">The distinguished trustees and educationists guiding The Olive Branches Schools</p>
+        </div>
+        <button onclick="closeGovernorsModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Gov 1 -->
+        <div class="bg-brand-softGreen/50 p-5 rounded-2xl border border-green-200 space-y-2">
+          <span class="text-[10px] font-bold text-amber-600 uppercase tracking-wider">Founding Trustee & Historic Inspiration</span>
+          <h4 class="font-headline font-black text-lg text-brand-forest">Late Ven. Julius Ladunjoye (J. L.) Omigbodun</h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            The legendary Founding Principal of Osogbo Grammar School. An iconic pioneer educationist in Southwestern Nigeria whose ethos of rock-solid integrity, rigorous scholarship, and moral discipline forms the eternal cornerstone of The Olive Branches Schools.
+          </p>
+        </div>
+        <!-- Gov 2 -->
+        <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-200 space-y-2">
+          <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Academic Advisory Board</span>
+          <h4 class="font-headline font-black text-lg text-brand-deepNavy">Prof. Olaola Babalola</h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Retired Professor of Agronomy, University of Ibadan. Eminent scholar and research mentor who accepted to serve on the pioneer Board of Governors, providing high-level university-readiness guidelines for our Science and Research curricula.
+          </p>
+        </div>
+        <!-- Gov 3 -->
+        <div class="bg-amber-50/50 p-5 rounded-2xl border border-amber-200 space-y-2">
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider">Education & Pastoral Governance</span>
+          <h4 class="font-headline font-black text-lg text-amber-900">Mrs. Dupe Babalola</h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Distinguished educationist, pastoral counselor, and philanthropic trustee who has tirelessly supported student welfare, Christian moral grounding, and ethical excellence across the institutions.
+          </p>
+        </div>
+        <!-- Gov 4 -->
+        <div class="bg-green-50 p-5 rounded-2xl border-2 border-brand-leaf space-y-2">
+          <span class="text-[10px] font-bold text-brand-forest uppercase tracking-wider">Founders & Executive Trustees</span>
+          <h4 class="font-headline font-black text-lg text-brand-forest">Arc. Goke & Mrs. Oyinkansola Omigbodun</h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Co-Founders and Executive Directors of The Olive Branches Schools. Arch. Goke Omigbodun (Chairman of Trustees, Fellow NIA) and Mrs. Oyinkansola M. Omigbodun (Proprietress & Executive Director), championing 20+ years of educational transformation in Osun State.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       2. OUR CURRICULUM MODAL (Live Site Feature: IB-PYP, IB-MYP & NERDC)
+       ========================================== -->
+  <div id="curriculum-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-green-100 text-brand-forest px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-gold"></i>
+            <span>Integrated Pedagogy</span>
+          </span>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            The Olive Branches Curriculum
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">Blending International Baccalaureate (IB) Guidelines with the Nigerian NERDC Curriculum</p>
+        </div>
+        <button onclick="closeCurriculumModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-gray-700 leading-relaxed">
+        <p>
+          The Olive Branches Schools operate the <strong>Nigerian National Educational Curriculum (NERDC)</strong> enhanced with proven adaptations from international curricular. The <strong>International Baccalaureate Organization (IBO)</strong> provides deep inspiration for our teaching philosophy:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
+          <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+            <h4 class="font-headline font-bold text-amber-900 text-base mb-1">IB-PYP (Primary Years Programme)</h4>
+            <p class="text-xs text-amber-800">
+              For Pre-School and Junior School learners (Ages 1 - 10). Encourages curiosity, inquiry-led investigation, critical thinking, and social-emotional growth rather than mechanical memorization.
+            </p>
+          </div>
+          <div class="bg-green-50 p-4 rounded-2xl border border-green-200">
+            <h4 class="font-headline font-bold text-green-900 text-base mb-1">IB-MYP (Middle Years Programme)</h4>
+            <p class="text-xs text-green-800">
+              For Middle School and High School learners (Ages 11 - 17). Builds deep conceptual mastery across STEM, Arts, Languages, and Humanities with real-world applications and global awareness.
+            </p>
+          </div>
+        </div>
+
+        <h4 class="font-headline font-black text-base text-brand-forest pt-2">The Five Pillars of Our Inquiry-Based Learning:</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+          <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
+            <div class="font-bold text-brand-forest text-xs">Concepts</div>
+            <div class="text-[10px] text-gray-500">Idea generation</div>
+          </div>
+          <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
+            <div class="font-bold text-brand-forest text-xs">Knowledge</div>
+            <div class="text-[10px] text-gray-500">Critical consciousness</div>
+          </div>
+          <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
+            <div class="font-bold text-brand-forest text-xs">Skills</div>
+            <div class="text-[10px] text-gray-500">Global competence</div>
+          </div>
+          <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200">
+            <div class="font-bold text-brand-forest text-xs">Attitudes</div>
+            <div class="text-[10px] text-gray-500">Right disposition</div>
+          </div>
+          <div class="bg-gray-50 p-2.5 rounded-xl border border-gray-200 col-span-2 sm:col-span-1">
+            <div class="font-bold text-brand-forest text-xs">Actions</div>
+            <div class="text-[10px] text-gray-500">Positive change</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       3. SCHOOL WINGS DETAIL VIEWER MODAL
+       ========================================== -->
+  <div id="wing-detail-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span id="wing-modal-badge" class="inline-flex items-center space-x-1.5 bg-green-100 text-brand-forest px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <span>Wing Details</span>
+          </span>
+          <h3 id="wing-modal-title" class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            The School Wing
+          </h3>
+          <p id="wing-modal-location" class="text-xs text-gray-500 font-medium">Campus Location</p>
+        </div>
+        <button onclick="closeWingDetailModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Tab Buttons Inside Modal -->
+      <div class="flex flex-wrap gap-2 border-b border-gray-100 pb-3 font-headline font-bold text-xs">
+        <button onclick="renderWingContent('preschool')" id="tab-wing-preschool" class="px-3 py-1.5 rounded-full bg-brand-forest text-white">Pre-School (1-4)</button>
+        <button onclick="renderWingContent('junior')" id="tab-wing-junior" class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Junior School (Grades 1-6)</button>
+        <button onclick="renderWingContent('middle')" id="tab-wing-middle" class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">Middle School (JSS 1-3)</button>
+        <button onclick="renderWingContent('high')" id="tab-wing-high" class="px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200">High School (SSS 1-3)</button>
+      </div>
+
+      <div id="wing-modal-body" class="space-y-4 font-body text-xs sm:text-sm text-gray-700 leading-relaxed">
+        <!-- Dynamic content filled by JS -->
+      </div>
+
+      <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
+        <button onclick="closeWingDetailModal(); scrollToSection('admissions');" class="btn-dashed-gold text-xs px-5 py-2.5 rounded-full uppercase tracking-wider">
+          Apply For Placement
+        </button>
+        <button onclick="openWhatsAppModal('Inquiry regarding School Wings Placement')" class="text-brand-forest font-bold text-xs hover:underline flex items-center space-x-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-600"></i>
+          <span>Ask Admissions Desk</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       4. STAFF / TEACHER CA GRADEBOOK DEMO MODAL
+       ========================================== -->
+  <div id="staff-portal-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="briefcase" class="w-3.5 h-3.5 text-blue-700"></i>
+            <span>Teacher Portal & Continuous Assessment</span>
+          </span>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            Staff Digital Gradebook & Evaluation Suite
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">Interactive preview showing how educators input CA scores that seamlessly feed student report cards</p>
+        </div>
+        <button onclick="closeStaffPortalModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Demo Class Info -->
+      <div class="bg-green-50 p-4 rounded-2xl border border-green-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div>
+          <span class="font-bold text-brand-forest">Class:</span> SSS 2 Science &bull;
+          <span class="font-bold text-brand-forest">Subject:</span> Physics &bull;
+          <span class="font-bold text-brand-forest">Instructor:</span> Mr. K. Olawale
+        </div>
+        <span class="bg-brand-forest text-white px-2.5 py-1 rounded-full font-bold text-[10px]">
+          Second Term Examination Entry
+        </span>
+      </div>
+
+      <!-- Live Editable Gradebook Demo Table -->
+      <div class="overflow-x-auto rounded-2xl border border-gray-200">
+        <table class="w-full text-left text-xs font-body">
+          <thead class="bg-gray-100 text-gray-700 font-headline uppercase font-bold text-[11px]">
+            <tr>
+              <th class="p-3">Student Name</th>
+              <th class="p-3">Reg No.</th>
+              <th class="p-3">1st CA (20)</th>
+              <th class="p-3">2nd CA (20)</th>
+              <th class="p-3">Exam (60)</th>
+              <th class="p-3">Total (100)</th>
+              <th class="p-3">Grade</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="hover:bg-green-50/50">
+              <td class="p-3 font-bold text-brand-deepNavy">Farouq Adeyemi</td>
+              <td class="p-3 text-gray-500">OBS/2022/0481</td>
+              <td class="p-3"><input type="number" id="ca1-farouq" value="18" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
+              <td class="p-3"><input type="number" id="ca2-farouq" value="19" max="20" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
+              <td class="p-3"><input type="number" id="exam-farouq" value="55" max="60" min="0" oninput="recalcDemoGrade()" class="w-14 p-1 bg-white border border-gray-300 rounded text-center font-bold"></td>
+              <td class="p-3 font-black text-brand-forest" id="total-farouq">92%</td>
+              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black" id="grade-farouq">A1</span></td>
+            </tr>
+            <tr class="hover:bg-green-50/50">
+              <td class="p-3 font-bold text-brand-deepNavy">Tiwalola Adesina</td>
+              <td class="p-3 text-gray-500">OBS/2021/0192</td>
+              <td class="p-3"><span class="font-bold text-gray-700">17</span></td>
+              <td class="p-3"><span class="font-bold text-gray-700">18</span></td>
+              <td class="p-3"><span class="font-bold text-gray-700">53</span></td>
+              <td class="p-3 font-black text-brand-forest">88%</td>
+              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">A1</span></td>
+            </tr>
+            <tr class="hover:bg-green-50/50">
+              <td class="p-3 font-bold text-brand-deepNavy">Chidubem Okafor</td>
+              <td class="p-3 text-gray-500">OBS/2024/0512</td>
+              <td class="p-3"><span class="font-bold text-gray-700">16</span></td>
+              <td class="p-3"><span class="font-bold text-gray-700">16</span></td>
+              <td class="p-3"><span class="font-bold text-gray-700">49</span></td>
+              <td class="p-3 font-black text-brand-forest">81%</td>
+              <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-black">B2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-gray-50 p-3 rounded-xl text-[11px] text-gray-600 flex items-center justify-between">
+        <span>💡 Test changing the scores above; total and grade automatically compute in real-time.</span>
+        <button onclick="saveDemoStaffEntry()" class="bg-brand-forest hover:bg-green-900 text-white font-bold px-4 py-1.5 rounded-lg">
+          Sync With Bursary & Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       5. CBT EXAMINATION SIMULATOR MODAL
+       ========================================== -->
+  <div id="cbt-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="laptop" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>Interactive Examination Suite</span>
+          </span>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            OBS Computer-Based Testing (CBT) Clinic
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">Equipping students with modern UTME, WAEC, and Cambridge computer testing mastery</p>
+        </div>
+        <button onclick="closeCbtModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- CBT Simulator Box -->
+      <div class="bg-slate-900 text-white p-5 rounded-2xl space-y-4 font-mono">
+        <div class="flex justify-between items-center border-b border-slate-700 pb-2 text-xs">
+          <span class="text-amber-400 font-bold">MOCK EXAM: Science & General Mathematics (SSS 2)</span>
+          <span class="bg-red-500/20 text-red-400 px-2.5 py-0.5 rounded border border-red-500/40">Time Left: 14:32</span>
+        </div>
+
+        <div class="space-y-3 font-sans">
+          <p class="font-bold text-sm text-slate-100">
+            Question 1 of 20: In cellular respiration, which organelle is responsible for generating the majority of adenosine triphosphate (ATP)?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center space-x-2.5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 cursor-pointer">
+              <input type="radio" name="cbt-q1" value="A" class="text-brand-leaf">
+              <span>A) Endoplasmic Reticulum</span>
+            </label>
+            <label class="flex items-center space-x-2.5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 cursor-pointer">
+              <input type="radio" name="cbt-q1" value="B" class="text-brand-leaf">
+              <span>B) Mitochondria (Powerhouse of the Cell)</span>
+            </label>
+            <label class="flex items-center space-x-2.5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 cursor-pointer">
+              <input type="radio" name="cbt-q1" value="C" class="text-brand-leaf">
+              <span>C) Golgi Apparatus</span>
+            </label>
+            <label class="flex items-center space-x-2.5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 cursor-pointer">
+              <input type="radio" name="cbt-q1" value="D" class="text-brand-leaf">
+              <span>D) Ribosome</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-3 border-t border-slate-700 text-xs">
+          <button onclick="alert('Demo Mode: Submitting answers to CBT Evaluation Engine... Score: 100% Correct!')" class="bg-green-600 hover:bg-green-500 text-white font-bold px-4 py-2 rounded-xl">
+            Submit Test
+          </button>
+          <span class="text-slate-400 text-[11px]">CBT Engine Powered by Amazoe Solutions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       6. JOB OFFERS & CAREERS AT OBS MODAL
+       ========================================== -->
+  <div id="careers-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto border-2 border-brand-leaf animate-in fade-in zoom-in-95 duration-200">
+      <div class="flex justify-between items-start border-b border-gray-100 pb-4">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 bg-indigo-100 text-indigo-900 px-3 py-1 rounded-full text-xs font-bold mb-1">
+            <i data-lucide="briefcase" class="w-3.5 h-3.5 text-indigo-700"></i>
+            <span>Join Our Faculty</span>
+          </span>
+          <h3 class="font-headline font-black text-2xl sm:text-3xl text-brand-deepNavy">
+            Careers & Job Offers at OBS
+          </h3>
+          <p class="text-xs text-gray-500 font-medium">Join a passionate team dedicated to academic rigor, Christian morals, and student greatness</p>
+        </div>
+        <button onclick="closeCareersModal()" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Job 1 -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div>
+            <span class="text-[10px] bg-green-100 text-green-800 font-black px-2 py-0.5 rounded">High School (Senior Secondary)</span>
+            <h4 class="font-headline font-black text-base text-brand-deepNavy mt-1">Senior Physics & Mathematics Educator</h4>
+            <p class="text-xs text-gray-600">B.Sc / B.Ed in Physics or Mathematics. Minimum 3 years WAEC/NECO clinic track record.</p>
+          </div>
+          <button onclick="openWhatsAppModal('Application for Senior Physics & Mathematics Educator')" class="btn-dashed-gold text-xs px-4 py-2 rounded-full uppercase shrink-0">
+            Apply via WhatsApp
+          </button>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div>
+            <span class="text-[10px] bg-amber-100 text-amber-800 font-black px-2 py-0.5 rounded">Pre-School & Junior School</span>
+            <h4 class="font-headline font-black text-base text-brand-deepNavy mt-1">Montessori Early Years Lead Instructor</h4>
+            <p class="text-xs text-gray-600">Certified in Early Childhood Education. Passionate about play-based phonics and numeracy.</p>
+          </div>
+          <button onclick="openWhatsAppModal('Application for Montessori Early Years Lead Instructor')" class="btn-dashed-gold text-xs px-4 py-2 rounded-full uppercase shrink-0">
+            Apply via WhatsApp
+          </button>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div>
+            <span class="text-[10px] bg-purple-100 text-purple-800 font-black px-2 py-0.5 rounded">ICT & Computer Center</span>
+            <h4 class="font-headline font-black text-base text-brand-deepNavy mt-1">ICT Laboratory & Robotics Instructor</h4>
+            <p class="text-xs text-gray-600">Proficiency in Python/Scratch, Computer Networks, and CBT platform administration.</p>
+          </div>
+          <button onclick="openWhatsAppModal('Application for ICT Laboratory & Robotics Instructor')" class="btn-dashed-gold text-xs px-4 py-2 rounded-full uppercase shrink-0">
+            Apply via WhatsApp
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
